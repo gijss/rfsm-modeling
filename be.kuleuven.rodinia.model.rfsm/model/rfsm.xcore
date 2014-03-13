@@ -1,0 +1,41 @@
+package be.kuleuven.rodinia.model.rfsm
+
+/*
+ * This xcore started as a transformation of the ecore model in the rfsm paper
+ */
+ 
+class Node {
+	String name	
+	container State[1] parent opposite subnodes	//shouldn't this be State[0..1] (not every node can have a parent)?
+}
+
+class State extends Node {
+	contains Transition[] transitions opposite owner
+	contains Node[] subnodes opposite parent
+	refers Function[0..1] entry
+	refers Function[0..1] doo
+	refers Function[0..1] exit
+}
+
+class Connector extends Node {
+	boolean public
+	contains History[0..1] history
+}
+
+class Transition {
+	int priority_numbers
+	container State[1] owner opposite transitions
+	refers Function[0..1] guard
+	refers Function[0..1] effect
+	refers Node[1] source
+	refers Node[1] target
+}
+
+class Function {
+	
+}
+
+class History {
+	int depth
+	boolean hot
+}
