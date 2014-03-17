@@ -1,4 +1,9 @@
+@Ecore(invocationDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+settingDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", validationDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot")
+
 package be.kuleuven.rodinia.model.rfsm
+
+annotation "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" as Pivot
 
 /*
  * This xcore started as a transformation of the ecore model in the rfsm paper
@@ -6,8 +11,14 @@ package be.kuleuven.rodinia.model.rfsm
  
 class Node {
 	String name	
-	container State[1] parent opposite subnodes	//shouldn't this be State[0..1] (not every node can have a parent)?
+	container State[1] parent opposite subnodes	//shouldn't this be State[0..1]? (root node doesn't have parent)
 }
+
+@Ecore(constraints="definitconn, onlyoneinitconn")
+//Enforce that each composite state that is target of a transition, defines an initial connector.
+@Pivot(definitconn="self.subnodes->size() > 0 and Transition.allInstances()->select(t | t.target=self)->size() >= 1 implies (self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial'))->size() = 1")
+//A composite state may define at most one initial connector.
+@Pivot(onlyoneinitconn="self.subnodes.size > 0 implies (self.subnodes()->select(c | c.isTypeOf(Connector) and c.name='initial'))->size() <= 1")
 
 class State extends Node {
 	contains Transition[] transitions opposite owner
@@ -22,6 +33,9 @@ class Connector extends Node {
 	contains History[0..1] history
 }
 
+@Ecore(constraints="test")
+//Transitions are owned by composite states and not, as often assumed, by the states from which they originate
+@Pivot(test="priority_numbers <> 0")
 class Transition {
 	int priority_numbers
 	container State[1] owner opposite transitions
@@ -32,7 +46,7 @@ class Transition {
 }
 
 class Function {
-	
+	String luacode
 }
 
 class History {

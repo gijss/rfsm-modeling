@@ -1,0 +1,4 @@
+grammar be.kuleuven.rodinia.dsl.Rfsm with org.eclipse.xtext.common.Terminals
+
+import "be.kuleuven.rodinia.model.rfsm"
+
