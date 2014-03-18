@@ -2,3 +2,38 @@ grammar be.kuleuven.rodinia.dsl.Rfsm with org.eclipse.xtext.common.Terminals
 
 import "be.kuleuven.rodinia.model.rfsm"
 
+//this grammar is only for testing purposes!!
+
+State returns State:
+	'state' name=ID
+	'{'
+		(subnodes += State)*
+		(subnodes += Connector)*
+		(transitions += Transition)*
+		('entry: {[-' entry=[Function] '-]}')?
+		('entry: {[-' doo=[Function] '-]}')?
+		('entry: {[-' exit=[Function] '-]}')?
+	'}'
+;
+
+Connector returns Connector:
+	'connector' name=ID 
+	'{'
+	'}'
+;
+
+Transition returns Transition:
+	'transition' 'from' source=[Node|ID] 'to' target=[Node|ID]
+	(events += [Event])*
+	('guard: {[-' guard=[Function] '-]}')?
+	('effect: {[-' effect=[Function] '-]}')?
+	('priority' priority_number=INT)?
+;
+
+Event returns Event:
+	'on' eventliteral=STRING
+;
+
+Function returns Function:
+	sourcecode=STRING
+;

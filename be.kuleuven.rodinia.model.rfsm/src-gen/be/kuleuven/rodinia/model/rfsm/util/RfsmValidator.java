@@ -99,6 +99,8 @@ public class RfsmValidator extends EObjectValidator
         return validateConnector((Connector)value, diagnostics, context);
       case RfsmPackage.TRANSITION:
         return validateTransition((Transition)value, diagnostics, context);
+      case RfsmPackage.EVENT:
+        return validateEvent((Event)value, diagnostics, context);
       case RfsmPackage.FUNCTION:
         return validateFunction((Function)value, diagnostics, context);
       case RfsmPackage.HISTORY:
@@ -125,79 +127,7 @@ public class RfsmValidator extends EObjectValidator
    */
   public boolean validateState(State state, DiagnosticChain diagnostics, Map<Object, Object> context)
   {
-    if (!validate_NoCircularContainment(state, diagnostics, context)) return false;
-    boolean result = validate_EveryMultiplicityConforms(state, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_EveryDataValueConforms(state, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(state, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(state, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_EveryProxyResolves(state, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_UniqueID(state, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_EveryKeyUnique(state, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(state, diagnostics, context);
-    if (result || diagnostics != null) result &= validateState_definitconn,(state, diagnostics, context);
-    if (result || diagnostics != null) result &= validateState_onlyoneinitconn(state, diagnostics, context);
-    return result;
-  }
-
-  /**
-   * Validates the definitconn, constraint of '<em>State</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public boolean validateState_definitconn,(State state, DiagnosticChain diagnostics, Map<Object, Object> context)
-  {
-    // TODO implement the constraint
-    // -> specify the condition that violates the constraint
-    // -> verify the diagnostic details, including severity, code, and message
-    // Ensure that you remove @generated or mark it @generated NOT
-    if (false)
-    {
-      if (diagnostics != null)
-      {
-        diagnostics.add
-          (createDiagnostic
-            (Diagnostic.ERROR,
-             DIAGNOSTIC_SOURCE,
-             0,
-             "_UI_GenericConstraint_diagnostic",
-             new Object[] { "definitconn,", getObjectLabel(state, context) },
-             new Object[] { state },
-             context));
-      }
-      return false;
-    }
-    return true;
-  }
-
-  /**
-   * The cached validation expression for the onlyoneinitconn constraint of '<em>State</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected static final String STATE__ONLYONEINITCONN__EEXPRESSION = "self.subnodes.size > 0 implies (self.subnodes()->select(c | c.isTypeOf(Connector) and c.name='initial'))->size() <= 1";
-
-  /**
-   * Validates the onlyoneinitconn constraint of '<em>State</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public boolean validateState_onlyoneinitconn(State state, DiagnosticChain diagnostics, Map<Object, Object> context)
-  {
-    return
-      validate
-        (RfsmPackage.Literals.STATE,
-         state,
-         diagnostics,
-         context,
-         "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-         "onlyoneinitconn",
-         STATE__ONLYONEINITCONN__EEXPRESSION,
-         Diagnostic.ERROR,
-         DIAGNOSTIC_SOURCE,
-         0);
+    return validate_EveryDefaultConstraint(state, diagnostics, context);
   }
 
   /**
@@ -231,14 +161,6 @@ public class RfsmValidator extends EObjectValidator
   }
 
   /**
-   * The cached validation expression for the test constraint of '<em>Transition</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected static final String TRANSITION__TEST__EEXPRESSION = "priority_numbers <> 0";
-
-  /**
    * Validates the test constraint of '<em>Transition</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -246,18 +168,37 @@ public class RfsmValidator extends EObjectValidator
    */
   public boolean validateTransition_test(Transition transition, DiagnosticChain diagnostics, Map<Object, Object> context)
   {
-    return
-      validate
-        (RfsmPackage.Literals.TRANSITION,
-         transition,
-         diagnostics,
-         context,
-         "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-         "test",
-         TRANSITION__TEST__EEXPRESSION,
-         Diagnostic.ERROR,
-         DIAGNOSTIC_SOURCE,
-         0);
+    // TODO implement the constraint
+    // -> specify the condition that violates the constraint
+    // -> verify the diagnostic details, including severity, code, and message
+    // Ensure that you remove @generated or mark it @generated NOT
+    if (false)
+    {
+      if (diagnostics != null)
+      {
+        diagnostics.add
+          (createDiagnostic
+            (Diagnostic.ERROR,
+             DIAGNOSTIC_SOURCE,
+             0,
+             "_UI_GenericConstraint_diagnostic",
+             new Object[] { "test", getObjectLabel(transition, context) },
+             new Object[] { transition },
+             context));
+      }
+      return false;
+    }
+    return true;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean validateEvent(Event event, DiagnosticChain diagnostics, Map<Object, Object> context)
+  {
+    return validate_EveryDefaultConstraint(event, diagnostics, context);
   }
 
   /**

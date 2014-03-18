@@ -1,0 +1,11 @@
+[%
+	
+	//one state should be composed of everything else
+	var root : State := State.allInstances().at(0);
+
+	var stateSourceTemplate := TemplateFactory.load('rFSMtoLua.egl');
+			
+	stateSourceTemplate.populate('root', root);
+	stateSourceTemplate.generate('src/' + root.name + '.lua');
+	
+%]

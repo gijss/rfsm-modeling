@@ -1,0 +1,76 @@
+
+return rfsm.state {
+	[%state.printtolua();%]
+	
+[% operation State printtolua() { %]
+	rfsm.state{
+	[%/*print states*/
+	for(node in self.subnodes) {
+		if(node.isTypeOf(State)) {
+			=node.name%] = 
+			[%node.printtolua();%]
+			,
+		[%}
+	}
+	
+	/*print connectors*/
+	for(node in self.subnodes) {
+		if(node.isTypeOf(Connector)) {
+			=node.name%] = rfsm.conn{},
+		[%}
+	}
+	
+	/*print transitions*/
+	for(transition in self.transitions) {
+		%]rfsm.trans{src='[%=transition.source%]', tgt='[%=transition.target%]'[%
+		
+		/*print priority_number*/
+		if(transition.priority_number != 0)
+			%], pn=[%=transition.priority_number
+		}
+		
+		/*print events*/
+		if(events.size() > 0)
+			%],events={'[%
+			for(event in transition.events) {
+				%]'[%=event%]',[%
+			}
+			%]}[%
+		}
+		
+		/*print guard function*/
+		if(transition.guard != null)
+			%], guard=function() [%=transition.guard%] end[%
+		}
+		
+		/*print effect function*/
+		if(transition.effect != null)
+			%], effect=function() [%=transition.effect%] end[%
+		}%]}
+		
+		
+	[%}
+	
+	/*print entry function*/
+	if(self.entry != null)
+		%], entry=function() [%=self.entry%] end
+		
+		[%
+	}
+	
+	/*print doo function*/
+	if(self.doo != null)
+		%], doo=function() [%=self.doo%] end
+		
+		[%
+	}
+	
+	/*print exit function*/
+	if(self.exit != null)
+		%], exit=function() [%=self.exit%] end
+		
+		[%
+	}
+%]}[%
+} %]
+}

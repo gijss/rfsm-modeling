@@ -11,14 +11,14 @@ annotation "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" as Pivot
  
 class Node {
 	String name	
-	container State[1] parent opposite subnodes	//shouldn't this be State[0..1]? (root node doesn't have parent)
+	container State[1] parent opposite subnodes
 }
 
-@Ecore(constraints="definitconn, onlyoneinitconn")
+//@Ecore(constraints="definitconn, onlyoneinitconn")
 //Enforce that each composite state that is target of a transition, defines an initial connector.
-@Pivot(definitconn="self.subnodes->size() > 0 and Transition.allInstances()->select(t | t.target=self)->size() >= 1 implies (self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial'))->size() = 1")
+//@Pivot(definitconn="self.subnodes->size() > 0 and Transition.allInstances()->select(t | t.target=self)->size() >= 1 implies (self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial'))->size() = 1")
 //A composite state may define at most one initial connector.
-@Pivot(onlyoneinitconn="self.subnodes.size > 0 implies (self.subnodes()->select(c | c.isTypeOf(Connector) and c.name='initial'))->size() <= 1")
+//@Pivot(onlyoneinitconn="self.subnodes.size > 0 implies (self.subnodes()->select(c | c.isTypeOf(Connector) and c.name='initial'))->size() <= 1")
 
 class State extends Node {
 	contains Transition[] transitions opposite owner
@@ -35,18 +35,26 @@ class Connector extends Node {
 
 @Ecore(constraints="test")
 //Transitions are owned by composite states and not, as often assumed, by the states from which they originate
-@Pivot(test="priority_numbers <> 0")
+//todo: needs helper operations like least-common-ancestor
+//@Pivot(test="priority_number <> 0") //example
 class Transition {
-	int priority_numbers
+	int priority_number = "0"
 	container State[1] owner opposite transitions
+	refers Event[] events	opposite owner//possible to add this logic to the guard function
 	refers Function[0..1] guard
 	refers Function[0..1] effect
 	refers Node[1] source
 	refers Node[1] target
 }
 
+//possible to add this logic to the guard function
+class Event {
+	String eventliteral
+	container Transition owner opposite events
+}
+
 class Function {
-	String luacode
+	String sourcecode
 }
 
 class History {
