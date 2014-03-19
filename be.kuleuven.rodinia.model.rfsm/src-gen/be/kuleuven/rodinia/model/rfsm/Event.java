@@ -50,28 +50,28 @@ public interface Event extends EObject
   void setEventliteral(String value);
 
   /**
-   * Returns the value of the '<em><b>Owner</b></em>' reference.
+   * Returns the value of the '<em><b>Owner</b></em>' container reference.
    * It is bidirectional and its opposite is '{@link be.kuleuven.rodinia.model.rfsm.Transition#getEvents <em>Events</em>}'.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Owner</em>' reference isn't clear,
+   * If the meaning of the '<em>Owner</em>' container reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Owner</em>' reference.
+   * @return the value of the '<em>Owner</em>' container reference.
    * @see #setOwner(Transition)
    * @see be.kuleuven.rodinia.model.rfsm.RfsmPackage#getEvent_Owner()
    * @see be.kuleuven.rodinia.model.rfsm.Transition#getEvents
-   * @model opposite="events"
+   * @model opposite="events" transient="false"
    * @generated
    */
   Transition getOwner();
 
   /**
-   * Sets the value of the '{@link be.kuleuven.rodinia.model.rfsm.Event#getOwner <em>Owner</em>}' reference.
+   * Sets the value of the '{@link be.kuleuven.rodinia.model.rfsm.Event#getOwner <em>Owner</em>}' container reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Owner</em>' reference.
+   * @param value the new value of the '<em>Owner</em>' container reference.
    * @see #getOwner()
    * @generated
    */

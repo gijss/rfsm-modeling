@@ -15,6 +15,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Event</b></em>'.
@@ -50,16 +52,6 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
    * @ordered
    */
   protected String eventliteral = EVENTLITERAL_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getOwner() <em>Owner</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOwner()
-   * @generated
-   * @ordered
-   */
-  protected Transition owner;
 
   /**
    * <!-- begin-user-doc -->
@@ -112,17 +104,8 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
    */
   public Transition getOwner()
   {
-    if (owner != null && owner.eIsProxy())
-    {
-      InternalEObject oldOwner = (InternalEObject)owner;
-      owner = (Transition)eResolveProxy(oldOwner);
-      if (owner != oldOwner)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RfsmPackage.EVENT__OWNER, oldOwner, owner));
-      }
-    }
-    return owner;
+    if (eContainerFeatureID() != RfsmPackage.EVENT__OWNER) return null;
+    return (Transition)eContainer();
   }
 
   /**
@@ -132,7 +115,8 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
    */
   public Transition basicGetOwner()
   {
-    return owner;
+    if (eContainerFeatureID() != RfsmPackage.EVENT__OWNER) return null;
+    return (Transition)eInternalContainer();
   }
 
   /**
@@ -142,13 +126,7 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
    */
   public NotificationChain basicSetOwner(Transition newOwner, NotificationChain msgs)
   {
-    Transition oldOwner = owner;
-    owner = newOwner;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RfsmPackage.EVENT__OWNER, oldOwner, newOwner);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
+    msgs = eBasicSetContainer((InternalEObject)newOwner, RfsmPackage.EVENT__OWNER, msgs);
     return msgs;
   }
 
@@ -159,11 +137,13 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
    */
   public void setOwner(Transition newOwner)
   {
-    if (newOwner != owner)
+    if (newOwner != eInternalContainer() || (eContainerFeatureID() != RfsmPackage.EVENT__OWNER && newOwner != null))
     {
+      if (EcoreUtil.isAncestor(this, newOwner))
+        throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
       NotificationChain msgs = null;
-      if (owner != null)
-        msgs = ((InternalEObject)owner).eInverseRemove(this, RfsmPackage.TRANSITION__EVENTS, Transition.class, msgs);
+      if (eInternalContainer() != null)
+        msgs = eBasicRemoveFromContainer(msgs);
       if (newOwner != null)
         msgs = ((InternalEObject)newOwner).eInverseAdd(this, RfsmPackage.TRANSITION__EVENTS, Transition.class, msgs);
       msgs = basicSetOwner(newOwner, msgs);
@@ -184,8 +164,8 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
     switch (featureID)
     {
       case RfsmPackage.EVENT__OWNER:
-        if (owner != null)
-          msgs = ((InternalEObject)owner).eInverseRemove(this, RfsmPackage.TRANSITION__EVENTS, Transition.class, msgs);
+        if (eInternalContainer() != null)
+          msgs = eBasicRemoveFromContainer(msgs);
         return basicSetOwner((Transition)otherEnd, msgs);
     }
     return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -205,6 +185,22 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
         return basicSetOwner(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
+  {
+    switch (eContainerFeatureID())
+    {
+      case RfsmPackage.EVENT__OWNER:
+        return eInternalContainer().eInverseRemove(this, RfsmPackage.TRANSITION__EVENTS, Transition.class, msgs);
+    }
+    return super.eBasicRemoveFromContainerFeature(msgs);
   }
 
   /**
@@ -279,7 +275,7 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
       case RfsmPackage.EVENT__EVENTLITERAL:
         return EVENTLITERAL_EDEFAULT == null ? eventliteral != null : !EVENTLITERAL_EDEFAULT.equals(eventliteral);
       case RfsmPackage.EVENT__OWNER:
-        return owner != null;
+        return basicGetOwner() != null;
     }
     return super.eIsSet(featureID);
   }

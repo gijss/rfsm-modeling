@@ -6,12 +6,12 @@ package be.kuleuven.rodinia.model.rfsm
 annotation "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" as Pivot
 
 /*
- * This xcore started as a transformation of the ecore model in the rfsm paper
+ * This xcore metamodel started as a transformation of the ecore metamodel in the rfsm paper
  */
  
 class Node {
 	String name	
-	container State[1] parent opposite subnodes
+	container State[0..1] parent opposite subnodes //how to handle root node?
 }
 
 //@Ecore(constraints="definitconn, onlyoneinitconn")
@@ -23,9 +23,9 @@ class Node {
 class State extends Node {
 	contains Transition[] transitions opposite owner
 	contains Node[] subnodes opposite parent
-	refers Function[0..1] entry
-	refers Function[0..1] doo
-	refers Function[0..1] exit
+	contains Function[0..1] entry	//contains function in this example (original:refers)
+	contains Function[0..1] doo	//contains function in this example (original:refers)
+	contains Function[0..1] exit	//contains function in this example (original:refers)
 }
 
 class Connector extends Node {
@@ -33,16 +33,16 @@ class Connector extends Node {
 	contains History[0..1] history
 }
 
-@Ecore(constraints="test")
+//@Ecore(constraints="test")
 //Transitions are owned by composite states and not, as often assumed, by the states from which they originate
 //todo: needs helper operations like least-common-ancestor
 //@Pivot(test="priority_number <> 0") //example
 class Transition {
 	int priority_number = "0"
 	container State[1] owner opposite transitions
-	refers Event[] events	opposite owner//possible to add this logic to the guard function
-	refers Function[0..1] guard
-	refers Function[0..1] effect
+	contains Event[] events	opposite owner//possible to add this logic to the guard function
+	contains Function[0..1] guard	//contains function in this example (original:refers)
+	contains Function[0..1] effect	//contains function in this example (original:refers)
 	refers Node[1] source
 	refers Node[1] target
 }

@@ -12,7 +12,7 @@
    <extension
          point="org.eclipse.ui.handlers">
       <handler
-            commandId="be.kuleuven.learning.simplefsm.transform.command.structure"
+            commandId="be.kuleuven.rodinia.transform.rfsm.command.structure"
             class="be.kuleuven.rodinia.transform.rfsm.handler.StructureHandler">
       </handler>
    </extension>
@@ -28,28 +28,17 @@
    <extension
          point="org.eclipse.ui.menus">
       <menuContribution
+            allPopups="false"
             locationURI="menu:org.eclipse.ui.main.menu?after=additions">
          <menu
                label="rFSM"
-               id="be.kuleuven.rodinia.transform.rfsm.menu.sfsm">
+               id="be.kuleuven.rodinia.transform.rfsm.menu">
             <command
                   commandId="be.kuleuven.rodinia.transform.rfsm.command.structure"
                   mnemonic="S"
                   id="be.kuleuven.rodinia.transform.rfsm.menus.structure">
             </command>
          </menu>
-      </menuContribution>
-      <menuContribution
-            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
-         <toolbar
-               id="be.kuleuven.rodinia.transform.rfsm.toolbars.sfsmoolbar">
-            <command
-                  commandId="be.kuleuven.rodinia.transform.rfsm.commands.generate"
-                  icon="icons/sample.gif"
-                  tooltip="Generate Source Code"
-                  id="be.kuleuven.rodinia.transform.rfsm.toolbars.generate">
-            </command>
-         </toolbar>
       </menuContribution>
    </extension>
 

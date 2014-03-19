@@ -22,9 +22,11 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalRfsmParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'state'", "'{'", "'}'", "'entry: {[-'", "'-]}'", "'connector'", "'transition'", "'from'", "'to'", "'guard: {[-'", "'effect: {[-'", "'priority'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'state'", "'{'", "'}'", "'entry:'", "'doo:'", "'exit:'", "'connector'", "'transition'", "'from'", "'to'", "'guard:'", "'effect:'", "'priority'", "'onevent'"
     };
     public static final int RULE_ID=4;
+    public static final int T__24=24;
+    public static final int T__23=23;
     public static final int T__22=22;
     public static final int RULE_ANY_OTHER=10;
     public static final int T__21=21;
@@ -313,22 +315,176 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleTransition"
 
 
+    // $ANTLR start "entryRuleEvent"
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:144:1: entryRuleEvent : ruleEvent EOF ;
+    public final void entryRuleEvent() throws RecognitionException {
+        try {
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:145:1: ( ruleEvent EOF )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:146:1: ruleEvent EOF
+            {
+             before(grammarAccess.getEventRule()); 
+            pushFollow(FOLLOW_ruleEvent_in_entryRuleEvent241);
+            ruleEvent();
+
+            state._fsp--;
+
+             after(grammarAccess.getEventRule()); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleEvent248); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleEvent"
+
+
+    // $ANTLR start "ruleEvent"
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:153:1: ruleEvent : ( ( rule__Event__Group__0 ) ) ;
+    public final void ruleEvent() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:157:2: ( ( ( rule__Event__Group__0 ) ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:158:1: ( ( rule__Event__Group__0 ) )
+            {
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:158:1: ( ( rule__Event__Group__0 ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:159:1: ( rule__Event__Group__0 )
+            {
+             before(grammarAccess.getEventAccess().getGroup()); 
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:160:1: ( rule__Event__Group__0 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:160:2: rule__Event__Group__0
+            {
+            pushFollow(FOLLOW_rule__Event__Group__0_in_ruleEvent274);
+            rule__Event__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getEventAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleEvent"
+
+
+    // $ANTLR start "entryRuleFunction"
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:172:1: entryRuleFunction : ruleFunction EOF ;
+    public final void entryRuleFunction() throws RecognitionException {
+        try {
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:173:1: ( ruleFunction EOF )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:174:1: ruleFunction EOF
+            {
+             before(grammarAccess.getFunctionRule()); 
+            pushFollow(FOLLOW_ruleFunction_in_entryRuleFunction301);
+            ruleFunction();
+
+            state._fsp--;
+
+             after(grammarAccess.getFunctionRule()); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFunction308); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleFunction"
+
+
+    // $ANTLR start "ruleFunction"
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:181:1: ruleFunction : ( ( rule__Function__SourcecodeAssignment ) ) ;
+    public final void ruleFunction() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:185:2: ( ( ( rule__Function__SourcecodeAssignment ) ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:186:1: ( ( rule__Function__SourcecodeAssignment ) )
+            {
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:186:1: ( ( rule__Function__SourcecodeAssignment ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:187:1: ( rule__Function__SourcecodeAssignment )
+            {
+             before(grammarAccess.getFunctionAccess().getSourcecodeAssignment()); 
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:188:1: ( rule__Function__SourcecodeAssignment )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:188:2: rule__Function__SourcecodeAssignment
+            {
+            pushFollow(FOLLOW_rule__Function__SourcecodeAssignment_in_ruleFunction334);
+            rule__Function__SourcecodeAssignment();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getFunctionAccess().getSourcecodeAssignment()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleFunction"
+
+
     // $ANTLR start "rule__State__Group__0"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:150:1: rule__State__Group__0 : rule__State__Group__0__Impl rule__State__Group__1 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:202:1: rule__State__Group__0 : rule__State__Group__0__Impl rule__State__Group__1 ;
     public final void rule__State__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:154:1: ( rule__State__Group__0__Impl rule__State__Group__1 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:155:2: rule__State__Group__0__Impl rule__State__Group__1
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:206:1: ( rule__State__Group__0__Impl rule__State__Group__1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:207:2: rule__State__Group__0__Impl rule__State__Group__1
             {
-            pushFollow(FOLLOW_rule__State__Group__0__Impl_in_rule__State__Group__0252);
+            pushFollow(FOLLOW_rule__State__Group__0__Impl_in_rule__State__Group__0368);
             rule__State__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__State__Group__1_in_rule__State__Group__0255);
+            pushFollow(FOLLOW_rule__State__Group__1_in_rule__State__Group__0371);
             rule__State__Group__1();
 
             state._fsp--;
@@ -352,20 +508,20 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group__0__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:162:1: rule__State__Group__0__Impl : ( 'state' ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:214:1: rule__State__Group__0__Impl : ( 'state' ) ;
     public final void rule__State__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:166:1: ( ( 'state' ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:167:1: ( 'state' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:218:1: ( ( 'state' ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:219:1: ( 'state' )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:167:1: ( 'state' )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:168:1: 'state'
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:219:1: ( 'state' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:220:1: 'state'
             {
              before(grammarAccess.getStateAccess().getStateKeyword_0()); 
-            match(input,11,FOLLOW_11_in_rule__State__Group__0__Impl283); 
+            match(input,11,FOLLOW_11_in_rule__State__Group__0__Impl399); 
              after(grammarAccess.getStateAccess().getStateKeyword_0()); 
 
             }
@@ -389,21 +545,21 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group__1"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:181:1: rule__State__Group__1 : rule__State__Group__1__Impl rule__State__Group__2 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:233:1: rule__State__Group__1 : rule__State__Group__1__Impl rule__State__Group__2 ;
     public final void rule__State__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:185:1: ( rule__State__Group__1__Impl rule__State__Group__2 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:186:2: rule__State__Group__1__Impl rule__State__Group__2
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:237:1: ( rule__State__Group__1__Impl rule__State__Group__2 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:238:2: rule__State__Group__1__Impl rule__State__Group__2
             {
-            pushFollow(FOLLOW_rule__State__Group__1__Impl_in_rule__State__Group__1314);
+            pushFollow(FOLLOW_rule__State__Group__1__Impl_in_rule__State__Group__1430);
             rule__State__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__State__Group__2_in_rule__State__Group__1317);
+            pushFollow(FOLLOW_rule__State__Group__2_in_rule__State__Group__1433);
             rule__State__Group__2();
 
             state._fsp--;
@@ -427,23 +583,23 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group__1__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:193:1: rule__State__Group__1__Impl : ( ( rule__State__NameAssignment_1 ) ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:245:1: rule__State__Group__1__Impl : ( ( rule__State__NameAssignment_1 ) ) ;
     public final void rule__State__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:197:1: ( ( ( rule__State__NameAssignment_1 ) ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:198:1: ( ( rule__State__NameAssignment_1 ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:249:1: ( ( ( rule__State__NameAssignment_1 ) ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:250:1: ( ( rule__State__NameAssignment_1 ) )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:198:1: ( ( rule__State__NameAssignment_1 ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:199:1: ( rule__State__NameAssignment_1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:250:1: ( ( rule__State__NameAssignment_1 ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:251:1: ( rule__State__NameAssignment_1 )
             {
              before(grammarAccess.getStateAccess().getNameAssignment_1()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:200:1: ( rule__State__NameAssignment_1 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:200:2: rule__State__NameAssignment_1
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:252:1: ( rule__State__NameAssignment_1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:252:2: rule__State__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__State__NameAssignment_1_in_rule__State__Group__1__Impl344);
+            pushFollow(FOLLOW_rule__State__NameAssignment_1_in_rule__State__Group__1__Impl460);
             rule__State__NameAssignment_1();
 
             state._fsp--;
@@ -474,21 +630,21 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group__2"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:210:1: rule__State__Group__2 : rule__State__Group__2__Impl rule__State__Group__3 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:262:1: rule__State__Group__2 : rule__State__Group__2__Impl rule__State__Group__3 ;
     public final void rule__State__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:214:1: ( rule__State__Group__2__Impl rule__State__Group__3 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:215:2: rule__State__Group__2__Impl rule__State__Group__3
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:266:1: ( rule__State__Group__2__Impl rule__State__Group__3 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:267:2: rule__State__Group__2__Impl rule__State__Group__3
             {
-            pushFollow(FOLLOW_rule__State__Group__2__Impl_in_rule__State__Group__2374);
+            pushFollow(FOLLOW_rule__State__Group__2__Impl_in_rule__State__Group__2490);
             rule__State__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__State__Group__3_in_rule__State__Group__2377);
+            pushFollow(FOLLOW_rule__State__Group__3_in_rule__State__Group__2493);
             rule__State__Group__3();
 
             state._fsp--;
@@ -512,20 +668,20 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group__2__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:222:1: rule__State__Group__2__Impl : ( '{' ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:274:1: rule__State__Group__2__Impl : ( '{' ) ;
     public final void rule__State__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:226:1: ( ( '{' ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:227:1: ( '{' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:278:1: ( ( '{' ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:279:1: ( '{' )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:227:1: ( '{' )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:228:1: '{'
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:279:1: ( '{' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:280:1: '{'
             {
              before(grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,12,FOLLOW_12_in_rule__State__Group__2__Impl405); 
+            match(input,12,FOLLOW_12_in_rule__State__Group__2__Impl521); 
              after(grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -549,21 +705,21 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group__3"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:241:1: rule__State__Group__3 : rule__State__Group__3__Impl rule__State__Group__4 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:293:1: rule__State__Group__3 : rule__State__Group__3__Impl rule__State__Group__4 ;
     public final void rule__State__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:245:1: ( rule__State__Group__3__Impl rule__State__Group__4 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:246:2: rule__State__Group__3__Impl rule__State__Group__4
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:297:1: ( rule__State__Group__3__Impl rule__State__Group__4 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:298:2: rule__State__Group__3__Impl rule__State__Group__4
             {
-            pushFollow(FOLLOW_rule__State__Group__3__Impl_in_rule__State__Group__3436);
+            pushFollow(FOLLOW_rule__State__Group__3__Impl_in_rule__State__Group__3552);
             rule__State__Group__3__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__State__Group__4_in_rule__State__Group__3439);
+            pushFollow(FOLLOW_rule__State__Group__4_in_rule__State__Group__3555);
             rule__State__Group__4();
 
             state._fsp--;
@@ -587,20 +743,20 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group__3__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:253:1: rule__State__Group__3__Impl : ( ( rule__State__SubnodesAssignment_3 )* ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:305:1: rule__State__Group__3__Impl : ( ( rule__State__SubnodesAssignment_3 )* ) ;
     public final void rule__State__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:257:1: ( ( ( rule__State__SubnodesAssignment_3 )* ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:258:1: ( ( rule__State__SubnodesAssignment_3 )* )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:309:1: ( ( ( rule__State__SubnodesAssignment_3 )* ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:310:1: ( ( rule__State__SubnodesAssignment_3 )* )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:258:1: ( ( rule__State__SubnodesAssignment_3 )* )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:259:1: ( rule__State__SubnodesAssignment_3 )*
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:310:1: ( ( rule__State__SubnodesAssignment_3 )* )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:311:1: ( rule__State__SubnodesAssignment_3 )*
             {
              before(grammarAccess.getStateAccess().getSubnodesAssignment_3()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:260:1: ( rule__State__SubnodesAssignment_3 )*
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:312:1: ( rule__State__SubnodesAssignment_3 )*
             loop1:
             do {
                 int alt1=2;
@@ -613,9 +769,9 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
                 switch (alt1) {
             	case 1 :
-            	    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:260:2: rule__State__SubnodesAssignment_3
+            	    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:312:2: rule__State__SubnodesAssignment_3
             	    {
-            	    pushFollow(FOLLOW_rule__State__SubnodesAssignment_3_in_rule__State__Group__3__Impl466);
+            	    pushFollow(FOLLOW_rule__State__SubnodesAssignment_3_in_rule__State__Group__3__Impl582);
             	    rule__State__SubnodesAssignment_3();
 
             	    state._fsp--;
@@ -652,21 +808,21 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group__4"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:270:1: rule__State__Group__4 : rule__State__Group__4__Impl rule__State__Group__5 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:322:1: rule__State__Group__4 : rule__State__Group__4__Impl rule__State__Group__5 ;
     public final void rule__State__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:274:1: ( rule__State__Group__4__Impl rule__State__Group__5 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:275:2: rule__State__Group__4__Impl rule__State__Group__5
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:326:1: ( rule__State__Group__4__Impl rule__State__Group__5 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:327:2: rule__State__Group__4__Impl rule__State__Group__5
             {
-            pushFollow(FOLLOW_rule__State__Group__4__Impl_in_rule__State__Group__4497);
+            pushFollow(FOLLOW_rule__State__Group__4__Impl_in_rule__State__Group__4613);
             rule__State__Group__4__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__State__Group__5_in_rule__State__Group__4500);
+            pushFollow(FOLLOW_rule__State__Group__5_in_rule__State__Group__4616);
             rule__State__Group__5();
 
             state._fsp--;
@@ -690,35 +846,35 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group__4__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:282:1: rule__State__Group__4__Impl : ( ( rule__State__SubnodesAssignment_4 )* ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:334:1: rule__State__Group__4__Impl : ( ( rule__State__SubnodesAssignment_4 )* ) ;
     public final void rule__State__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:286:1: ( ( ( rule__State__SubnodesAssignment_4 )* ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:287:1: ( ( rule__State__SubnodesAssignment_4 )* )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:338:1: ( ( ( rule__State__SubnodesAssignment_4 )* ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:339:1: ( ( rule__State__SubnodesAssignment_4 )* )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:287:1: ( ( rule__State__SubnodesAssignment_4 )* )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:288:1: ( rule__State__SubnodesAssignment_4 )*
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:339:1: ( ( rule__State__SubnodesAssignment_4 )* )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:340:1: ( rule__State__SubnodesAssignment_4 )*
             {
              before(grammarAccess.getStateAccess().getSubnodesAssignment_4()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:289:1: ( rule__State__SubnodesAssignment_4 )*
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:341:1: ( rule__State__SubnodesAssignment_4 )*
             loop2:
             do {
                 int alt2=2;
                 int LA2_0 = input.LA(1);
 
-                if ( (LA2_0==16) ) {
+                if ( (LA2_0==17) ) {
                     alt2=1;
                 }
 
 
                 switch (alt2) {
             	case 1 :
-            	    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:289:2: rule__State__SubnodesAssignment_4
+            	    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:341:2: rule__State__SubnodesAssignment_4
             	    {
-            	    pushFollow(FOLLOW_rule__State__SubnodesAssignment_4_in_rule__State__Group__4__Impl527);
+            	    pushFollow(FOLLOW_rule__State__SubnodesAssignment_4_in_rule__State__Group__4__Impl643);
             	    rule__State__SubnodesAssignment_4();
 
             	    state._fsp--;
@@ -755,21 +911,21 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group__5"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:299:1: rule__State__Group__5 : rule__State__Group__5__Impl rule__State__Group__6 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:351:1: rule__State__Group__5 : rule__State__Group__5__Impl rule__State__Group__6 ;
     public final void rule__State__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:303:1: ( rule__State__Group__5__Impl rule__State__Group__6 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:304:2: rule__State__Group__5__Impl rule__State__Group__6
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:355:1: ( rule__State__Group__5__Impl rule__State__Group__6 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:356:2: rule__State__Group__5__Impl rule__State__Group__6
             {
-            pushFollow(FOLLOW_rule__State__Group__5__Impl_in_rule__State__Group__5558);
+            pushFollow(FOLLOW_rule__State__Group__5__Impl_in_rule__State__Group__5674);
             rule__State__Group__5__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__State__Group__6_in_rule__State__Group__5561);
+            pushFollow(FOLLOW_rule__State__Group__6_in_rule__State__Group__5677);
             rule__State__Group__6();
 
             state._fsp--;
@@ -793,35 +949,35 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group__5__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:311:1: rule__State__Group__5__Impl : ( ( rule__State__TransitionsAssignment_5 )* ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:363:1: rule__State__Group__5__Impl : ( ( rule__State__TransitionsAssignment_5 )* ) ;
     public final void rule__State__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:315:1: ( ( ( rule__State__TransitionsAssignment_5 )* ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:316:1: ( ( rule__State__TransitionsAssignment_5 )* )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:367:1: ( ( ( rule__State__TransitionsAssignment_5 )* ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:368:1: ( ( rule__State__TransitionsAssignment_5 )* )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:316:1: ( ( rule__State__TransitionsAssignment_5 )* )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:317:1: ( rule__State__TransitionsAssignment_5 )*
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:368:1: ( ( rule__State__TransitionsAssignment_5 )* )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:369:1: ( rule__State__TransitionsAssignment_5 )*
             {
              before(grammarAccess.getStateAccess().getTransitionsAssignment_5()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:318:1: ( rule__State__TransitionsAssignment_5 )*
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:370:1: ( rule__State__TransitionsAssignment_5 )*
             loop3:
             do {
                 int alt3=2;
                 int LA3_0 = input.LA(1);
 
-                if ( (LA3_0==17) ) {
+                if ( (LA3_0==18) ) {
                     alt3=1;
                 }
 
 
                 switch (alt3) {
             	case 1 :
-            	    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:318:2: rule__State__TransitionsAssignment_5
+            	    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:370:2: rule__State__TransitionsAssignment_5
             	    {
-            	    pushFollow(FOLLOW_rule__State__TransitionsAssignment_5_in_rule__State__Group__5__Impl588);
+            	    pushFollow(FOLLOW_rule__State__TransitionsAssignment_5_in_rule__State__Group__5__Impl704);
             	    rule__State__TransitionsAssignment_5();
 
             	    state._fsp--;
@@ -858,21 +1014,21 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group__6"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:328:1: rule__State__Group__6 : rule__State__Group__6__Impl rule__State__Group__7 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:380:1: rule__State__Group__6 : rule__State__Group__6__Impl rule__State__Group__7 ;
     public final void rule__State__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:332:1: ( rule__State__Group__6__Impl rule__State__Group__7 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:333:2: rule__State__Group__6__Impl rule__State__Group__7
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:384:1: ( rule__State__Group__6__Impl rule__State__Group__7 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:385:2: rule__State__Group__6__Impl rule__State__Group__7
             {
-            pushFollow(FOLLOW_rule__State__Group__6__Impl_in_rule__State__Group__6619);
+            pushFollow(FOLLOW_rule__State__Group__6__Impl_in_rule__State__Group__6735);
             rule__State__Group__6__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__State__Group__7_in_rule__State__Group__6622);
+            pushFollow(FOLLOW_rule__State__Group__7_in_rule__State__Group__6738);
             rule__State__Group__7();
 
             state._fsp--;
@@ -896,39 +1052,31 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group__6__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:340:1: rule__State__Group__6__Impl : ( ( rule__State__Group_6__0 )? ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:392:1: rule__State__Group__6__Impl : ( ( rule__State__Group_6__0 )? ) ;
     public final void rule__State__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:344:1: ( ( ( rule__State__Group_6__0 )? ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:345:1: ( ( rule__State__Group_6__0 )? )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:396:1: ( ( ( rule__State__Group_6__0 )? ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:397:1: ( ( rule__State__Group_6__0 )? )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:345:1: ( ( rule__State__Group_6__0 )? )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:346:1: ( rule__State__Group_6__0 )?
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:397:1: ( ( rule__State__Group_6__0 )? )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:398:1: ( rule__State__Group_6__0 )?
             {
              before(grammarAccess.getStateAccess().getGroup_6()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:347:1: ( rule__State__Group_6__0 )?
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:399:1: ( rule__State__Group_6__0 )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
             if ( (LA4_0==14) ) {
-                int LA4_1 = input.LA(2);
-
-                if ( (LA4_1==RULE_ID) ) {
-                    int LA4_3 = input.LA(3);
-
-                    if ( (LA4_3==15) ) {
-                        alt4=1;
-                    }
-                }
+                alt4=1;
             }
             switch (alt4) {
                 case 1 :
-                    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:347:2: rule__State__Group_6__0
+                    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:399:2: rule__State__Group_6__0
                     {
-                    pushFollow(FOLLOW_rule__State__Group_6__0_in_rule__State__Group__6__Impl649);
+                    pushFollow(FOLLOW_rule__State__Group_6__0_in_rule__State__Group__6__Impl765);
                     rule__State__Group_6__0();
 
                     state._fsp--;
@@ -962,21 +1110,21 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group__7"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:357:1: rule__State__Group__7 : rule__State__Group__7__Impl rule__State__Group__8 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:409:1: rule__State__Group__7 : rule__State__Group__7__Impl rule__State__Group__8 ;
     public final void rule__State__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:361:1: ( rule__State__Group__7__Impl rule__State__Group__8 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:362:2: rule__State__Group__7__Impl rule__State__Group__8
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:413:1: ( rule__State__Group__7__Impl rule__State__Group__8 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:414:2: rule__State__Group__7__Impl rule__State__Group__8
             {
-            pushFollow(FOLLOW_rule__State__Group__7__Impl_in_rule__State__Group__7680);
+            pushFollow(FOLLOW_rule__State__Group__7__Impl_in_rule__State__Group__7796);
             rule__State__Group__7__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__State__Group__8_in_rule__State__Group__7683);
+            pushFollow(FOLLOW_rule__State__Group__8_in_rule__State__Group__7799);
             rule__State__Group__8();
 
             state._fsp--;
@@ -1000,39 +1148,31 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group__7__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:369:1: rule__State__Group__7__Impl : ( ( rule__State__Group_7__0 )? ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:421:1: rule__State__Group__7__Impl : ( ( rule__State__Group_7__0 )? ) ;
     public final void rule__State__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:373:1: ( ( ( rule__State__Group_7__0 )? ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:374:1: ( ( rule__State__Group_7__0 )? )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:425:1: ( ( ( rule__State__Group_7__0 )? ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:426:1: ( ( rule__State__Group_7__0 )? )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:374:1: ( ( rule__State__Group_7__0 )? )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:375:1: ( rule__State__Group_7__0 )?
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:426:1: ( ( rule__State__Group_7__0 )? )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:427:1: ( rule__State__Group_7__0 )?
             {
              before(grammarAccess.getStateAccess().getGroup_7()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:376:1: ( rule__State__Group_7__0 )?
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:428:1: ( rule__State__Group_7__0 )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
-            if ( (LA5_0==14) ) {
-                int LA5_1 = input.LA(2);
-
-                if ( (LA5_1==RULE_ID) ) {
-                    int LA5_3 = input.LA(3);
-
-                    if ( (LA5_3==15) ) {
-                        alt5=1;
-                    }
-                }
+            if ( (LA5_0==15) ) {
+                alt5=1;
             }
             switch (alt5) {
                 case 1 :
-                    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:376:2: rule__State__Group_7__0
+                    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:428:2: rule__State__Group_7__0
                     {
-                    pushFollow(FOLLOW_rule__State__Group_7__0_in_rule__State__Group__7__Impl710);
+                    pushFollow(FOLLOW_rule__State__Group_7__0_in_rule__State__Group__7__Impl826);
                     rule__State__Group_7__0();
 
                     state._fsp--;
@@ -1066,21 +1206,21 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group__8"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:386:1: rule__State__Group__8 : rule__State__Group__8__Impl rule__State__Group__9 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:438:1: rule__State__Group__8 : rule__State__Group__8__Impl rule__State__Group__9 ;
     public final void rule__State__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:390:1: ( rule__State__Group__8__Impl rule__State__Group__9 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:391:2: rule__State__Group__8__Impl rule__State__Group__9
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:442:1: ( rule__State__Group__8__Impl rule__State__Group__9 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:443:2: rule__State__Group__8__Impl rule__State__Group__9
             {
-            pushFollow(FOLLOW_rule__State__Group__8__Impl_in_rule__State__Group__8741);
+            pushFollow(FOLLOW_rule__State__Group__8__Impl_in_rule__State__Group__8857);
             rule__State__Group__8__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__State__Group__9_in_rule__State__Group__8744);
+            pushFollow(FOLLOW_rule__State__Group__9_in_rule__State__Group__8860);
             rule__State__Group__9();
 
             state._fsp--;
@@ -1104,31 +1244,31 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group__8__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:398:1: rule__State__Group__8__Impl : ( ( rule__State__Group_8__0 )? ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:450:1: rule__State__Group__8__Impl : ( ( rule__State__Group_8__0 )? ) ;
     public final void rule__State__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:402:1: ( ( ( rule__State__Group_8__0 )? ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:403:1: ( ( rule__State__Group_8__0 )? )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:454:1: ( ( ( rule__State__Group_8__0 )? ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:455:1: ( ( rule__State__Group_8__0 )? )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:403:1: ( ( rule__State__Group_8__0 )? )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:404:1: ( rule__State__Group_8__0 )?
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:455:1: ( ( rule__State__Group_8__0 )? )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:456:1: ( rule__State__Group_8__0 )?
             {
              before(grammarAccess.getStateAccess().getGroup_8()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:405:1: ( rule__State__Group_8__0 )?
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:457:1: ( rule__State__Group_8__0 )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
-            if ( (LA6_0==14) ) {
+            if ( (LA6_0==16) ) {
                 alt6=1;
             }
             switch (alt6) {
                 case 1 :
-                    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:405:2: rule__State__Group_8__0
+                    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:457:2: rule__State__Group_8__0
                     {
-                    pushFollow(FOLLOW_rule__State__Group_8__0_in_rule__State__Group__8__Impl771);
+                    pushFollow(FOLLOW_rule__State__Group_8__0_in_rule__State__Group__8__Impl887);
                     rule__State__Group_8__0();
 
                     state._fsp--;
@@ -1162,16 +1302,16 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group__9"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:415:1: rule__State__Group__9 : rule__State__Group__9__Impl ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:467:1: rule__State__Group__9 : rule__State__Group__9__Impl ;
     public final void rule__State__Group__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:419:1: ( rule__State__Group__9__Impl )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:420:2: rule__State__Group__9__Impl
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:471:1: ( rule__State__Group__9__Impl )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:472:2: rule__State__Group__9__Impl
             {
-            pushFollow(FOLLOW_rule__State__Group__9__Impl_in_rule__State__Group__9802);
+            pushFollow(FOLLOW_rule__State__Group__9__Impl_in_rule__State__Group__9918);
             rule__State__Group__9__Impl();
 
             state._fsp--;
@@ -1195,20 +1335,20 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group__9__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:426:1: rule__State__Group__9__Impl : ( '}' ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:478:1: rule__State__Group__9__Impl : ( '}' ) ;
     public final void rule__State__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:430:1: ( ( '}' ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:431:1: ( '}' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:482:1: ( ( '}' ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:483:1: ( '}' )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:431:1: ( '}' )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:432:1: '}'
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:483:1: ( '}' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:484:1: '}'
             {
              before(grammarAccess.getStateAccess().getRightCurlyBracketKeyword_9()); 
-            match(input,13,FOLLOW_13_in_rule__State__Group__9__Impl830); 
+            match(input,13,FOLLOW_13_in_rule__State__Group__9__Impl946); 
              after(grammarAccess.getStateAccess().getRightCurlyBracketKeyword_9()); 
 
             }
@@ -1232,21 +1372,21 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group_6__0"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:465:1: rule__State__Group_6__0 : rule__State__Group_6__0__Impl rule__State__Group_6__1 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:517:1: rule__State__Group_6__0 : rule__State__Group_6__0__Impl rule__State__Group_6__1 ;
     public final void rule__State__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:469:1: ( rule__State__Group_6__0__Impl rule__State__Group_6__1 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:470:2: rule__State__Group_6__0__Impl rule__State__Group_6__1
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:521:1: ( rule__State__Group_6__0__Impl rule__State__Group_6__1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:522:2: rule__State__Group_6__0__Impl rule__State__Group_6__1
             {
-            pushFollow(FOLLOW_rule__State__Group_6__0__Impl_in_rule__State__Group_6__0881);
+            pushFollow(FOLLOW_rule__State__Group_6__0__Impl_in_rule__State__Group_6__0997);
             rule__State__Group_6__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__State__Group_6__1_in_rule__State__Group_6__0884);
+            pushFollow(FOLLOW_rule__State__Group_6__1_in_rule__State__Group_6__01000);
             rule__State__Group_6__1();
 
             state._fsp--;
@@ -1270,20 +1410,20 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group_6__0__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:477:1: rule__State__Group_6__0__Impl : ( 'entry: {[-' ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:529:1: rule__State__Group_6__0__Impl : ( 'entry:' ) ;
     public final void rule__State__Group_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:481:1: ( ( 'entry: {[-' ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:482:1: ( 'entry: {[-' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:533:1: ( ( 'entry:' ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:534:1: ( 'entry:' )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:482:1: ( 'entry: {[-' )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:483:1: 'entry: {[-'
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:534:1: ( 'entry:' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:535:1: 'entry:'
             {
              before(grammarAccess.getStateAccess().getEntryKeyword_6_0()); 
-            match(input,14,FOLLOW_14_in_rule__State__Group_6__0__Impl912); 
+            match(input,14,FOLLOW_14_in_rule__State__Group_6__0__Impl1028); 
              after(grammarAccess.getStateAccess().getEntryKeyword_6_0()); 
 
             }
@@ -1307,22 +1447,17 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group_6__1"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:496:1: rule__State__Group_6__1 : rule__State__Group_6__1__Impl rule__State__Group_6__2 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:548:1: rule__State__Group_6__1 : rule__State__Group_6__1__Impl ;
     public final void rule__State__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:500:1: ( rule__State__Group_6__1__Impl rule__State__Group_6__2 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:501:2: rule__State__Group_6__1__Impl rule__State__Group_6__2
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:552:1: ( rule__State__Group_6__1__Impl )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:553:2: rule__State__Group_6__1__Impl
             {
-            pushFollow(FOLLOW_rule__State__Group_6__1__Impl_in_rule__State__Group_6__1943);
+            pushFollow(FOLLOW_rule__State__Group_6__1__Impl_in_rule__State__Group_6__11059);
             rule__State__Group_6__1__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_rule__State__Group_6__2_in_rule__State__Group_6__1946);
-            rule__State__Group_6__2();
 
             state._fsp--;
 
@@ -1345,23 +1480,23 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group_6__1__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:508:1: rule__State__Group_6__1__Impl : ( ( rule__State__EntryAssignment_6_1 ) ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:559:1: rule__State__Group_6__1__Impl : ( ( rule__State__EntryAssignment_6_1 ) ) ;
     public final void rule__State__Group_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:512:1: ( ( ( rule__State__EntryAssignment_6_1 ) ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:513:1: ( ( rule__State__EntryAssignment_6_1 ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:563:1: ( ( ( rule__State__EntryAssignment_6_1 ) ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:564:1: ( ( rule__State__EntryAssignment_6_1 ) )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:513:1: ( ( rule__State__EntryAssignment_6_1 ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:514:1: ( rule__State__EntryAssignment_6_1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:564:1: ( ( rule__State__EntryAssignment_6_1 ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:565:1: ( rule__State__EntryAssignment_6_1 )
             {
              before(grammarAccess.getStateAccess().getEntryAssignment_6_1()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:515:1: ( rule__State__EntryAssignment_6_1 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:515:2: rule__State__EntryAssignment_6_1
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:566:1: ( rule__State__EntryAssignment_6_1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:566:2: rule__State__EntryAssignment_6_1
             {
-            pushFollow(FOLLOW_rule__State__EntryAssignment_6_1_in_rule__State__Group_6__1__Impl973);
+            pushFollow(FOLLOW_rule__State__EntryAssignment_6_1_in_rule__State__Group_6__1__Impl1086);
             rule__State__EntryAssignment_6_1();
 
             state._fsp--;
@@ -1391,92 +1526,22 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__State__Group_6__1__Impl"
 
 
-    // $ANTLR start "rule__State__Group_6__2"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:525:1: rule__State__Group_6__2 : rule__State__Group_6__2__Impl ;
-    public final void rule__State__Group_6__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:529:1: ( rule__State__Group_6__2__Impl )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:530:2: rule__State__Group_6__2__Impl
-            {
-            pushFollow(FOLLOW_rule__State__Group_6__2__Impl_in_rule__State__Group_6__21003);
-            rule__State__Group_6__2__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__State__Group_6__2"
-
-
-    // $ANTLR start "rule__State__Group_6__2__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:536:1: rule__State__Group_6__2__Impl : ( '-]}' ) ;
-    public final void rule__State__Group_6__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:540:1: ( ( '-]}' ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:541:1: ( '-]}' )
-            {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:541:1: ( '-]}' )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:542:1: '-]}'
-            {
-             before(grammarAccess.getStateAccess().getHyphenMinusRightSquareBracketRightCurlyBracketKeyword_6_2()); 
-            match(input,15,FOLLOW_15_in_rule__State__Group_6__2__Impl1031); 
-             after(grammarAccess.getStateAccess().getHyphenMinusRightSquareBracketRightCurlyBracketKeyword_6_2()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__State__Group_6__2__Impl"
-
-
     // $ANTLR start "rule__State__Group_7__0"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:561:1: rule__State__Group_7__0 : rule__State__Group_7__0__Impl rule__State__Group_7__1 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:580:1: rule__State__Group_7__0 : rule__State__Group_7__0__Impl rule__State__Group_7__1 ;
     public final void rule__State__Group_7__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:565:1: ( rule__State__Group_7__0__Impl rule__State__Group_7__1 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:566:2: rule__State__Group_7__0__Impl rule__State__Group_7__1
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:584:1: ( rule__State__Group_7__0__Impl rule__State__Group_7__1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:585:2: rule__State__Group_7__0__Impl rule__State__Group_7__1
             {
-            pushFollow(FOLLOW_rule__State__Group_7__0__Impl_in_rule__State__Group_7__01068);
+            pushFollow(FOLLOW_rule__State__Group_7__0__Impl_in_rule__State__Group_7__01120);
             rule__State__Group_7__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__State__Group_7__1_in_rule__State__Group_7__01071);
+            pushFollow(FOLLOW_rule__State__Group_7__1_in_rule__State__Group_7__01123);
             rule__State__Group_7__1();
 
             state._fsp--;
@@ -1500,21 +1565,21 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group_7__0__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:573:1: rule__State__Group_7__0__Impl : ( 'entry: {[-' ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:592:1: rule__State__Group_7__0__Impl : ( 'doo:' ) ;
     public final void rule__State__Group_7__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:577:1: ( ( 'entry: {[-' ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:578:1: ( 'entry: {[-' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:596:1: ( ( 'doo:' ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:597:1: ( 'doo:' )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:578:1: ( 'entry: {[-' )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:579:1: 'entry: {[-'
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:597:1: ( 'doo:' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:598:1: 'doo:'
             {
-             before(grammarAccess.getStateAccess().getEntryKeyword_7_0()); 
-            match(input,14,FOLLOW_14_in_rule__State__Group_7__0__Impl1099); 
-             after(grammarAccess.getStateAccess().getEntryKeyword_7_0()); 
+             before(grammarAccess.getStateAccess().getDooKeyword_7_0()); 
+            match(input,15,FOLLOW_15_in_rule__State__Group_7__0__Impl1151); 
+             after(grammarAccess.getStateAccess().getDooKeyword_7_0()); 
 
             }
 
@@ -1537,22 +1602,17 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group_7__1"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:592:1: rule__State__Group_7__1 : rule__State__Group_7__1__Impl rule__State__Group_7__2 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:611:1: rule__State__Group_7__1 : rule__State__Group_7__1__Impl ;
     public final void rule__State__Group_7__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:596:1: ( rule__State__Group_7__1__Impl rule__State__Group_7__2 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:597:2: rule__State__Group_7__1__Impl rule__State__Group_7__2
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:615:1: ( rule__State__Group_7__1__Impl )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:616:2: rule__State__Group_7__1__Impl
             {
-            pushFollow(FOLLOW_rule__State__Group_7__1__Impl_in_rule__State__Group_7__11130);
+            pushFollow(FOLLOW_rule__State__Group_7__1__Impl_in_rule__State__Group_7__11182);
             rule__State__Group_7__1__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_rule__State__Group_7__2_in_rule__State__Group_7__11133);
-            rule__State__Group_7__2();
 
             state._fsp--;
 
@@ -1575,23 +1635,23 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group_7__1__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:604:1: rule__State__Group_7__1__Impl : ( ( rule__State__DooAssignment_7_1 ) ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:622:1: rule__State__Group_7__1__Impl : ( ( rule__State__DooAssignment_7_1 ) ) ;
     public final void rule__State__Group_7__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:608:1: ( ( ( rule__State__DooAssignment_7_1 ) ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:609:1: ( ( rule__State__DooAssignment_7_1 ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:626:1: ( ( ( rule__State__DooAssignment_7_1 ) ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:627:1: ( ( rule__State__DooAssignment_7_1 ) )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:609:1: ( ( rule__State__DooAssignment_7_1 ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:610:1: ( rule__State__DooAssignment_7_1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:627:1: ( ( rule__State__DooAssignment_7_1 ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:628:1: ( rule__State__DooAssignment_7_1 )
             {
              before(grammarAccess.getStateAccess().getDooAssignment_7_1()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:611:1: ( rule__State__DooAssignment_7_1 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:611:2: rule__State__DooAssignment_7_1
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:629:1: ( rule__State__DooAssignment_7_1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:629:2: rule__State__DooAssignment_7_1
             {
-            pushFollow(FOLLOW_rule__State__DooAssignment_7_1_in_rule__State__Group_7__1__Impl1160);
+            pushFollow(FOLLOW_rule__State__DooAssignment_7_1_in_rule__State__Group_7__1__Impl1209);
             rule__State__DooAssignment_7_1();
 
             state._fsp--;
@@ -1621,92 +1681,22 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__State__Group_7__1__Impl"
 
 
-    // $ANTLR start "rule__State__Group_7__2"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:621:1: rule__State__Group_7__2 : rule__State__Group_7__2__Impl ;
-    public final void rule__State__Group_7__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:625:1: ( rule__State__Group_7__2__Impl )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:626:2: rule__State__Group_7__2__Impl
-            {
-            pushFollow(FOLLOW_rule__State__Group_7__2__Impl_in_rule__State__Group_7__21190);
-            rule__State__Group_7__2__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__State__Group_7__2"
-
-
-    // $ANTLR start "rule__State__Group_7__2__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:632:1: rule__State__Group_7__2__Impl : ( '-]}' ) ;
-    public final void rule__State__Group_7__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:636:1: ( ( '-]}' ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:637:1: ( '-]}' )
-            {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:637:1: ( '-]}' )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:638:1: '-]}'
-            {
-             before(grammarAccess.getStateAccess().getHyphenMinusRightSquareBracketRightCurlyBracketKeyword_7_2()); 
-            match(input,15,FOLLOW_15_in_rule__State__Group_7__2__Impl1218); 
-             after(grammarAccess.getStateAccess().getHyphenMinusRightSquareBracketRightCurlyBracketKeyword_7_2()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__State__Group_7__2__Impl"
-
-
     // $ANTLR start "rule__State__Group_8__0"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:657:1: rule__State__Group_8__0 : rule__State__Group_8__0__Impl rule__State__Group_8__1 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:643:1: rule__State__Group_8__0 : rule__State__Group_8__0__Impl rule__State__Group_8__1 ;
     public final void rule__State__Group_8__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:661:1: ( rule__State__Group_8__0__Impl rule__State__Group_8__1 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:662:2: rule__State__Group_8__0__Impl rule__State__Group_8__1
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:647:1: ( rule__State__Group_8__0__Impl rule__State__Group_8__1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:648:2: rule__State__Group_8__0__Impl rule__State__Group_8__1
             {
-            pushFollow(FOLLOW_rule__State__Group_8__0__Impl_in_rule__State__Group_8__01255);
+            pushFollow(FOLLOW_rule__State__Group_8__0__Impl_in_rule__State__Group_8__01243);
             rule__State__Group_8__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__State__Group_8__1_in_rule__State__Group_8__01258);
+            pushFollow(FOLLOW_rule__State__Group_8__1_in_rule__State__Group_8__01246);
             rule__State__Group_8__1();
 
             state._fsp--;
@@ -1730,21 +1720,21 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group_8__0__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:669:1: rule__State__Group_8__0__Impl : ( 'entry: {[-' ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:655:1: rule__State__Group_8__0__Impl : ( 'exit:' ) ;
     public final void rule__State__Group_8__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:673:1: ( ( 'entry: {[-' ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:674:1: ( 'entry: {[-' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:659:1: ( ( 'exit:' ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:660:1: ( 'exit:' )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:674:1: ( 'entry: {[-' )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:675:1: 'entry: {[-'
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:660:1: ( 'exit:' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:661:1: 'exit:'
             {
-             before(grammarAccess.getStateAccess().getEntryKeyword_8_0()); 
-            match(input,14,FOLLOW_14_in_rule__State__Group_8__0__Impl1286); 
-             after(grammarAccess.getStateAccess().getEntryKeyword_8_0()); 
+             before(grammarAccess.getStateAccess().getExitKeyword_8_0()); 
+            match(input,16,FOLLOW_16_in_rule__State__Group_8__0__Impl1274); 
+             after(grammarAccess.getStateAccess().getExitKeyword_8_0()); 
 
             }
 
@@ -1767,22 +1757,17 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group_8__1"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:688:1: rule__State__Group_8__1 : rule__State__Group_8__1__Impl rule__State__Group_8__2 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:674:1: rule__State__Group_8__1 : rule__State__Group_8__1__Impl ;
     public final void rule__State__Group_8__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:692:1: ( rule__State__Group_8__1__Impl rule__State__Group_8__2 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:693:2: rule__State__Group_8__1__Impl rule__State__Group_8__2
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:678:1: ( rule__State__Group_8__1__Impl )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:679:2: rule__State__Group_8__1__Impl
             {
-            pushFollow(FOLLOW_rule__State__Group_8__1__Impl_in_rule__State__Group_8__11317);
+            pushFollow(FOLLOW_rule__State__Group_8__1__Impl_in_rule__State__Group_8__11305);
             rule__State__Group_8__1__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_rule__State__Group_8__2_in_rule__State__Group_8__11320);
-            rule__State__Group_8__2();
 
             state._fsp--;
 
@@ -1805,23 +1790,23 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__Group_8__1__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:700:1: rule__State__Group_8__1__Impl : ( ( rule__State__ExitAssignment_8_1 ) ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:685:1: rule__State__Group_8__1__Impl : ( ( rule__State__ExitAssignment_8_1 ) ) ;
     public final void rule__State__Group_8__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:704:1: ( ( ( rule__State__ExitAssignment_8_1 ) ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:705:1: ( ( rule__State__ExitAssignment_8_1 ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:689:1: ( ( ( rule__State__ExitAssignment_8_1 ) ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:690:1: ( ( rule__State__ExitAssignment_8_1 ) )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:705:1: ( ( rule__State__ExitAssignment_8_1 ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:706:1: ( rule__State__ExitAssignment_8_1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:690:1: ( ( rule__State__ExitAssignment_8_1 ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:691:1: ( rule__State__ExitAssignment_8_1 )
             {
              before(grammarAccess.getStateAccess().getExitAssignment_8_1()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:707:1: ( rule__State__ExitAssignment_8_1 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:707:2: rule__State__ExitAssignment_8_1
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:692:1: ( rule__State__ExitAssignment_8_1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:692:2: rule__State__ExitAssignment_8_1
             {
-            pushFollow(FOLLOW_rule__State__ExitAssignment_8_1_in_rule__State__Group_8__1__Impl1347);
+            pushFollow(FOLLOW_rule__State__ExitAssignment_8_1_in_rule__State__Group_8__1__Impl1332);
             rule__State__ExitAssignment_8_1();
 
             state._fsp--;
@@ -1851,92 +1836,22 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__State__Group_8__1__Impl"
 
 
-    // $ANTLR start "rule__State__Group_8__2"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:717:1: rule__State__Group_8__2 : rule__State__Group_8__2__Impl ;
-    public final void rule__State__Group_8__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:721:1: ( rule__State__Group_8__2__Impl )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:722:2: rule__State__Group_8__2__Impl
-            {
-            pushFollow(FOLLOW_rule__State__Group_8__2__Impl_in_rule__State__Group_8__21377);
-            rule__State__Group_8__2__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__State__Group_8__2"
-
-
-    // $ANTLR start "rule__State__Group_8__2__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:728:1: rule__State__Group_8__2__Impl : ( '-]}' ) ;
-    public final void rule__State__Group_8__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:732:1: ( ( '-]}' ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:733:1: ( '-]}' )
-            {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:733:1: ( '-]}' )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:734:1: '-]}'
-            {
-             before(grammarAccess.getStateAccess().getHyphenMinusRightSquareBracketRightCurlyBracketKeyword_8_2()); 
-            match(input,15,FOLLOW_15_in_rule__State__Group_8__2__Impl1405); 
-             after(grammarAccess.getStateAccess().getHyphenMinusRightSquareBracketRightCurlyBracketKeyword_8_2()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__State__Group_8__2__Impl"
-
-
     // $ANTLR start "rule__Connector__Group__0"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:753:1: rule__Connector__Group__0 : rule__Connector__Group__0__Impl rule__Connector__Group__1 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:706:1: rule__Connector__Group__0 : rule__Connector__Group__0__Impl rule__Connector__Group__1 ;
     public final void rule__Connector__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:757:1: ( rule__Connector__Group__0__Impl rule__Connector__Group__1 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:758:2: rule__Connector__Group__0__Impl rule__Connector__Group__1
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:710:1: ( rule__Connector__Group__0__Impl rule__Connector__Group__1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:711:2: rule__Connector__Group__0__Impl rule__Connector__Group__1
             {
-            pushFollow(FOLLOW_rule__Connector__Group__0__Impl_in_rule__Connector__Group__01442);
+            pushFollow(FOLLOW_rule__Connector__Group__0__Impl_in_rule__Connector__Group__01366);
             rule__Connector__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Connector__Group__1_in_rule__Connector__Group__01445);
+            pushFollow(FOLLOW_rule__Connector__Group__1_in_rule__Connector__Group__01369);
             rule__Connector__Group__1();
 
             state._fsp--;
@@ -1960,20 +1875,20 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Connector__Group__0__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:765:1: rule__Connector__Group__0__Impl : ( 'connector' ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:718:1: rule__Connector__Group__0__Impl : ( 'connector' ) ;
     public final void rule__Connector__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:769:1: ( ( 'connector' ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:770:1: ( 'connector' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:722:1: ( ( 'connector' ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:723:1: ( 'connector' )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:770:1: ( 'connector' )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:771:1: 'connector'
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:723:1: ( 'connector' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:724:1: 'connector'
             {
              before(grammarAccess.getConnectorAccess().getConnectorKeyword_0()); 
-            match(input,16,FOLLOW_16_in_rule__Connector__Group__0__Impl1473); 
+            match(input,17,FOLLOW_17_in_rule__Connector__Group__0__Impl1397); 
              after(grammarAccess.getConnectorAccess().getConnectorKeyword_0()); 
 
             }
@@ -1997,21 +1912,21 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Connector__Group__1"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:784:1: rule__Connector__Group__1 : rule__Connector__Group__1__Impl rule__Connector__Group__2 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:737:1: rule__Connector__Group__1 : rule__Connector__Group__1__Impl rule__Connector__Group__2 ;
     public final void rule__Connector__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:788:1: ( rule__Connector__Group__1__Impl rule__Connector__Group__2 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:789:2: rule__Connector__Group__1__Impl rule__Connector__Group__2
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:741:1: ( rule__Connector__Group__1__Impl rule__Connector__Group__2 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:742:2: rule__Connector__Group__1__Impl rule__Connector__Group__2
             {
-            pushFollow(FOLLOW_rule__Connector__Group__1__Impl_in_rule__Connector__Group__11504);
+            pushFollow(FOLLOW_rule__Connector__Group__1__Impl_in_rule__Connector__Group__11428);
             rule__Connector__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Connector__Group__2_in_rule__Connector__Group__11507);
+            pushFollow(FOLLOW_rule__Connector__Group__2_in_rule__Connector__Group__11431);
             rule__Connector__Group__2();
 
             state._fsp--;
@@ -2035,23 +1950,23 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Connector__Group__1__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:796:1: rule__Connector__Group__1__Impl : ( ( rule__Connector__NameAssignment_1 ) ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:749:1: rule__Connector__Group__1__Impl : ( ( rule__Connector__NameAssignment_1 ) ) ;
     public final void rule__Connector__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:800:1: ( ( ( rule__Connector__NameAssignment_1 ) ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:801:1: ( ( rule__Connector__NameAssignment_1 ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:753:1: ( ( ( rule__Connector__NameAssignment_1 ) ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:754:1: ( ( rule__Connector__NameAssignment_1 ) )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:801:1: ( ( rule__Connector__NameAssignment_1 ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:802:1: ( rule__Connector__NameAssignment_1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:754:1: ( ( rule__Connector__NameAssignment_1 ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:755:1: ( rule__Connector__NameAssignment_1 )
             {
              before(grammarAccess.getConnectorAccess().getNameAssignment_1()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:803:1: ( rule__Connector__NameAssignment_1 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:803:2: rule__Connector__NameAssignment_1
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:756:1: ( rule__Connector__NameAssignment_1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:756:2: rule__Connector__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__Connector__NameAssignment_1_in_rule__Connector__Group__1__Impl1534);
+            pushFollow(FOLLOW_rule__Connector__NameAssignment_1_in_rule__Connector__Group__1__Impl1458);
             rule__Connector__NameAssignment_1();
 
             state._fsp--;
@@ -2082,21 +1997,21 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Connector__Group__2"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:813:1: rule__Connector__Group__2 : rule__Connector__Group__2__Impl rule__Connector__Group__3 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:766:1: rule__Connector__Group__2 : rule__Connector__Group__2__Impl rule__Connector__Group__3 ;
     public final void rule__Connector__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:817:1: ( rule__Connector__Group__2__Impl rule__Connector__Group__3 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:818:2: rule__Connector__Group__2__Impl rule__Connector__Group__3
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:770:1: ( rule__Connector__Group__2__Impl rule__Connector__Group__3 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:771:2: rule__Connector__Group__2__Impl rule__Connector__Group__3
             {
-            pushFollow(FOLLOW_rule__Connector__Group__2__Impl_in_rule__Connector__Group__21564);
+            pushFollow(FOLLOW_rule__Connector__Group__2__Impl_in_rule__Connector__Group__21488);
             rule__Connector__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Connector__Group__3_in_rule__Connector__Group__21567);
+            pushFollow(FOLLOW_rule__Connector__Group__3_in_rule__Connector__Group__21491);
             rule__Connector__Group__3();
 
             state._fsp--;
@@ -2120,20 +2035,20 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Connector__Group__2__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:825:1: rule__Connector__Group__2__Impl : ( '{' ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:778:1: rule__Connector__Group__2__Impl : ( '{' ) ;
     public final void rule__Connector__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:829:1: ( ( '{' ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:830:1: ( '{' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:782:1: ( ( '{' ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:783:1: ( '{' )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:830:1: ( '{' )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:831:1: '{'
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:783:1: ( '{' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:784:1: '{'
             {
              before(grammarAccess.getConnectorAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,12,FOLLOW_12_in_rule__Connector__Group__2__Impl1595); 
+            match(input,12,FOLLOW_12_in_rule__Connector__Group__2__Impl1519); 
              after(grammarAccess.getConnectorAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -2157,16 +2072,16 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Connector__Group__3"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:844:1: rule__Connector__Group__3 : rule__Connector__Group__3__Impl ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:797:1: rule__Connector__Group__3 : rule__Connector__Group__3__Impl ;
     public final void rule__Connector__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:848:1: ( rule__Connector__Group__3__Impl )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:849:2: rule__Connector__Group__3__Impl
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:801:1: ( rule__Connector__Group__3__Impl )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:802:2: rule__Connector__Group__3__Impl
             {
-            pushFollow(FOLLOW_rule__Connector__Group__3__Impl_in_rule__Connector__Group__31626);
+            pushFollow(FOLLOW_rule__Connector__Group__3__Impl_in_rule__Connector__Group__31550);
             rule__Connector__Group__3__Impl();
 
             state._fsp--;
@@ -2190,20 +2105,20 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Connector__Group__3__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:855:1: rule__Connector__Group__3__Impl : ( '}' ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:808:1: rule__Connector__Group__3__Impl : ( '}' ) ;
     public final void rule__Connector__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:859:1: ( ( '}' ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:860:1: ( '}' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:812:1: ( ( '}' ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:813:1: ( '}' )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:860:1: ( '}' )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:861:1: '}'
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:813:1: ( '}' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:814:1: '}'
             {
              before(grammarAccess.getConnectorAccess().getRightCurlyBracketKeyword_3()); 
-            match(input,13,FOLLOW_13_in_rule__Connector__Group__3__Impl1654); 
+            match(input,13,FOLLOW_13_in_rule__Connector__Group__3__Impl1578); 
              after(grammarAccess.getConnectorAccess().getRightCurlyBracketKeyword_3()); 
 
             }
@@ -2227,21 +2142,21 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__0"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:882:1: rule__Transition__Group__0 : rule__Transition__Group__0__Impl rule__Transition__Group__1 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:835:1: rule__Transition__Group__0 : rule__Transition__Group__0__Impl rule__Transition__Group__1 ;
     public final void rule__Transition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:886:1: ( rule__Transition__Group__0__Impl rule__Transition__Group__1 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:887:2: rule__Transition__Group__0__Impl rule__Transition__Group__1
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:839:1: ( rule__Transition__Group__0__Impl rule__Transition__Group__1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:840:2: rule__Transition__Group__0__Impl rule__Transition__Group__1
             {
-            pushFollow(FOLLOW_rule__Transition__Group__0__Impl_in_rule__Transition__Group__01693);
+            pushFollow(FOLLOW_rule__Transition__Group__0__Impl_in_rule__Transition__Group__01617);
             rule__Transition__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Transition__Group__1_in_rule__Transition__Group__01696);
+            pushFollow(FOLLOW_rule__Transition__Group__1_in_rule__Transition__Group__01620);
             rule__Transition__Group__1();
 
             state._fsp--;
@@ -2265,20 +2180,20 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__0__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:894:1: rule__Transition__Group__0__Impl : ( 'transition' ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:847:1: rule__Transition__Group__0__Impl : ( 'transition' ) ;
     public final void rule__Transition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:898:1: ( ( 'transition' ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:899:1: ( 'transition' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:851:1: ( ( 'transition' ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:852:1: ( 'transition' )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:899:1: ( 'transition' )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:900:1: 'transition'
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:852:1: ( 'transition' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:853:1: 'transition'
             {
              before(grammarAccess.getTransitionAccess().getTransitionKeyword_0()); 
-            match(input,17,FOLLOW_17_in_rule__Transition__Group__0__Impl1724); 
+            match(input,18,FOLLOW_18_in_rule__Transition__Group__0__Impl1648); 
              after(grammarAccess.getTransitionAccess().getTransitionKeyword_0()); 
 
             }
@@ -2302,21 +2217,21 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__1"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:913:1: rule__Transition__Group__1 : rule__Transition__Group__1__Impl rule__Transition__Group__2 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:866:1: rule__Transition__Group__1 : rule__Transition__Group__1__Impl rule__Transition__Group__2 ;
     public final void rule__Transition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:917:1: ( rule__Transition__Group__1__Impl rule__Transition__Group__2 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:918:2: rule__Transition__Group__1__Impl rule__Transition__Group__2
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:870:1: ( rule__Transition__Group__1__Impl rule__Transition__Group__2 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:871:2: rule__Transition__Group__1__Impl rule__Transition__Group__2
             {
-            pushFollow(FOLLOW_rule__Transition__Group__1__Impl_in_rule__Transition__Group__11755);
+            pushFollow(FOLLOW_rule__Transition__Group__1__Impl_in_rule__Transition__Group__11679);
             rule__Transition__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Transition__Group__2_in_rule__Transition__Group__11758);
+            pushFollow(FOLLOW_rule__Transition__Group__2_in_rule__Transition__Group__11682);
             rule__Transition__Group__2();
 
             state._fsp--;
@@ -2340,20 +2255,20 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__1__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:925:1: rule__Transition__Group__1__Impl : ( 'from' ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:878:1: rule__Transition__Group__1__Impl : ( 'from' ) ;
     public final void rule__Transition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:929:1: ( ( 'from' ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:930:1: ( 'from' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:882:1: ( ( 'from' ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:883:1: ( 'from' )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:930:1: ( 'from' )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:931:1: 'from'
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:883:1: ( 'from' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:884:1: 'from'
             {
              before(grammarAccess.getTransitionAccess().getFromKeyword_1()); 
-            match(input,18,FOLLOW_18_in_rule__Transition__Group__1__Impl1786); 
+            match(input,19,FOLLOW_19_in_rule__Transition__Group__1__Impl1710); 
              after(grammarAccess.getTransitionAccess().getFromKeyword_1()); 
 
             }
@@ -2377,21 +2292,21 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__2"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:944:1: rule__Transition__Group__2 : rule__Transition__Group__2__Impl rule__Transition__Group__3 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:897:1: rule__Transition__Group__2 : rule__Transition__Group__2__Impl rule__Transition__Group__3 ;
     public final void rule__Transition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:948:1: ( rule__Transition__Group__2__Impl rule__Transition__Group__3 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:949:2: rule__Transition__Group__2__Impl rule__Transition__Group__3
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:901:1: ( rule__Transition__Group__2__Impl rule__Transition__Group__3 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:902:2: rule__Transition__Group__2__Impl rule__Transition__Group__3
             {
-            pushFollow(FOLLOW_rule__Transition__Group__2__Impl_in_rule__Transition__Group__21817);
+            pushFollow(FOLLOW_rule__Transition__Group__2__Impl_in_rule__Transition__Group__21741);
             rule__Transition__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Transition__Group__3_in_rule__Transition__Group__21820);
+            pushFollow(FOLLOW_rule__Transition__Group__3_in_rule__Transition__Group__21744);
             rule__Transition__Group__3();
 
             state._fsp--;
@@ -2415,23 +2330,23 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__2__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:956:1: rule__Transition__Group__2__Impl : ( ( rule__Transition__SourceAssignment_2 ) ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:909:1: rule__Transition__Group__2__Impl : ( ( rule__Transition__SourceAssignment_2 ) ) ;
     public final void rule__Transition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:960:1: ( ( ( rule__Transition__SourceAssignment_2 ) ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:961:1: ( ( rule__Transition__SourceAssignment_2 ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:913:1: ( ( ( rule__Transition__SourceAssignment_2 ) ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:914:1: ( ( rule__Transition__SourceAssignment_2 ) )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:961:1: ( ( rule__Transition__SourceAssignment_2 ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:962:1: ( rule__Transition__SourceAssignment_2 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:914:1: ( ( rule__Transition__SourceAssignment_2 ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:915:1: ( rule__Transition__SourceAssignment_2 )
             {
              before(grammarAccess.getTransitionAccess().getSourceAssignment_2()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:963:1: ( rule__Transition__SourceAssignment_2 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:963:2: rule__Transition__SourceAssignment_2
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:916:1: ( rule__Transition__SourceAssignment_2 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:916:2: rule__Transition__SourceAssignment_2
             {
-            pushFollow(FOLLOW_rule__Transition__SourceAssignment_2_in_rule__Transition__Group__2__Impl1847);
+            pushFollow(FOLLOW_rule__Transition__SourceAssignment_2_in_rule__Transition__Group__2__Impl1771);
             rule__Transition__SourceAssignment_2();
 
             state._fsp--;
@@ -2462,21 +2377,21 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__3"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:973:1: rule__Transition__Group__3 : rule__Transition__Group__3__Impl rule__Transition__Group__4 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:926:1: rule__Transition__Group__3 : rule__Transition__Group__3__Impl rule__Transition__Group__4 ;
     public final void rule__Transition__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:977:1: ( rule__Transition__Group__3__Impl rule__Transition__Group__4 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:978:2: rule__Transition__Group__3__Impl rule__Transition__Group__4
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:930:1: ( rule__Transition__Group__3__Impl rule__Transition__Group__4 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:931:2: rule__Transition__Group__3__Impl rule__Transition__Group__4
             {
-            pushFollow(FOLLOW_rule__Transition__Group__3__Impl_in_rule__Transition__Group__31877);
+            pushFollow(FOLLOW_rule__Transition__Group__3__Impl_in_rule__Transition__Group__31801);
             rule__Transition__Group__3__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Transition__Group__4_in_rule__Transition__Group__31880);
+            pushFollow(FOLLOW_rule__Transition__Group__4_in_rule__Transition__Group__31804);
             rule__Transition__Group__4();
 
             state._fsp--;
@@ -2500,20 +2415,20 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__3__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:985:1: rule__Transition__Group__3__Impl : ( 'to' ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:938:1: rule__Transition__Group__3__Impl : ( 'to' ) ;
     public final void rule__Transition__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:989:1: ( ( 'to' ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:990:1: ( 'to' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:942:1: ( ( 'to' ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:943:1: ( 'to' )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:990:1: ( 'to' )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:991:1: 'to'
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:943:1: ( 'to' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:944:1: 'to'
             {
              before(grammarAccess.getTransitionAccess().getToKeyword_3()); 
-            match(input,19,FOLLOW_19_in_rule__Transition__Group__3__Impl1908); 
+            match(input,20,FOLLOW_20_in_rule__Transition__Group__3__Impl1832); 
              after(grammarAccess.getTransitionAccess().getToKeyword_3()); 
 
             }
@@ -2537,21 +2452,21 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__4"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1004:1: rule__Transition__Group__4 : rule__Transition__Group__4__Impl rule__Transition__Group__5 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:957:1: rule__Transition__Group__4 : rule__Transition__Group__4__Impl rule__Transition__Group__5 ;
     public final void rule__Transition__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1008:1: ( rule__Transition__Group__4__Impl rule__Transition__Group__5 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1009:2: rule__Transition__Group__4__Impl rule__Transition__Group__5
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:961:1: ( rule__Transition__Group__4__Impl rule__Transition__Group__5 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:962:2: rule__Transition__Group__4__Impl rule__Transition__Group__5
             {
-            pushFollow(FOLLOW_rule__Transition__Group__4__Impl_in_rule__Transition__Group__41939);
+            pushFollow(FOLLOW_rule__Transition__Group__4__Impl_in_rule__Transition__Group__41863);
             rule__Transition__Group__4__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Transition__Group__5_in_rule__Transition__Group__41942);
+            pushFollow(FOLLOW_rule__Transition__Group__5_in_rule__Transition__Group__41866);
             rule__Transition__Group__5();
 
             state._fsp--;
@@ -2575,23 +2490,23 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__4__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1016:1: rule__Transition__Group__4__Impl : ( ( rule__Transition__TargetAssignment_4 ) ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:969:1: rule__Transition__Group__4__Impl : ( ( rule__Transition__TargetAssignment_4 ) ) ;
     public final void rule__Transition__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1020:1: ( ( ( rule__Transition__TargetAssignment_4 ) ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1021:1: ( ( rule__Transition__TargetAssignment_4 ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:973:1: ( ( ( rule__Transition__TargetAssignment_4 ) ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:974:1: ( ( rule__Transition__TargetAssignment_4 ) )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1021:1: ( ( rule__Transition__TargetAssignment_4 ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1022:1: ( rule__Transition__TargetAssignment_4 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:974:1: ( ( rule__Transition__TargetAssignment_4 ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:975:1: ( rule__Transition__TargetAssignment_4 )
             {
              before(grammarAccess.getTransitionAccess().getTargetAssignment_4()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1023:1: ( rule__Transition__TargetAssignment_4 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1023:2: rule__Transition__TargetAssignment_4
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:976:1: ( rule__Transition__TargetAssignment_4 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:976:2: rule__Transition__TargetAssignment_4
             {
-            pushFollow(FOLLOW_rule__Transition__TargetAssignment_4_in_rule__Transition__Group__4__Impl1969);
+            pushFollow(FOLLOW_rule__Transition__TargetAssignment_4_in_rule__Transition__Group__4__Impl1893);
             rule__Transition__TargetAssignment_4();
 
             state._fsp--;
@@ -2622,21 +2537,21 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__5"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1033:1: rule__Transition__Group__5 : rule__Transition__Group__5__Impl rule__Transition__Group__6 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:986:1: rule__Transition__Group__5 : rule__Transition__Group__5__Impl rule__Transition__Group__6 ;
     public final void rule__Transition__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1037:1: ( rule__Transition__Group__5__Impl rule__Transition__Group__6 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1038:2: rule__Transition__Group__5__Impl rule__Transition__Group__6
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:990:1: ( rule__Transition__Group__5__Impl rule__Transition__Group__6 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:991:2: rule__Transition__Group__5__Impl rule__Transition__Group__6
             {
-            pushFollow(FOLLOW_rule__Transition__Group__5__Impl_in_rule__Transition__Group__51999);
+            pushFollow(FOLLOW_rule__Transition__Group__5__Impl_in_rule__Transition__Group__51923);
             rule__Transition__Group__5__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Transition__Group__6_in_rule__Transition__Group__52002);
+            pushFollow(FOLLOW_rule__Transition__Group__6_in_rule__Transition__Group__51926);
             rule__Transition__Group__6();
 
             state._fsp--;
@@ -2660,35 +2575,35 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__5__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1045:1: rule__Transition__Group__5__Impl : ( ( rule__Transition__EventsAssignment_5 )* ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:998:1: rule__Transition__Group__5__Impl : ( ( rule__Transition__EventsAssignment_5 )* ) ;
     public final void rule__Transition__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1049:1: ( ( ( rule__Transition__EventsAssignment_5 )* ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1050:1: ( ( rule__Transition__EventsAssignment_5 )* )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1002:1: ( ( ( rule__Transition__EventsAssignment_5 )* ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1003:1: ( ( rule__Transition__EventsAssignment_5 )* )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1050:1: ( ( rule__Transition__EventsAssignment_5 )* )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1051:1: ( rule__Transition__EventsAssignment_5 )*
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1003:1: ( ( rule__Transition__EventsAssignment_5 )* )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1004:1: ( rule__Transition__EventsAssignment_5 )*
             {
              before(grammarAccess.getTransitionAccess().getEventsAssignment_5()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1052:1: ( rule__Transition__EventsAssignment_5 )*
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1005:1: ( rule__Transition__EventsAssignment_5 )*
             loop7:
             do {
                 int alt7=2;
                 int LA7_0 = input.LA(1);
 
-                if ( (LA7_0==RULE_ID) ) {
+                if ( (LA7_0==24) ) {
                     alt7=1;
                 }
 
 
                 switch (alt7) {
             	case 1 :
-            	    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1052:2: rule__Transition__EventsAssignment_5
+            	    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1005:2: rule__Transition__EventsAssignment_5
             	    {
-            	    pushFollow(FOLLOW_rule__Transition__EventsAssignment_5_in_rule__Transition__Group__5__Impl2029);
+            	    pushFollow(FOLLOW_rule__Transition__EventsAssignment_5_in_rule__Transition__Group__5__Impl1953);
             	    rule__Transition__EventsAssignment_5();
 
             	    state._fsp--;
@@ -2725,21 +2640,21 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__6"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1062:1: rule__Transition__Group__6 : rule__Transition__Group__6__Impl rule__Transition__Group__7 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1015:1: rule__Transition__Group__6 : rule__Transition__Group__6__Impl rule__Transition__Group__7 ;
     public final void rule__Transition__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1066:1: ( rule__Transition__Group__6__Impl rule__Transition__Group__7 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1067:2: rule__Transition__Group__6__Impl rule__Transition__Group__7
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1019:1: ( rule__Transition__Group__6__Impl rule__Transition__Group__7 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1020:2: rule__Transition__Group__6__Impl rule__Transition__Group__7
             {
-            pushFollow(FOLLOW_rule__Transition__Group__6__Impl_in_rule__Transition__Group__62060);
+            pushFollow(FOLLOW_rule__Transition__Group__6__Impl_in_rule__Transition__Group__61984);
             rule__Transition__Group__6__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Transition__Group__7_in_rule__Transition__Group__62063);
+            pushFollow(FOLLOW_rule__Transition__Group__7_in_rule__Transition__Group__61987);
             rule__Transition__Group__7();
 
             state._fsp--;
@@ -2763,31 +2678,31 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__6__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1074:1: rule__Transition__Group__6__Impl : ( ( rule__Transition__Group_6__0 )? ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1027:1: rule__Transition__Group__6__Impl : ( ( rule__Transition__Group_6__0 )? ) ;
     public final void rule__Transition__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1078:1: ( ( ( rule__Transition__Group_6__0 )? ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1079:1: ( ( rule__Transition__Group_6__0 )? )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1031:1: ( ( ( rule__Transition__Group_6__0 )? ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1032:1: ( ( rule__Transition__Group_6__0 )? )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1079:1: ( ( rule__Transition__Group_6__0 )? )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1080:1: ( rule__Transition__Group_6__0 )?
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1032:1: ( ( rule__Transition__Group_6__0 )? )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1033:1: ( rule__Transition__Group_6__0 )?
             {
              before(grammarAccess.getTransitionAccess().getGroup_6()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1081:1: ( rule__Transition__Group_6__0 )?
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1034:1: ( rule__Transition__Group_6__0 )?
             int alt8=2;
             int LA8_0 = input.LA(1);
 
-            if ( (LA8_0==20) ) {
+            if ( (LA8_0==21) ) {
                 alt8=1;
             }
             switch (alt8) {
                 case 1 :
-                    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1081:2: rule__Transition__Group_6__0
+                    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1034:2: rule__Transition__Group_6__0
                     {
-                    pushFollow(FOLLOW_rule__Transition__Group_6__0_in_rule__Transition__Group__6__Impl2090);
+                    pushFollow(FOLLOW_rule__Transition__Group_6__0_in_rule__Transition__Group__6__Impl2014);
                     rule__Transition__Group_6__0();
 
                     state._fsp--;
@@ -2821,21 +2736,21 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__7"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1091:1: rule__Transition__Group__7 : rule__Transition__Group__7__Impl rule__Transition__Group__8 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1044:1: rule__Transition__Group__7 : rule__Transition__Group__7__Impl rule__Transition__Group__8 ;
     public final void rule__Transition__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1095:1: ( rule__Transition__Group__7__Impl rule__Transition__Group__8 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1096:2: rule__Transition__Group__7__Impl rule__Transition__Group__8
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1048:1: ( rule__Transition__Group__7__Impl rule__Transition__Group__8 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1049:2: rule__Transition__Group__7__Impl rule__Transition__Group__8
             {
-            pushFollow(FOLLOW_rule__Transition__Group__7__Impl_in_rule__Transition__Group__72121);
+            pushFollow(FOLLOW_rule__Transition__Group__7__Impl_in_rule__Transition__Group__72045);
             rule__Transition__Group__7__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Transition__Group__8_in_rule__Transition__Group__72124);
+            pushFollow(FOLLOW_rule__Transition__Group__8_in_rule__Transition__Group__72048);
             rule__Transition__Group__8();
 
             state._fsp--;
@@ -2859,31 +2774,31 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__7__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1103:1: rule__Transition__Group__7__Impl : ( ( rule__Transition__Group_7__0 )? ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1056:1: rule__Transition__Group__7__Impl : ( ( rule__Transition__Group_7__0 )? ) ;
     public final void rule__Transition__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1107:1: ( ( ( rule__Transition__Group_7__0 )? ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1108:1: ( ( rule__Transition__Group_7__0 )? )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1060:1: ( ( ( rule__Transition__Group_7__0 )? ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1061:1: ( ( rule__Transition__Group_7__0 )? )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1108:1: ( ( rule__Transition__Group_7__0 )? )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1109:1: ( rule__Transition__Group_7__0 )?
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1061:1: ( ( rule__Transition__Group_7__0 )? )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1062:1: ( rule__Transition__Group_7__0 )?
             {
              before(grammarAccess.getTransitionAccess().getGroup_7()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1110:1: ( rule__Transition__Group_7__0 )?
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1063:1: ( rule__Transition__Group_7__0 )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
-            if ( (LA9_0==21) ) {
+            if ( (LA9_0==22) ) {
                 alt9=1;
             }
             switch (alt9) {
                 case 1 :
-                    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1110:2: rule__Transition__Group_7__0
+                    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1063:2: rule__Transition__Group_7__0
                     {
-                    pushFollow(FOLLOW_rule__Transition__Group_7__0_in_rule__Transition__Group__7__Impl2151);
+                    pushFollow(FOLLOW_rule__Transition__Group_7__0_in_rule__Transition__Group__7__Impl2075);
                     rule__Transition__Group_7__0();
 
                     state._fsp--;
@@ -2917,16 +2832,16 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__8"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1120:1: rule__Transition__Group__8 : rule__Transition__Group__8__Impl ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1073:1: rule__Transition__Group__8 : rule__Transition__Group__8__Impl ;
     public final void rule__Transition__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1124:1: ( rule__Transition__Group__8__Impl )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1125:2: rule__Transition__Group__8__Impl
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1077:1: ( rule__Transition__Group__8__Impl )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1078:2: rule__Transition__Group__8__Impl
             {
-            pushFollow(FOLLOW_rule__Transition__Group__8__Impl_in_rule__Transition__Group__82182);
+            pushFollow(FOLLOW_rule__Transition__Group__8__Impl_in_rule__Transition__Group__82106);
             rule__Transition__Group__8__Impl();
 
             state._fsp--;
@@ -2950,31 +2865,31 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__8__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1131:1: rule__Transition__Group__8__Impl : ( ( rule__Transition__Group_8__0 )? ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1084:1: rule__Transition__Group__8__Impl : ( ( rule__Transition__Group_8__0 )? ) ;
     public final void rule__Transition__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1135:1: ( ( ( rule__Transition__Group_8__0 )? ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1136:1: ( ( rule__Transition__Group_8__0 )? )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1088:1: ( ( ( rule__Transition__Group_8__0 )? ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1089:1: ( ( rule__Transition__Group_8__0 )? )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1136:1: ( ( rule__Transition__Group_8__0 )? )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1137:1: ( rule__Transition__Group_8__0 )?
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1089:1: ( ( rule__Transition__Group_8__0 )? )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1090:1: ( rule__Transition__Group_8__0 )?
             {
              before(grammarAccess.getTransitionAccess().getGroup_8()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1138:1: ( rule__Transition__Group_8__0 )?
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1091:1: ( rule__Transition__Group_8__0 )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
-            if ( (LA10_0==22) ) {
+            if ( (LA10_0==23) ) {
                 alt10=1;
             }
             switch (alt10) {
                 case 1 :
-                    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1138:2: rule__Transition__Group_8__0
+                    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1091:2: rule__Transition__Group_8__0
                     {
-                    pushFollow(FOLLOW_rule__Transition__Group_8__0_in_rule__Transition__Group__8__Impl2209);
+                    pushFollow(FOLLOW_rule__Transition__Group_8__0_in_rule__Transition__Group__8__Impl2133);
                     rule__Transition__Group_8__0();
 
                     state._fsp--;
@@ -3008,21 +2923,21 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group_6__0"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1166:1: rule__Transition__Group_6__0 : rule__Transition__Group_6__0__Impl rule__Transition__Group_6__1 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1119:1: rule__Transition__Group_6__0 : rule__Transition__Group_6__0__Impl rule__Transition__Group_6__1 ;
     public final void rule__Transition__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1170:1: ( rule__Transition__Group_6__0__Impl rule__Transition__Group_6__1 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1171:2: rule__Transition__Group_6__0__Impl rule__Transition__Group_6__1
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1123:1: ( rule__Transition__Group_6__0__Impl rule__Transition__Group_6__1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1124:2: rule__Transition__Group_6__0__Impl rule__Transition__Group_6__1
             {
-            pushFollow(FOLLOW_rule__Transition__Group_6__0__Impl_in_rule__Transition__Group_6__02258);
+            pushFollow(FOLLOW_rule__Transition__Group_6__0__Impl_in_rule__Transition__Group_6__02182);
             rule__Transition__Group_6__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Transition__Group_6__1_in_rule__Transition__Group_6__02261);
+            pushFollow(FOLLOW_rule__Transition__Group_6__1_in_rule__Transition__Group_6__02185);
             rule__Transition__Group_6__1();
 
             state._fsp--;
@@ -3046,20 +2961,20 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group_6__0__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1178:1: rule__Transition__Group_6__0__Impl : ( 'guard: {[-' ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1131:1: rule__Transition__Group_6__0__Impl : ( 'guard:' ) ;
     public final void rule__Transition__Group_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1182:1: ( ( 'guard: {[-' ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1183:1: ( 'guard: {[-' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1135:1: ( ( 'guard:' ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1136:1: ( 'guard:' )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1183:1: ( 'guard: {[-' )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1184:1: 'guard: {[-'
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1136:1: ( 'guard:' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1137:1: 'guard:'
             {
              before(grammarAccess.getTransitionAccess().getGuardKeyword_6_0()); 
-            match(input,20,FOLLOW_20_in_rule__Transition__Group_6__0__Impl2289); 
+            match(input,21,FOLLOW_21_in_rule__Transition__Group_6__0__Impl2213); 
              after(grammarAccess.getTransitionAccess().getGuardKeyword_6_0()); 
 
             }
@@ -3083,22 +2998,17 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group_6__1"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1197:1: rule__Transition__Group_6__1 : rule__Transition__Group_6__1__Impl rule__Transition__Group_6__2 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1150:1: rule__Transition__Group_6__1 : rule__Transition__Group_6__1__Impl ;
     public final void rule__Transition__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1201:1: ( rule__Transition__Group_6__1__Impl rule__Transition__Group_6__2 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1202:2: rule__Transition__Group_6__1__Impl rule__Transition__Group_6__2
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1154:1: ( rule__Transition__Group_6__1__Impl )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1155:2: rule__Transition__Group_6__1__Impl
             {
-            pushFollow(FOLLOW_rule__Transition__Group_6__1__Impl_in_rule__Transition__Group_6__12320);
+            pushFollow(FOLLOW_rule__Transition__Group_6__1__Impl_in_rule__Transition__Group_6__12244);
             rule__Transition__Group_6__1__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_rule__Transition__Group_6__2_in_rule__Transition__Group_6__12323);
-            rule__Transition__Group_6__2();
 
             state._fsp--;
 
@@ -3121,23 +3031,23 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group_6__1__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1209:1: rule__Transition__Group_6__1__Impl : ( ( rule__Transition__GuardAssignment_6_1 ) ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1161:1: rule__Transition__Group_6__1__Impl : ( ( rule__Transition__GuardAssignment_6_1 ) ) ;
     public final void rule__Transition__Group_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1213:1: ( ( ( rule__Transition__GuardAssignment_6_1 ) ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1214:1: ( ( rule__Transition__GuardAssignment_6_1 ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1165:1: ( ( ( rule__Transition__GuardAssignment_6_1 ) ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1166:1: ( ( rule__Transition__GuardAssignment_6_1 ) )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1214:1: ( ( rule__Transition__GuardAssignment_6_1 ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1215:1: ( rule__Transition__GuardAssignment_6_1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1166:1: ( ( rule__Transition__GuardAssignment_6_1 ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1167:1: ( rule__Transition__GuardAssignment_6_1 )
             {
              before(grammarAccess.getTransitionAccess().getGuardAssignment_6_1()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1216:1: ( rule__Transition__GuardAssignment_6_1 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1216:2: rule__Transition__GuardAssignment_6_1
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1168:1: ( rule__Transition__GuardAssignment_6_1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1168:2: rule__Transition__GuardAssignment_6_1
             {
-            pushFollow(FOLLOW_rule__Transition__GuardAssignment_6_1_in_rule__Transition__Group_6__1__Impl2350);
+            pushFollow(FOLLOW_rule__Transition__GuardAssignment_6_1_in_rule__Transition__Group_6__1__Impl2271);
             rule__Transition__GuardAssignment_6_1();
 
             state._fsp--;
@@ -3167,92 +3077,22 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Transition__Group_6__1__Impl"
 
 
-    // $ANTLR start "rule__Transition__Group_6__2"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1226:1: rule__Transition__Group_6__2 : rule__Transition__Group_6__2__Impl ;
-    public final void rule__Transition__Group_6__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1230:1: ( rule__Transition__Group_6__2__Impl )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1231:2: rule__Transition__Group_6__2__Impl
-            {
-            pushFollow(FOLLOW_rule__Transition__Group_6__2__Impl_in_rule__Transition__Group_6__22380);
-            rule__Transition__Group_6__2__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Transition__Group_6__2"
-
-
-    // $ANTLR start "rule__Transition__Group_6__2__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1237:1: rule__Transition__Group_6__2__Impl : ( '-]}' ) ;
-    public final void rule__Transition__Group_6__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1241:1: ( ( '-]}' ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1242:1: ( '-]}' )
-            {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1242:1: ( '-]}' )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1243:1: '-]}'
-            {
-             before(grammarAccess.getTransitionAccess().getHyphenMinusRightSquareBracketRightCurlyBracketKeyword_6_2()); 
-            match(input,15,FOLLOW_15_in_rule__Transition__Group_6__2__Impl2408); 
-             after(grammarAccess.getTransitionAccess().getHyphenMinusRightSquareBracketRightCurlyBracketKeyword_6_2()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Transition__Group_6__2__Impl"
-
-
     // $ANTLR start "rule__Transition__Group_7__0"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1262:1: rule__Transition__Group_7__0 : rule__Transition__Group_7__0__Impl rule__Transition__Group_7__1 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1182:1: rule__Transition__Group_7__0 : rule__Transition__Group_7__0__Impl rule__Transition__Group_7__1 ;
     public final void rule__Transition__Group_7__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1266:1: ( rule__Transition__Group_7__0__Impl rule__Transition__Group_7__1 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1267:2: rule__Transition__Group_7__0__Impl rule__Transition__Group_7__1
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1186:1: ( rule__Transition__Group_7__0__Impl rule__Transition__Group_7__1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1187:2: rule__Transition__Group_7__0__Impl rule__Transition__Group_7__1
             {
-            pushFollow(FOLLOW_rule__Transition__Group_7__0__Impl_in_rule__Transition__Group_7__02445);
+            pushFollow(FOLLOW_rule__Transition__Group_7__0__Impl_in_rule__Transition__Group_7__02305);
             rule__Transition__Group_7__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Transition__Group_7__1_in_rule__Transition__Group_7__02448);
+            pushFollow(FOLLOW_rule__Transition__Group_7__1_in_rule__Transition__Group_7__02308);
             rule__Transition__Group_7__1();
 
             state._fsp--;
@@ -3276,20 +3116,20 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group_7__0__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1274:1: rule__Transition__Group_7__0__Impl : ( 'effect: {[-' ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1194:1: rule__Transition__Group_7__0__Impl : ( 'effect:' ) ;
     public final void rule__Transition__Group_7__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1278:1: ( ( 'effect: {[-' ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1279:1: ( 'effect: {[-' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1198:1: ( ( 'effect:' ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1199:1: ( 'effect:' )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1279:1: ( 'effect: {[-' )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1280:1: 'effect: {[-'
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1199:1: ( 'effect:' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1200:1: 'effect:'
             {
              before(grammarAccess.getTransitionAccess().getEffectKeyword_7_0()); 
-            match(input,21,FOLLOW_21_in_rule__Transition__Group_7__0__Impl2476); 
+            match(input,22,FOLLOW_22_in_rule__Transition__Group_7__0__Impl2336); 
              after(grammarAccess.getTransitionAccess().getEffectKeyword_7_0()); 
 
             }
@@ -3313,22 +3153,17 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group_7__1"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1293:1: rule__Transition__Group_7__1 : rule__Transition__Group_7__1__Impl rule__Transition__Group_7__2 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1213:1: rule__Transition__Group_7__1 : rule__Transition__Group_7__1__Impl ;
     public final void rule__Transition__Group_7__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1297:1: ( rule__Transition__Group_7__1__Impl rule__Transition__Group_7__2 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1298:2: rule__Transition__Group_7__1__Impl rule__Transition__Group_7__2
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1217:1: ( rule__Transition__Group_7__1__Impl )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1218:2: rule__Transition__Group_7__1__Impl
             {
-            pushFollow(FOLLOW_rule__Transition__Group_7__1__Impl_in_rule__Transition__Group_7__12507);
+            pushFollow(FOLLOW_rule__Transition__Group_7__1__Impl_in_rule__Transition__Group_7__12367);
             rule__Transition__Group_7__1__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_rule__Transition__Group_7__2_in_rule__Transition__Group_7__12510);
-            rule__Transition__Group_7__2();
 
             state._fsp--;
 
@@ -3351,23 +3186,23 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group_7__1__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1305:1: rule__Transition__Group_7__1__Impl : ( ( rule__Transition__EffectAssignment_7_1 ) ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1224:1: rule__Transition__Group_7__1__Impl : ( ( rule__Transition__EffectAssignment_7_1 ) ) ;
     public final void rule__Transition__Group_7__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1309:1: ( ( ( rule__Transition__EffectAssignment_7_1 ) ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1310:1: ( ( rule__Transition__EffectAssignment_7_1 ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1228:1: ( ( ( rule__Transition__EffectAssignment_7_1 ) ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1229:1: ( ( rule__Transition__EffectAssignment_7_1 ) )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1310:1: ( ( rule__Transition__EffectAssignment_7_1 ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1311:1: ( rule__Transition__EffectAssignment_7_1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1229:1: ( ( rule__Transition__EffectAssignment_7_1 ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1230:1: ( rule__Transition__EffectAssignment_7_1 )
             {
              before(grammarAccess.getTransitionAccess().getEffectAssignment_7_1()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1312:1: ( rule__Transition__EffectAssignment_7_1 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1312:2: rule__Transition__EffectAssignment_7_1
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1231:1: ( rule__Transition__EffectAssignment_7_1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1231:2: rule__Transition__EffectAssignment_7_1
             {
-            pushFollow(FOLLOW_rule__Transition__EffectAssignment_7_1_in_rule__Transition__Group_7__1__Impl2537);
+            pushFollow(FOLLOW_rule__Transition__EffectAssignment_7_1_in_rule__Transition__Group_7__1__Impl2394);
             rule__Transition__EffectAssignment_7_1();
 
             state._fsp--;
@@ -3397,92 +3232,22 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Transition__Group_7__1__Impl"
 
 
-    // $ANTLR start "rule__Transition__Group_7__2"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1322:1: rule__Transition__Group_7__2 : rule__Transition__Group_7__2__Impl ;
-    public final void rule__Transition__Group_7__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1326:1: ( rule__Transition__Group_7__2__Impl )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1327:2: rule__Transition__Group_7__2__Impl
-            {
-            pushFollow(FOLLOW_rule__Transition__Group_7__2__Impl_in_rule__Transition__Group_7__22567);
-            rule__Transition__Group_7__2__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Transition__Group_7__2"
-
-
-    // $ANTLR start "rule__Transition__Group_7__2__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1333:1: rule__Transition__Group_7__2__Impl : ( '-]}' ) ;
-    public final void rule__Transition__Group_7__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1337:1: ( ( '-]}' ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1338:1: ( '-]}' )
-            {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1338:1: ( '-]}' )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1339:1: '-]}'
-            {
-             before(grammarAccess.getTransitionAccess().getHyphenMinusRightSquareBracketRightCurlyBracketKeyword_7_2()); 
-            match(input,15,FOLLOW_15_in_rule__Transition__Group_7__2__Impl2595); 
-             after(grammarAccess.getTransitionAccess().getHyphenMinusRightSquareBracketRightCurlyBracketKeyword_7_2()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Transition__Group_7__2__Impl"
-
-
     // $ANTLR start "rule__Transition__Group_8__0"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1358:1: rule__Transition__Group_8__0 : rule__Transition__Group_8__0__Impl rule__Transition__Group_8__1 ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1245:1: rule__Transition__Group_8__0 : rule__Transition__Group_8__0__Impl rule__Transition__Group_8__1 ;
     public final void rule__Transition__Group_8__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1362:1: ( rule__Transition__Group_8__0__Impl rule__Transition__Group_8__1 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1363:2: rule__Transition__Group_8__0__Impl rule__Transition__Group_8__1
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1249:1: ( rule__Transition__Group_8__0__Impl rule__Transition__Group_8__1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1250:2: rule__Transition__Group_8__0__Impl rule__Transition__Group_8__1
             {
-            pushFollow(FOLLOW_rule__Transition__Group_8__0__Impl_in_rule__Transition__Group_8__02632);
+            pushFollow(FOLLOW_rule__Transition__Group_8__0__Impl_in_rule__Transition__Group_8__02428);
             rule__Transition__Group_8__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Transition__Group_8__1_in_rule__Transition__Group_8__02635);
+            pushFollow(FOLLOW_rule__Transition__Group_8__1_in_rule__Transition__Group_8__02431);
             rule__Transition__Group_8__1();
 
             state._fsp--;
@@ -3506,20 +3271,20 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group_8__0__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1370:1: rule__Transition__Group_8__0__Impl : ( 'priority' ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1257:1: rule__Transition__Group_8__0__Impl : ( 'priority' ) ;
     public final void rule__Transition__Group_8__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1374:1: ( ( 'priority' ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1375:1: ( 'priority' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1261:1: ( ( 'priority' ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1262:1: ( 'priority' )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1375:1: ( 'priority' )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1376:1: 'priority'
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1262:1: ( 'priority' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1263:1: 'priority'
             {
              before(grammarAccess.getTransitionAccess().getPriorityKeyword_8_0()); 
-            match(input,22,FOLLOW_22_in_rule__Transition__Group_8__0__Impl2663); 
+            match(input,23,FOLLOW_23_in_rule__Transition__Group_8__0__Impl2459); 
              after(grammarAccess.getTransitionAccess().getPriorityKeyword_8_0()); 
 
             }
@@ -3543,16 +3308,16 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group_8__1"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1389:1: rule__Transition__Group_8__1 : rule__Transition__Group_8__1__Impl ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1276:1: rule__Transition__Group_8__1 : rule__Transition__Group_8__1__Impl ;
     public final void rule__Transition__Group_8__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1393:1: ( rule__Transition__Group_8__1__Impl )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1394:2: rule__Transition__Group_8__1__Impl
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1280:1: ( rule__Transition__Group_8__1__Impl )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1281:2: rule__Transition__Group_8__1__Impl
             {
-            pushFollow(FOLLOW_rule__Transition__Group_8__1__Impl_in_rule__Transition__Group_8__12694);
+            pushFollow(FOLLOW_rule__Transition__Group_8__1__Impl_in_rule__Transition__Group_8__12490);
             rule__Transition__Group_8__1__Impl();
 
             state._fsp--;
@@ -3576,23 +3341,23 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group_8__1__Impl"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1400:1: rule__Transition__Group_8__1__Impl : ( ( rule__Transition__Priority_numberAssignment_8_1 ) ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1287:1: rule__Transition__Group_8__1__Impl : ( ( rule__Transition__Priority_numberAssignment_8_1 ) ) ;
     public final void rule__Transition__Group_8__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1404:1: ( ( ( rule__Transition__Priority_numberAssignment_8_1 ) ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1405:1: ( ( rule__Transition__Priority_numberAssignment_8_1 ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1291:1: ( ( ( rule__Transition__Priority_numberAssignment_8_1 ) ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1292:1: ( ( rule__Transition__Priority_numberAssignment_8_1 ) )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1405:1: ( ( rule__Transition__Priority_numberAssignment_8_1 ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1406:1: ( rule__Transition__Priority_numberAssignment_8_1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1292:1: ( ( rule__Transition__Priority_numberAssignment_8_1 ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1293:1: ( rule__Transition__Priority_numberAssignment_8_1 )
             {
              before(grammarAccess.getTransitionAccess().getPriority_numberAssignment_8_1()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1407:1: ( rule__Transition__Priority_numberAssignment_8_1 )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1407:2: rule__Transition__Priority_numberAssignment_8_1
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1294:1: ( rule__Transition__Priority_numberAssignment_8_1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1294:2: rule__Transition__Priority_numberAssignment_8_1
             {
-            pushFollow(FOLLOW_rule__Transition__Priority_numberAssignment_8_1_in_rule__Transition__Group_8__1__Impl2721);
+            pushFollow(FOLLOW_rule__Transition__Priority_numberAssignment_8_1_in_rule__Transition__Group_8__1__Impl2517);
             rule__Transition__Priority_numberAssignment_8_1();
 
             state._fsp--;
@@ -3622,21 +3387,176 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Transition__Group_8__1__Impl"
 
 
+    // $ANTLR start "rule__Event__Group__0"
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1308:1: rule__Event__Group__0 : rule__Event__Group__0__Impl rule__Event__Group__1 ;
+    public final void rule__Event__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1312:1: ( rule__Event__Group__0__Impl rule__Event__Group__1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1313:2: rule__Event__Group__0__Impl rule__Event__Group__1
+            {
+            pushFollow(FOLLOW_rule__Event__Group__0__Impl_in_rule__Event__Group__02551);
+            rule__Event__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_rule__Event__Group__1_in_rule__Event__Group__02554);
+            rule__Event__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Event__Group__0"
+
+
+    // $ANTLR start "rule__Event__Group__0__Impl"
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1320:1: rule__Event__Group__0__Impl : ( 'onevent' ) ;
+    public final void rule__Event__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1324:1: ( ( 'onevent' ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1325:1: ( 'onevent' )
+            {
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1325:1: ( 'onevent' )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1326:1: 'onevent'
+            {
+             before(grammarAccess.getEventAccess().getOneventKeyword_0()); 
+            match(input,24,FOLLOW_24_in_rule__Event__Group__0__Impl2582); 
+             after(grammarAccess.getEventAccess().getOneventKeyword_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Event__Group__0__Impl"
+
+
+    // $ANTLR start "rule__Event__Group__1"
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1339:1: rule__Event__Group__1 : rule__Event__Group__1__Impl ;
+    public final void rule__Event__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1343:1: ( rule__Event__Group__1__Impl )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1344:2: rule__Event__Group__1__Impl
+            {
+            pushFollow(FOLLOW_rule__Event__Group__1__Impl_in_rule__Event__Group__12613);
+            rule__Event__Group__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Event__Group__1"
+
+
+    // $ANTLR start "rule__Event__Group__1__Impl"
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1350:1: rule__Event__Group__1__Impl : ( ( rule__Event__EventliteralAssignment_1 ) ) ;
+    public final void rule__Event__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1354:1: ( ( ( rule__Event__EventliteralAssignment_1 ) ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1355:1: ( ( rule__Event__EventliteralAssignment_1 ) )
+            {
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1355:1: ( ( rule__Event__EventliteralAssignment_1 ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1356:1: ( rule__Event__EventliteralAssignment_1 )
+            {
+             before(grammarAccess.getEventAccess().getEventliteralAssignment_1()); 
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1357:1: ( rule__Event__EventliteralAssignment_1 )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1357:2: rule__Event__EventliteralAssignment_1
+            {
+            pushFollow(FOLLOW_rule__Event__EventliteralAssignment_1_in_rule__Event__Group__1__Impl2640);
+            rule__Event__EventliteralAssignment_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getEventAccess().getEventliteralAssignment_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Event__Group__1__Impl"
+
+
     // $ANTLR start "rule__State__NameAssignment_1"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1423:1: rule__State__NameAssignment_1 : ( RULE_ID ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1372:1: rule__State__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__State__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1427:1: ( ( RULE_ID ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1428:1: ( RULE_ID )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1376:1: ( ( RULE_ID ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1377:1: ( RULE_ID )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1428:1: ( RULE_ID )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1429:1: RULE_ID
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1377:1: ( RULE_ID )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1378:1: RULE_ID
             {
              before(grammarAccess.getStateAccess().getNameIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__State__NameAssignment_12761); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__State__NameAssignment_12679); 
              after(grammarAccess.getStateAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
@@ -3660,20 +3580,20 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__SubnodesAssignment_3"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1438:1: rule__State__SubnodesAssignment_3 : ( ruleState ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1387:1: rule__State__SubnodesAssignment_3 : ( ruleState ) ;
     public final void rule__State__SubnodesAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1442:1: ( ( ruleState ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1443:1: ( ruleState )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1391:1: ( ( ruleState ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1392:1: ( ruleState )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1443:1: ( ruleState )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1444:1: ruleState
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1392:1: ( ruleState )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1393:1: ruleState
             {
              before(grammarAccess.getStateAccess().getSubnodesStateParserRuleCall_3_0()); 
-            pushFollow(FOLLOW_ruleState_in_rule__State__SubnodesAssignment_32792);
+            pushFollow(FOLLOW_ruleState_in_rule__State__SubnodesAssignment_32710);
             ruleState();
 
             state._fsp--;
@@ -3701,20 +3621,20 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__SubnodesAssignment_4"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1453:1: rule__State__SubnodesAssignment_4 : ( ruleConnector ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1402:1: rule__State__SubnodesAssignment_4 : ( ruleConnector ) ;
     public final void rule__State__SubnodesAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1457:1: ( ( ruleConnector ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1458:1: ( ruleConnector )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1406:1: ( ( ruleConnector ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1407:1: ( ruleConnector )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1458:1: ( ruleConnector )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1459:1: ruleConnector
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1407:1: ( ruleConnector )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1408:1: ruleConnector
             {
              before(grammarAccess.getStateAccess().getSubnodesConnectorParserRuleCall_4_0()); 
-            pushFollow(FOLLOW_ruleConnector_in_rule__State__SubnodesAssignment_42823);
+            pushFollow(FOLLOW_ruleConnector_in_rule__State__SubnodesAssignment_42741);
             ruleConnector();
 
             state._fsp--;
@@ -3742,20 +3662,20 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__TransitionsAssignment_5"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1468:1: rule__State__TransitionsAssignment_5 : ( ruleTransition ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1417:1: rule__State__TransitionsAssignment_5 : ( ruleTransition ) ;
     public final void rule__State__TransitionsAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1472:1: ( ( ruleTransition ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1473:1: ( ruleTransition )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1421:1: ( ( ruleTransition ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1422:1: ( ruleTransition )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1473:1: ( ruleTransition )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1474:1: ruleTransition
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1422:1: ( ruleTransition )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1423:1: ruleTransition
             {
              before(grammarAccess.getStateAccess().getTransitionsTransitionParserRuleCall_5_0()); 
-            pushFollow(FOLLOW_ruleTransition_in_rule__State__TransitionsAssignment_52854);
+            pushFollow(FOLLOW_ruleTransition_in_rule__State__TransitionsAssignment_52772);
             ruleTransition();
 
             state._fsp--;
@@ -3783,29 +3703,25 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__EntryAssignment_6_1"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1483:1: rule__State__EntryAssignment_6_1 : ( ( RULE_ID ) ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1432:1: rule__State__EntryAssignment_6_1 : ( ruleFunction ) ;
     public final void rule__State__EntryAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1487:1: ( ( ( RULE_ID ) ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1488:1: ( ( RULE_ID ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1436:1: ( ( ruleFunction ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1437:1: ( ruleFunction )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1488:1: ( ( RULE_ID ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1489:1: ( RULE_ID )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1437:1: ( ruleFunction )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1438:1: ruleFunction
             {
-             before(grammarAccess.getStateAccess().getEntryFunctionCrossReference_6_1_0()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1490:1: ( RULE_ID )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1491:1: RULE_ID
-            {
-             before(grammarAccess.getStateAccess().getEntryFunctionIDTerminalRuleCall_6_1_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__State__EntryAssignment_6_12889); 
-             after(grammarAccess.getStateAccess().getEntryFunctionIDTerminalRuleCall_6_1_0_1()); 
+             before(grammarAccess.getStateAccess().getEntryFunctionParserRuleCall_6_1_0()); 
+            pushFollow(FOLLOW_ruleFunction_in_rule__State__EntryAssignment_6_12803);
+            ruleFunction();
 
-            }
+            state._fsp--;
 
-             after(grammarAccess.getStateAccess().getEntryFunctionCrossReference_6_1_0()); 
+             after(grammarAccess.getStateAccess().getEntryFunctionParserRuleCall_6_1_0()); 
 
             }
 
@@ -3828,29 +3744,25 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__DooAssignment_7_1"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1502:1: rule__State__DooAssignment_7_1 : ( ( RULE_ID ) ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1447:1: rule__State__DooAssignment_7_1 : ( ruleFunction ) ;
     public final void rule__State__DooAssignment_7_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1506:1: ( ( ( RULE_ID ) ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1507:1: ( ( RULE_ID ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1451:1: ( ( ruleFunction ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1452:1: ( ruleFunction )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1507:1: ( ( RULE_ID ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1508:1: ( RULE_ID )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1452:1: ( ruleFunction )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1453:1: ruleFunction
             {
-             before(grammarAccess.getStateAccess().getDooFunctionCrossReference_7_1_0()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1509:1: ( RULE_ID )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1510:1: RULE_ID
-            {
-             before(grammarAccess.getStateAccess().getDooFunctionIDTerminalRuleCall_7_1_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__State__DooAssignment_7_12928); 
-             after(grammarAccess.getStateAccess().getDooFunctionIDTerminalRuleCall_7_1_0_1()); 
+             before(grammarAccess.getStateAccess().getDooFunctionParserRuleCall_7_1_0()); 
+            pushFollow(FOLLOW_ruleFunction_in_rule__State__DooAssignment_7_12834);
+            ruleFunction();
 
-            }
+            state._fsp--;
 
-             after(grammarAccess.getStateAccess().getDooFunctionCrossReference_7_1_0()); 
+             after(grammarAccess.getStateAccess().getDooFunctionParserRuleCall_7_1_0()); 
 
             }
 
@@ -3873,29 +3785,25 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__ExitAssignment_8_1"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1521:1: rule__State__ExitAssignment_8_1 : ( ( RULE_ID ) ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1462:1: rule__State__ExitAssignment_8_1 : ( ruleFunction ) ;
     public final void rule__State__ExitAssignment_8_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1525:1: ( ( ( RULE_ID ) ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1526:1: ( ( RULE_ID ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1466:1: ( ( ruleFunction ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1467:1: ( ruleFunction )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1526:1: ( ( RULE_ID ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1527:1: ( RULE_ID )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1467:1: ( ruleFunction )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1468:1: ruleFunction
             {
-             before(grammarAccess.getStateAccess().getExitFunctionCrossReference_8_1_0()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1528:1: ( RULE_ID )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1529:1: RULE_ID
-            {
-             before(grammarAccess.getStateAccess().getExitFunctionIDTerminalRuleCall_8_1_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__State__ExitAssignment_8_12967); 
-             after(grammarAccess.getStateAccess().getExitFunctionIDTerminalRuleCall_8_1_0_1()); 
+             before(grammarAccess.getStateAccess().getExitFunctionParserRuleCall_8_1_0()); 
+            pushFollow(FOLLOW_ruleFunction_in_rule__State__ExitAssignment_8_12865);
+            ruleFunction();
 
-            }
+            state._fsp--;
 
-             after(grammarAccess.getStateAccess().getExitFunctionCrossReference_8_1_0()); 
+             after(grammarAccess.getStateAccess().getExitFunctionParserRuleCall_8_1_0()); 
 
             }
 
@@ -3918,20 +3826,20 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Connector__NameAssignment_1"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1540:1: rule__Connector__NameAssignment_1 : ( RULE_ID ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1477:1: rule__Connector__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Connector__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1544:1: ( ( RULE_ID ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1545:1: ( RULE_ID )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1481:1: ( ( RULE_ID ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1482:1: ( RULE_ID )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1545:1: ( RULE_ID )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1546:1: RULE_ID
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1482:1: ( RULE_ID )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1483:1: RULE_ID
             {
              before(grammarAccess.getConnectorAccess().getNameIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Connector__NameAssignment_13002); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Connector__NameAssignment_12896); 
              after(grammarAccess.getConnectorAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
@@ -3955,24 +3863,24 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__SourceAssignment_2"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1555:1: rule__Transition__SourceAssignment_2 : ( ( RULE_ID ) ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1492:1: rule__Transition__SourceAssignment_2 : ( ( RULE_ID ) ) ;
     public final void rule__Transition__SourceAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1559:1: ( ( ( RULE_ID ) ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1560:1: ( ( RULE_ID ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1496:1: ( ( ( RULE_ID ) ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1497:1: ( ( RULE_ID ) )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1560:1: ( ( RULE_ID ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1561:1: ( RULE_ID )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1497:1: ( ( RULE_ID ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1498:1: ( RULE_ID )
             {
              before(grammarAccess.getTransitionAccess().getSourceNodeCrossReference_2_0()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1562:1: ( RULE_ID )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1563:1: RULE_ID
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1499:1: ( RULE_ID )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1500:1: RULE_ID
             {
              before(grammarAccess.getTransitionAccess().getSourceNodeIDTerminalRuleCall_2_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Transition__SourceAssignment_23037); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Transition__SourceAssignment_22931); 
              after(grammarAccess.getTransitionAccess().getSourceNodeIDTerminalRuleCall_2_0_1()); 
 
             }
@@ -4000,24 +3908,24 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__TargetAssignment_4"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1574:1: rule__Transition__TargetAssignment_4 : ( ( RULE_ID ) ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1511:1: rule__Transition__TargetAssignment_4 : ( ( RULE_ID ) ) ;
     public final void rule__Transition__TargetAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1578:1: ( ( ( RULE_ID ) ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1579:1: ( ( RULE_ID ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1515:1: ( ( ( RULE_ID ) ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1516:1: ( ( RULE_ID ) )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1579:1: ( ( RULE_ID ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1580:1: ( RULE_ID )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1516:1: ( ( RULE_ID ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1517:1: ( RULE_ID )
             {
              before(grammarAccess.getTransitionAccess().getTargetNodeCrossReference_4_0()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1581:1: ( RULE_ID )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1582:1: RULE_ID
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1518:1: ( RULE_ID )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1519:1: RULE_ID
             {
              before(grammarAccess.getTransitionAccess().getTargetNodeIDTerminalRuleCall_4_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Transition__TargetAssignment_43076); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Transition__TargetAssignment_42970); 
              after(grammarAccess.getTransitionAccess().getTargetNodeIDTerminalRuleCall_4_0_1()); 
 
             }
@@ -4045,29 +3953,25 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__EventsAssignment_5"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1593:1: rule__Transition__EventsAssignment_5 : ( ( RULE_ID ) ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1530:1: rule__Transition__EventsAssignment_5 : ( ruleEvent ) ;
     public final void rule__Transition__EventsAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1597:1: ( ( ( RULE_ID ) ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1598:1: ( ( RULE_ID ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1534:1: ( ( ruleEvent ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1535:1: ( ruleEvent )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1598:1: ( ( RULE_ID ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1599:1: ( RULE_ID )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1535:1: ( ruleEvent )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1536:1: ruleEvent
             {
-             before(grammarAccess.getTransitionAccess().getEventsEventCrossReference_5_0()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1600:1: ( RULE_ID )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1601:1: RULE_ID
-            {
-             before(grammarAccess.getTransitionAccess().getEventsEventIDTerminalRuleCall_5_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Transition__EventsAssignment_53115); 
-             after(grammarAccess.getTransitionAccess().getEventsEventIDTerminalRuleCall_5_0_1()); 
+             before(grammarAccess.getTransitionAccess().getEventsEventParserRuleCall_5_0()); 
+            pushFollow(FOLLOW_ruleEvent_in_rule__Transition__EventsAssignment_53005);
+            ruleEvent();
 
-            }
+            state._fsp--;
 
-             after(grammarAccess.getTransitionAccess().getEventsEventCrossReference_5_0()); 
+             after(grammarAccess.getTransitionAccess().getEventsEventParserRuleCall_5_0()); 
 
             }
 
@@ -4090,29 +3994,25 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__GuardAssignment_6_1"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1612:1: rule__Transition__GuardAssignment_6_1 : ( ( RULE_ID ) ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1545:1: rule__Transition__GuardAssignment_6_1 : ( ruleFunction ) ;
     public final void rule__Transition__GuardAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1616:1: ( ( ( RULE_ID ) ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1617:1: ( ( RULE_ID ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1549:1: ( ( ruleFunction ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1550:1: ( ruleFunction )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1617:1: ( ( RULE_ID ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1618:1: ( RULE_ID )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1550:1: ( ruleFunction )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1551:1: ruleFunction
             {
-             before(grammarAccess.getTransitionAccess().getGuardFunctionCrossReference_6_1_0()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1619:1: ( RULE_ID )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1620:1: RULE_ID
-            {
-             before(grammarAccess.getTransitionAccess().getGuardFunctionIDTerminalRuleCall_6_1_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Transition__GuardAssignment_6_13154); 
-             after(grammarAccess.getTransitionAccess().getGuardFunctionIDTerminalRuleCall_6_1_0_1()); 
+             before(grammarAccess.getTransitionAccess().getGuardFunctionParserRuleCall_6_1_0()); 
+            pushFollow(FOLLOW_ruleFunction_in_rule__Transition__GuardAssignment_6_13036);
+            ruleFunction();
 
-            }
+            state._fsp--;
 
-             after(grammarAccess.getTransitionAccess().getGuardFunctionCrossReference_6_1_0()); 
+             after(grammarAccess.getTransitionAccess().getGuardFunctionParserRuleCall_6_1_0()); 
 
             }
 
@@ -4135,29 +4035,25 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__EffectAssignment_7_1"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1631:1: rule__Transition__EffectAssignment_7_1 : ( ( RULE_ID ) ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1560:1: rule__Transition__EffectAssignment_7_1 : ( ruleFunction ) ;
     public final void rule__Transition__EffectAssignment_7_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1635:1: ( ( ( RULE_ID ) ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1636:1: ( ( RULE_ID ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1564:1: ( ( ruleFunction ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1565:1: ( ruleFunction )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1636:1: ( ( RULE_ID ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1637:1: ( RULE_ID )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1565:1: ( ruleFunction )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1566:1: ruleFunction
             {
-             before(grammarAccess.getTransitionAccess().getEffectFunctionCrossReference_7_1_0()); 
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1638:1: ( RULE_ID )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1639:1: RULE_ID
-            {
-             before(grammarAccess.getTransitionAccess().getEffectFunctionIDTerminalRuleCall_7_1_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Transition__EffectAssignment_7_13193); 
-             after(grammarAccess.getTransitionAccess().getEffectFunctionIDTerminalRuleCall_7_1_0_1()); 
+             before(grammarAccess.getTransitionAccess().getEffectFunctionParserRuleCall_7_1_0()); 
+            pushFollow(FOLLOW_ruleFunction_in_rule__Transition__EffectAssignment_7_13067);
+            ruleFunction();
 
-            }
+            state._fsp--;
 
-             after(grammarAccess.getTransitionAccess().getEffectFunctionCrossReference_7_1_0()); 
+             after(grammarAccess.getTransitionAccess().getEffectFunctionParserRuleCall_7_1_0()); 
 
             }
 
@@ -4180,20 +4076,20 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Priority_numberAssignment_8_1"
-    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1650:1: rule__Transition__Priority_numberAssignment_8_1 : ( RULE_INT ) ;
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1575:1: rule__Transition__Priority_numberAssignment_8_1 : ( RULE_INT ) ;
     public final void rule__Transition__Priority_numberAssignment_8_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1654:1: ( ( RULE_INT ) )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1655:1: ( RULE_INT )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1579:1: ( ( RULE_INT ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1580:1: ( RULE_INT )
             {
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1655:1: ( RULE_INT )
-            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1656:1: RULE_INT
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1580:1: ( RULE_INT )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1581:1: RULE_INT
             {
              before(grammarAccess.getTransitionAccess().getPriority_numberINTTerminalRuleCall_8_1_0()); 
-            match(input,RULE_INT,FOLLOW_RULE_INT_in_rule__Transition__Priority_numberAssignment_8_13228); 
+            match(input,RULE_INT,FOLLOW_RULE_INT_in_rule__Transition__Priority_numberAssignment_8_13098); 
              after(grammarAccess.getTransitionAccess().getPriority_numberINTTerminalRuleCall_8_1_0()); 
 
             }
@@ -4215,6 +4111,80 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
     }
     // $ANTLR end "rule__Transition__Priority_numberAssignment_8_1"
 
+
+    // $ANTLR start "rule__Event__EventliteralAssignment_1"
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1590:1: rule__Event__EventliteralAssignment_1 : ( RULE_STRING ) ;
+    public final void rule__Event__EventliteralAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1594:1: ( ( RULE_STRING ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1595:1: ( RULE_STRING )
+            {
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1595:1: ( RULE_STRING )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1596:1: RULE_STRING
+            {
+             before(grammarAccess.getEventAccess().getEventliteralSTRINGTerminalRuleCall_1_0()); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Event__EventliteralAssignment_13129); 
+             after(grammarAccess.getEventAccess().getEventliteralSTRINGTerminalRuleCall_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Event__EventliteralAssignment_1"
+
+
+    // $ANTLR start "rule__Function__SourcecodeAssignment"
+    // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1605:1: rule__Function__SourcecodeAssignment : ( RULE_STRING ) ;
+    public final void rule__Function__SourcecodeAssignment() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1609:1: ( ( RULE_STRING ) )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1610:1: ( RULE_STRING )
+            {
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1610:1: ( RULE_STRING )
+            // ../be.kuleuven.rodinia.dsl.rfsm.ui/src-gen/be/kuleuven/rodinia/dsl/ui/contentassist/antlr/internal/InternalRfsm.g:1611:1: RULE_STRING
+            {
+             before(grammarAccess.getFunctionAccess().getSourcecodeSTRINGTerminalRuleCall_0()); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Function__SourcecodeAssignment3160); 
+             after(grammarAccess.getFunctionAccess().getSourcecodeSTRINGTerminalRuleCall_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Function__SourcecodeAssignment"
+
     // Delegated rules
 
 
@@ -4229,130 +4199,128 @@ public class InternalRfsmParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_ruleTransition_in_entryRuleTransition181 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleTransition188 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Transition__Group__0_in_ruleTransition214 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__Group__0__Impl_in_rule__State__Group__0252 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__State__Group__1_in_rule__State__Group__0255 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_11_in_rule__State__Group__0__Impl283 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__Group__1__Impl_in_rule__State__Group__1314 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_rule__State__Group__2_in_rule__State__Group__1317 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__NameAssignment_1_in_rule__State__Group__1__Impl344 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__Group__2__Impl_in_rule__State__Group__2374 = new BitSet(new long[]{0x0000000000036800L});
-    public static final BitSet FOLLOW_rule__State__Group__3_in_rule__State__Group__2377 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_12_in_rule__State__Group__2__Impl405 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__Group__3__Impl_in_rule__State__Group__3436 = new BitSet(new long[]{0x0000000000036800L});
-    public static final BitSet FOLLOW_rule__State__Group__4_in_rule__State__Group__3439 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__SubnodesAssignment_3_in_rule__State__Group__3__Impl466 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_rule__State__Group__4__Impl_in_rule__State__Group__4497 = new BitSet(new long[]{0x0000000000036800L});
-    public static final BitSet FOLLOW_rule__State__Group__5_in_rule__State__Group__4500 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__SubnodesAssignment_4_in_rule__State__Group__4__Impl527 = new BitSet(new long[]{0x0000000000010002L});
-    public static final BitSet FOLLOW_rule__State__Group__5__Impl_in_rule__State__Group__5558 = new BitSet(new long[]{0x0000000000036800L});
-    public static final BitSet FOLLOW_rule__State__Group__6_in_rule__State__Group__5561 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__TransitionsAssignment_5_in_rule__State__Group__5__Impl588 = new BitSet(new long[]{0x0000000000020002L});
-    public static final BitSet FOLLOW_rule__State__Group__6__Impl_in_rule__State__Group__6619 = new BitSet(new long[]{0x0000000000036800L});
-    public static final BitSet FOLLOW_rule__State__Group__7_in_rule__State__Group__6622 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__Group_6__0_in_rule__State__Group__6__Impl649 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__Group__7__Impl_in_rule__State__Group__7680 = new BitSet(new long[]{0x0000000000036800L});
-    public static final BitSet FOLLOW_rule__State__Group__8_in_rule__State__Group__7683 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__Group_7__0_in_rule__State__Group__7__Impl710 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__Group__8__Impl_in_rule__State__Group__8741 = new BitSet(new long[]{0x0000000000036800L});
-    public static final BitSet FOLLOW_rule__State__Group__9_in_rule__State__Group__8744 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__Group_8__0_in_rule__State__Group__8__Impl771 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__Group__9__Impl_in_rule__State__Group__9802 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_rule__State__Group__9__Impl830 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__Group_6__0__Impl_in_rule__State__Group_6__0881 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__State__Group_6__1_in_rule__State__Group_6__0884 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_rule__State__Group_6__0__Impl912 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__Group_6__1__Impl_in_rule__State__Group_6__1943 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_rule__State__Group_6__2_in_rule__State__Group_6__1946 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__EntryAssignment_6_1_in_rule__State__Group_6__1__Impl973 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__Group_6__2__Impl_in_rule__State__Group_6__21003 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_rule__State__Group_6__2__Impl1031 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__Group_7__0__Impl_in_rule__State__Group_7__01068 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__State__Group_7__1_in_rule__State__Group_7__01071 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_rule__State__Group_7__0__Impl1099 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__Group_7__1__Impl_in_rule__State__Group_7__11130 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_rule__State__Group_7__2_in_rule__State__Group_7__11133 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__DooAssignment_7_1_in_rule__State__Group_7__1__Impl1160 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__Group_7__2__Impl_in_rule__State__Group_7__21190 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_rule__State__Group_7__2__Impl1218 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__Group_8__0__Impl_in_rule__State__Group_8__01255 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__State__Group_8__1_in_rule__State__Group_8__01258 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_rule__State__Group_8__0__Impl1286 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__Group_8__1__Impl_in_rule__State__Group_8__11317 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_rule__State__Group_8__2_in_rule__State__Group_8__11320 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__ExitAssignment_8_1_in_rule__State__Group_8__1__Impl1347 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__Group_8__2__Impl_in_rule__State__Group_8__21377 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_rule__State__Group_8__2__Impl1405 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Connector__Group__0__Impl_in_rule__Connector__Group__01442 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Connector__Group__1_in_rule__Connector__Group__01445 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_rule__Connector__Group__0__Impl1473 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Connector__Group__1__Impl_in_rule__Connector__Group__11504 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_rule__Connector__Group__2_in_rule__Connector__Group__11507 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Connector__NameAssignment_1_in_rule__Connector__Group__1__Impl1534 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Connector__Group__2__Impl_in_rule__Connector__Group__21564 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_rule__Connector__Group__3_in_rule__Connector__Group__21567 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_12_in_rule__Connector__Group__2__Impl1595 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Connector__Group__3__Impl_in_rule__Connector__Group__31626 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_rule__Connector__Group__3__Impl1654 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Transition__Group__0__Impl_in_rule__Transition__Group__01693 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_rule__Transition__Group__1_in_rule__Transition__Group__01696 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_rule__Transition__Group__0__Impl1724 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Transition__Group__1__Impl_in_rule__Transition__Group__11755 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Transition__Group__2_in_rule__Transition__Group__11758 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_rule__Transition__Group__1__Impl1786 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Transition__Group__2__Impl_in_rule__Transition__Group__21817 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_rule__Transition__Group__3_in_rule__Transition__Group__21820 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Transition__SourceAssignment_2_in_rule__Transition__Group__2__Impl1847 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Transition__Group__3__Impl_in_rule__Transition__Group__31877 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Transition__Group__4_in_rule__Transition__Group__31880 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_rule__Transition__Group__3__Impl1908 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Transition__Group__4__Impl_in_rule__Transition__Group__41939 = new BitSet(new long[]{0x0000000000700010L});
-    public static final BitSet FOLLOW_rule__Transition__Group__5_in_rule__Transition__Group__41942 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Transition__TargetAssignment_4_in_rule__Transition__Group__4__Impl1969 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Transition__Group__5__Impl_in_rule__Transition__Group__51999 = new BitSet(new long[]{0x0000000000700010L});
-    public static final BitSet FOLLOW_rule__Transition__Group__6_in_rule__Transition__Group__52002 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Transition__EventsAssignment_5_in_rule__Transition__Group__5__Impl2029 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_rule__Transition__Group__6__Impl_in_rule__Transition__Group__62060 = new BitSet(new long[]{0x0000000000700010L});
-    public static final BitSet FOLLOW_rule__Transition__Group__7_in_rule__Transition__Group__62063 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Transition__Group_6__0_in_rule__Transition__Group__6__Impl2090 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Transition__Group__7__Impl_in_rule__Transition__Group__72121 = new BitSet(new long[]{0x0000000000700010L});
-    public static final BitSet FOLLOW_rule__Transition__Group__8_in_rule__Transition__Group__72124 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Transition__Group_7__0_in_rule__Transition__Group__7__Impl2151 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Transition__Group__8__Impl_in_rule__Transition__Group__82182 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Transition__Group_8__0_in_rule__Transition__Group__8__Impl2209 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Transition__Group_6__0__Impl_in_rule__Transition__Group_6__02258 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Transition__Group_6__1_in_rule__Transition__Group_6__02261 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_rule__Transition__Group_6__0__Impl2289 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Transition__Group_6__1__Impl_in_rule__Transition__Group_6__12320 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_rule__Transition__Group_6__2_in_rule__Transition__Group_6__12323 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Transition__GuardAssignment_6_1_in_rule__Transition__Group_6__1__Impl2350 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Transition__Group_6__2__Impl_in_rule__Transition__Group_6__22380 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_rule__Transition__Group_6__2__Impl2408 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Transition__Group_7__0__Impl_in_rule__Transition__Group_7__02445 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Transition__Group_7__1_in_rule__Transition__Group_7__02448 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_rule__Transition__Group_7__0__Impl2476 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Transition__Group_7__1__Impl_in_rule__Transition__Group_7__12507 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_rule__Transition__Group_7__2_in_rule__Transition__Group_7__12510 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Transition__EffectAssignment_7_1_in_rule__Transition__Group_7__1__Impl2537 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Transition__Group_7__2__Impl_in_rule__Transition__Group_7__22567 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_rule__Transition__Group_7__2__Impl2595 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Transition__Group_8__0__Impl_in_rule__Transition__Group_8__02632 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__Transition__Group_8__1_in_rule__Transition__Group_8__02635 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_rule__Transition__Group_8__0__Impl2663 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Transition__Group_8__1__Impl_in_rule__Transition__Group_8__12694 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Transition__Priority_numberAssignment_8_1_in_rule__Transition__Group_8__1__Impl2721 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__State__NameAssignment_12761 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleState_in_rule__State__SubnodesAssignment_32792 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConnector_in_rule__State__SubnodesAssignment_42823 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTransition_in_rule__State__TransitionsAssignment_52854 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__State__EntryAssignment_6_12889 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__State__DooAssignment_7_12928 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__State__ExitAssignment_8_12967 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Connector__NameAssignment_13002 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Transition__SourceAssignment_23037 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Transition__TargetAssignment_43076 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Transition__EventsAssignment_53115 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Transition__GuardAssignment_6_13154 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Transition__EffectAssignment_7_13193 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_rule__Transition__Priority_numberAssignment_8_13228 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEvent_in_entryRuleEvent241 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleEvent248 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Event__Group__0_in_ruleEvent274 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFunction_in_entryRuleFunction301 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFunction308 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__SourcecodeAssignment_in_ruleFunction334 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__State__Group__0__Impl_in_rule__State__Group__0368 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__State__Group__1_in_rule__State__Group__0371 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_11_in_rule__State__Group__0__Impl399 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__State__Group__1__Impl_in_rule__State__Group__1430 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_rule__State__Group__2_in_rule__State__Group__1433 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__State__NameAssignment_1_in_rule__State__Group__1__Impl460 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__State__Group__2__Impl_in_rule__State__Group__2490 = new BitSet(new long[]{0x000000000007E800L});
+    public static final BitSet FOLLOW_rule__State__Group__3_in_rule__State__Group__2493 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_12_in_rule__State__Group__2__Impl521 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__State__Group__3__Impl_in_rule__State__Group__3552 = new BitSet(new long[]{0x000000000007E800L});
+    public static final BitSet FOLLOW_rule__State__Group__4_in_rule__State__Group__3555 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__State__SubnodesAssignment_3_in_rule__State__Group__3__Impl582 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_rule__State__Group__4__Impl_in_rule__State__Group__4613 = new BitSet(new long[]{0x000000000007E800L});
+    public static final BitSet FOLLOW_rule__State__Group__5_in_rule__State__Group__4616 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__State__SubnodesAssignment_4_in_rule__State__Group__4__Impl643 = new BitSet(new long[]{0x0000000000020002L});
+    public static final BitSet FOLLOW_rule__State__Group__5__Impl_in_rule__State__Group__5674 = new BitSet(new long[]{0x000000000007E800L});
+    public static final BitSet FOLLOW_rule__State__Group__6_in_rule__State__Group__5677 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__State__TransitionsAssignment_5_in_rule__State__Group__5__Impl704 = new BitSet(new long[]{0x0000000000040002L});
+    public static final BitSet FOLLOW_rule__State__Group__6__Impl_in_rule__State__Group__6735 = new BitSet(new long[]{0x000000000007E800L});
+    public static final BitSet FOLLOW_rule__State__Group__7_in_rule__State__Group__6738 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__State__Group_6__0_in_rule__State__Group__6__Impl765 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__State__Group__7__Impl_in_rule__State__Group__7796 = new BitSet(new long[]{0x000000000007E800L});
+    public static final BitSet FOLLOW_rule__State__Group__8_in_rule__State__Group__7799 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__State__Group_7__0_in_rule__State__Group__7__Impl826 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__State__Group__8__Impl_in_rule__State__Group__8857 = new BitSet(new long[]{0x000000000007E800L});
+    public static final BitSet FOLLOW_rule__State__Group__9_in_rule__State__Group__8860 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__State__Group_8__0_in_rule__State__Group__8__Impl887 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__State__Group__9__Impl_in_rule__State__Group__9918 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rule__State__Group__9__Impl946 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__State__Group_6__0__Impl_in_rule__State__Group_6__0997 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_rule__State__Group_6__1_in_rule__State__Group_6__01000 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_rule__State__Group_6__0__Impl1028 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__State__Group_6__1__Impl_in_rule__State__Group_6__11059 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__State__EntryAssignment_6_1_in_rule__State__Group_6__1__Impl1086 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__State__Group_7__0__Impl_in_rule__State__Group_7__01120 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_rule__State__Group_7__1_in_rule__State__Group_7__01123 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_15_in_rule__State__Group_7__0__Impl1151 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__State__Group_7__1__Impl_in_rule__State__Group_7__11182 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__State__DooAssignment_7_1_in_rule__State__Group_7__1__Impl1209 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__State__Group_8__0__Impl_in_rule__State__Group_8__01243 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_rule__State__Group_8__1_in_rule__State__Group_8__01246 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_16_in_rule__State__Group_8__0__Impl1274 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__State__Group_8__1__Impl_in_rule__State__Group_8__11305 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__State__ExitAssignment_8_1_in_rule__State__Group_8__1__Impl1332 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Connector__Group__0__Impl_in_rule__Connector__Group__01366 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Connector__Group__1_in_rule__Connector__Group__01369 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_rule__Connector__Group__0__Impl1397 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Connector__Group__1__Impl_in_rule__Connector__Group__11428 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_rule__Connector__Group__2_in_rule__Connector__Group__11431 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Connector__NameAssignment_1_in_rule__Connector__Group__1__Impl1458 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Connector__Group__2__Impl_in_rule__Connector__Group__21488 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_rule__Connector__Group__3_in_rule__Connector__Group__21491 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_12_in_rule__Connector__Group__2__Impl1519 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Connector__Group__3__Impl_in_rule__Connector__Group__31550 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rule__Connector__Group__3__Impl1578 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Transition__Group__0__Impl_in_rule__Transition__Group__01617 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_rule__Transition__Group__1_in_rule__Transition__Group__01620 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_rule__Transition__Group__0__Impl1648 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Transition__Group__1__Impl_in_rule__Transition__Group__11679 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Transition__Group__2_in_rule__Transition__Group__11682 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__Transition__Group__1__Impl1710 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Transition__Group__2__Impl_in_rule__Transition__Group__21741 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_rule__Transition__Group__3_in_rule__Transition__Group__21744 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Transition__SourceAssignment_2_in_rule__Transition__Group__2__Impl1771 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Transition__Group__3__Impl_in_rule__Transition__Group__31801 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Transition__Group__4_in_rule__Transition__Group__31804 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_20_in_rule__Transition__Group__3__Impl1832 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Transition__Group__4__Impl_in_rule__Transition__Group__41863 = new BitSet(new long[]{0x0000000001E00000L});
+    public static final BitSet FOLLOW_rule__Transition__Group__5_in_rule__Transition__Group__41866 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Transition__TargetAssignment_4_in_rule__Transition__Group__4__Impl1893 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Transition__Group__5__Impl_in_rule__Transition__Group__51923 = new BitSet(new long[]{0x0000000001E00000L});
+    public static final BitSet FOLLOW_rule__Transition__Group__6_in_rule__Transition__Group__51926 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Transition__EventsAssignment_5_in_rule__Transition__Group__5__Impl1953 = new BitSet(new long[]{0x0000000001000002L});
+    public static final BitSet FOLLOW_rule__Transition__Group__6__Impl_in_rule__Transition__Group__61984 = new BitSet(new long[]{0x0000000001E00000L});
+    public static final BitSet FOLLOW_rule__Transition__Group__7_in_rule__Transition__Group__61987 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Transition__Group_6__0_in_rule__Transition__Group__6__Impl2014 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Transition__Group__7__Impl_in_rule__Transition__Group__72045 = new BitSet(new long[]{0x0000000001E00000L});
+    public static final BitSet FOLLOW_rule__Transition__Group__8_in_rule__Transition__Group__72048 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Transition__Group_7__0_in_rule__Transition__Group__7__Impl2075 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Transition__Group__8__Impl_in_rule__Transition__Group__82106 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Transition__Group_8__0_in_rule__Transition__Group__8__Impl2133 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Transition__Group_6__0__Impl_in_rule__Transition__Group_6__02182 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_rule__Transition__Group_6__1_in_rule__Transition__Group_6__02185 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_21_in_rule__Transition__Group_6__0__Impl2213 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Transition__Group_6__1__Impl_in_rule__Transition__Group_6__12244 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Transition__GuardAssignment_6_1_in_rule__Transition__Group_6__1__Impl2271 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Transition__Group_7__0__Impl_in_rule__Transition__Group_7__02305 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_rule__Transition__Group_7__1_in_rule__Transition__Group_7__02308 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_rule__Transition__Group_7__0__Impl2336 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Transition__Group_7__1__Impl_in_rule__Transition__Group_7__12367 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Transition__EffectAssignment_7_1_in_rule__Transition__Group_7__1__Impl2394 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Transition__Group_8__0__Impl_in_rule__Transition__Group_8__02428 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__Transition__Group_8__1_in_rule__Transition__Group_8__02431 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_23_in_rule__Transition__Group_8__0__Impl2459 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Transition__Group_8__1__Impl_in_rule__Transition__Group_8__12490 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Transition__Priority_numberAssignment_8_1_in_rule__Transition__Group_8__1__Impl2517 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Event__Group__0__Impl_in_rule__Event__Group__02551 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_rule__Event__Group__1_in_rule__Event__Group__02554 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_24_in_rule__Event__Group__0__Impl2582 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Event__Group__1__Impl_in_rule__Event__Group__12613 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Event__EventliteralAssignment_1_in_rule__Event__Group__1__Impl2640 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__State__NameAssignment_12679 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleState_in_rule__State__SubnodesAssignment_32710 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConnector_in_rule__State__SubnodesAssignment_42741 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTransition_in_rule__State__TransitionsAssignment_52772 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFunction_in_rule__State__EntryAssignment_6_12803 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFunction_in_rule__State__DooAssignment_7_12834 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFunction_in_rule__State__ExitAssignment_8_12865 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Connector__NameAssignment_12896 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Transition__SourceAssignment_22931 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Transition__TargetAssignment_42970 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEvent_in_rule__Transition__EventsAssignment_53005 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFunction_in_rule__Transition__GuardAssignment_6_13036 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFunction_in_rule__Transition__EffectAssignment_7_13067 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_rule__Transition__Priority_numberAssignment_8_13098 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Event__EventliteralAssignment_13129 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Function__SourcecodeAssignment3160 = new BitSet(new long[]{0x0000000000000002L});
 
 }

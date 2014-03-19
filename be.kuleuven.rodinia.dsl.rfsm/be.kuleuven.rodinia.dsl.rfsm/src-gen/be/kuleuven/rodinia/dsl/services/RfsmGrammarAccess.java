@@ -34,31 +34,25 @@ public class RfsmGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cEntryKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cEntryAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final CrossReference cEntryFunctionCrossReference_6_1_0 = (CrossReference)cEntryAssignment_6_1.eContents().get(0);
-		private final RuleCall cEntryFunctionIDTerminalRuleCall_6_1_0_1 = (RuleCall)cEntryFunctionCrossReference_6_1_0.eContents().get(1);
-		private final Keyword cHyphenMinusRightSquareBracketRightCurlyBracketKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
+		private final RuleCall cEntryFunctionParserRuleCall_6_1_0 = (RuleCall)cEntryAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cEntryKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Keyword cDooKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cDooAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final CrossReference cDooFunctionCrossReference_7_1_0 = (CrossReference)cDooAssignment_7_1.eContents().get(0);
-		private final RuleCall cDooFunctionIDTerminalRuleCall_7_1_0_1 = (RuleCall)cDooFunctionCrossReference_7_1_0.eContents().get(1);
-		private final Keyword cHyphenMinusRightSquareBracketRightCurlyBracketKeyword_7_2 = (Keyword)cGroup_7.eContents().get(2);
+		private final RuleCall cDooFunctionParserRuleCall_7_1_0 = (RuleCall)cDooAssignment_7_1.eContents().get(0);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cEntryKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Keyword cExitKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cExitAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final CrossReference cExitFunctionCrossReference_8_1_0 = (CrossReference)cExitAssignment_8_1.eContents().get(0);
-		private final RuleCall cExitFunctionIDTerminalRuleCall_8_1_0_1 = (RuleCall)cExitFunctionCrossReference_8_1_0.eContents().get(1);
-		private final Keyword cHyphenMinusRightSquareBracketRightCurlyBracketKeyword_8_2 = (Keyword)cGroup_8.eContents().get(2);
+		private final RuleCall cExitFunctionParserRuleCall_8_1_0 = (RuleCall)cExitAssignment_8_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		////this grammar is only for testing purposes!!
 		//State:
-		//	"state" name=ID "{" subnodes+=State* subnodes+=Connector* transitions+=Transition* ("entry: {[-" entry=[Function]
-		//	"-]}")? ("entry: {[-" doo=[Function] "-]}")? ("entry: {[-" exit=[Function] "-]}")? "}";
+		//	"state" name=ID "{" subnodes+=State* subnodes+=Connector* transitions+=Transition* ("entry:" entry=Function)? ("doo:"
+		//	doo=Function)? ("exit:" exit=Function)? "}";
 		public ParserRule getRule() { return rule; }
 
-		//"state" name=ID "{" subnodes+=State* subnodes+=Connector* transitions+=Transition* ("entry: {[-" entry=[Function]
-		//"-]}")? ("entry: {[-" doo=[Function] "-]}")? ("entry: {[-" exit=[Function] "-]}")? "}"
+		//"state" name=ID "{" subnodes+=State* subnodes+=Connector* transitions+=Transition* ("entry:" entry=Function)? ("doo:"
+		//doo=Function)? ("exit:" exit=Function)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"state"
@@ -91,59 +85,41 @@ public class RfsmGrammarAccess extends AbstractGrammarElementFinder {
 		//Transition
 		public RuleCall getTransitionsTransitionParserRuleCall_5_0() { return cTransitionsTransitionParserRuleCall_5_0; }
 
-		//("entry: {[-" entry=[Function] "-]}")?
+		//("entry:" entry=Function)?
 		public Group getGroup_6() { return cGroup_6; }
 
-		//"entry: {[-"
+		//"entry:"
 		public Keyword getEntryKeyword_6_0() { return cEntryKeyword_6_0; }
 
-		//entry=[Function]
+		//entry=Function
 		public Assignment getEntryAssignment_6_1() { return cEntryAssignment_6_1; }
 
-		//[Function]
-		public CrossReference getEntryFunctionCrossReference_6_1_0() { return cEntryFunctionCrossReference_6_1_0; }
+		//Function
+		public RuleCall getEntryFunctionParserRuleCall_6_1_0() { return cEntryFunctionParserRuleCall_6_1_0; }
 
-		//ID
-		public RuleCall getEntryFunctionIDTerminalRuleCall_6_1_0_1() { return cEntryFunctionIDTerminalRuleCall_6_1_0_1; }
-
-		//"-]}"
-		public Keyword getHyphenMinusRightSquareBracketRightCurlyBracketKeyword_6_2() { return cHyphenMinusRightSquareBracketRightCurlyBracketKeyword_6_2; }
-
-		//("entry: {[-" doo=[Function] "-]}")?
+		//("doo:" doo=Function)?
 		public Group getGroup_7() { return cGroup_7; }
 
-		//"entry: {[-"
-		public Keyword getEntryKeyword_7_0() { return cEntryKeyword_7_0; }
+		//"doo:"
+		public Keyword getDooKeyword_7_0() { return cDooKeyword_7_0; }
 
-		//doo=[Function]
+		//doo=Function
 		public Assignment getDooAssignment_7_1() { return cDooAssignment_7_1; }
 
-		//[Function]
-		public CrossReference getDooFunctionCrossReference_7_1_0() { return cDooFunctionCrossReference_7_1_0; }
+		//Function
+		public RuleCall getDooFunctionParserRuleCall_7_1_0() { return cDooFunctionParserRuleCall_7_1_0; }
 
-		//ID
-		public RuleCall getDooFunctionIDTerminalRuleCall_7_1_0_1() { return cDooFunctionIDTerminalRuleCall_7_1_0_1; }
-
-		//"-]}"
-		public Keyword getHyphenMinusRightSquareBracketRightCurlyBracketKeyword_7_2() { return cHyphenMinusRightSquareBracketRightCurlyBracketKeyword_7_2; }
-
-		//("entry: {[-" exit=[Function] "-]}")?
+		//("exit:" exit=Function)?
 		public Group getGroup_8() { return cGroup_8; }
 
-		//"entry: {[-"
-		public Keyword getEntryKeyword_8_0() { return cEntryKeyword_8_0; }
+		//"exit:"
+		public Keyword getExitKeyword_8_0() { return cExitKeyword_8_0; }
 
-		//exit=[Function]
+		//exit=Function
 		public Assignment getExitAssignment_8_1() { return cExitAssignment_8_1; }
 
-		//[Function]
-		public CrossReference getExitFunctionCrossReference_8_1_0() { return cExitFunctionCrossReference_8_1_0; }
-
-		//ID
-		public RuleCall getExitFunctionIDTerminalRuleCall_8_1_0_1() { return cExitFunctionIDTerminalRuleCall_8_1_0_1; }
-
-		//"-]}"
-		public Keyword getHyphenMinusRightSquareBracketRightCurlyBracketKeyword_8_2() { return cHyphenMinusRightSquareBracketRightCurlyBracketKeyword_8_2; }
+		//Function
+		public RuleCall getExitFunctionParserRuleCall_8_1_0() { return cExitFunctionParserRuleCall_8_1_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
@@ -194,32 +170,27 @@ public class RfsmGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cTargetNodeCrossReference_4_0 = (CrossReference)cTargetAssignment_4.eContents().get(0);
 		private final RuleCall cTargetNodeIDTerminalRuleCall_4_0_1 = (RuleCall)cTargetNodeCrossReference_4_0.eContents().get(1);
 		private final Assignment cEventsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final CrossReference cEventsEventCrossReference_5_0 = (CrossReference)cEventsAssignment_5.eContents().get(0);
-		private final RuleCall cEventsEventIDTerminalRuleCall_5_0_1 = (RuleCall)cEventsEventCrossReference_5_0.eContents().get(1);
+		private final RuleCall cEventsEventParserRuleCall_5_0 = (RuleCall)cEventsAssignment_5.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cGuardKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cGuardAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final CrossReference cGuardFunctionCrossReference_6_1_0 = (CrossReference)cGuardAssignment_6_1.eContents().get(0);
-		private final RuleCall cGuardFunctionIDTerminalRuleCall_6_1_0_1 = (RuleCall)cGuardFunctionCrossReference_6_1_0.eContents().get(1);
-		private final Keyword cHyphenMinusRightSquareBracketRightCurlyBracketKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
+		private final RuleCall cGuardFunctionParserRuleCall_6_1_0 = (RuleCall)cGuardAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cEffectKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cEffectAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final CrossReference cEffectFunctionCrossReference_7_1_0 = (CrossReference)cEffectAssignment_7_1.eContents().get(0);
-		private final RuleCall cEffectFunctionIDTerminalRuleCall_7_1_0_1 = (RuleCall)cEffectFunctionCrossReference_7_1_0.eContents().get(1);
-		private final Keyword cHyphenMinusRightSquareBracketRightCurlyBracketKeyword_7_2 = (Keyword)cGroup_7.eContents().get(2);
+		private final RuleCall cEffectFunctionParserRuleCall_7_1_0 = (RuleCall)cEffectAssignment_7_1.eContents().get(0);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cPriorityKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cPriority_numberAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
 		private final RuleCall cPriority_numberINTTerminalRuleCall_8_1_0 = (RuleCall)cPriority_numberAssignment_8_1.eContents().get(0);
 		
 		//Transition:
-		//	"transition" "from" source=[Node] "to" target=[Node] events+=[Event]* ("guard: {[-" guard=[Function] "-]}")?
-		//	("effect: {[-" effect=[Function] "-]}")? ("priority" priority_number=INT)?;
+		//	"transition" "from" source=[Node] "to" target=[Node] events+=Event* ("guard:" guard=Function)? ("effect:"
+		//	effect=Function)? ("priority" priority_number=INT)?;
 		public ParserRule getRule() { return rule; }
 
-		//"transition" "from" source=[Node] "to" target=[Node] events+=[Event]* ("guard: {[-" guard=[Function] "-]}")?
-		//("effect: {[-" effect=[Function] "-]}")? ("priority" priority_number=INT)?
+		//"transition" "from" source=[Node] "to" target=[Node] events+=Event* ("guard:" guard=Function)? ("effect:"
+		//effect=Function)? ("priority" priority_number=INT)?
 		public Group getGroup() { return cGroup; }
 
 		//"transition"
@@ -249,50 +220,35 @@ public class RfsmGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getTargetNodeIDTerminalRuleCall_4_0_1() { return cTargetNodeIDTerminalRuleCall_4_0_1; }
 
-		//events+=[Event]*
+		//events+=Event*
 		public Assignment getEventsAssignment_5() { return cEventsAssignment_5; }
 
-		//[Event]
-		public CrossReference getEventsEventCrossReference_5_0() { return cEventsEventCrossReference_5_0; }
+		//Event
+		public RuleCall getEventsEventParserRuleCall_5_0() { return cEventsEventParserRuleCall_5_0; }
 
-		//ID
-		public RuleCall getEventsEventIDTerminalRuleCall_5_0_1() { return cEventsEventIDTerminalRuleCall_5_0_1; }
-
-		//("guard: {[-" guard=[Function] "-]}")?
+		//("guard:" guard=Function)?
 		public Group getGroup_6() { return cGroup_6; }
 
-		//"guard: {[-"
+		//"guard:"
 		public Keyword getGuardKeyword_6_0() { return cGuardKeyword_6_0; }
 
-		//guard=[Function]
+		//guard=Function
 		public Assignment getGuardAssignment_6_1() { return cGuardAssignment_6_1; }
 
-		//[Function]
-		public CrossReference getGuardFunctionCrossReference_6_1_0() { return cGuardFunctionCrossReference_6_1_0; }
+		//Function
+		public RuleCall getGuardFunctionParserRuleCall_6_1_0() { return cGuardFunctionParserRuleCall_6_1_0; }
 
-		//ID
-		public RuleCall getGuardFunctionIDTerminalRuleCall_6_1_0_1() { return cGuardFunctionIDTerminalRuleCall_6_1_0_1; }
-
-		//"-]}"
-		public Keyword getHyphenMinusRightSquareBracketRightCurlyBracketKeyword_6_2() { return cHyphenMinusRightSquareBracketRightCurlyBracketKeyword_6_2; }
-
-		//("effect: {[-" effect=[Function] "-]}")?
+		//("effect:" effect=Function)?
 		public Group getGroup_7() { return cGroup_7; }
 
-		//"effect: {[-"
+		//"effect:"
 		public Keyword getEffectKeyword_7_0() { return cEffectKeyword_7_0; }
 
-		//effect=[Function]
+		//effect=Function
 		public Assignment getEffectAssignment_7_1() { return cEffectAssignment_7_1; }
 
-		//[Function]
-		public CrossReference getEffectFunctionCrossReference_7_1_0() { return cEffectFunctionCrossReference_7_1_0; }
-
-		//ID
-		public RuleCall getEffectFunctionIDTerminalRuleCall_7_1_0_1() { return cEffectFunctionIDTerminalRuleCall_7_1_0_1; }
-
-		//"-]}"
-		public Keyword getHyphenMinusRightSquareBracketRightCurlyBracketKeyword_7_2() { return cHyphenMinusRightSquareBracketRightCurlyBracketKeyword_7_2; }
+		//Function
+		public RuleCall getEffectFunctionParserRuleCall_7_1_0() { return cEffectFunctionParserRuleCall_7_1_0; }
 
 		//("priority" priority_number=INT)?
 		public Group getGroup_8() { return cGroup_8; }
@@ -310,19 +266,19 @@ public class RfsmGrammarAccess extends AbstractGrammarElementFinder {
 	public class EventElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Event");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cOnKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cOneventKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cEventliteralAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cEventliteralSTRINGTerminalRuleCall_1_0 = (RuleCall)cEventliteralAssignment_1.eContents().get(0);
 		
 		//Event:
-		//	"on" eventliteral=STRING;
+		//	"onevent" eventliteral=STRING;
 		public ParserRule getRule() { return rule; }
 
-		//"on" eventliteral=STRING
+		//"onevent" eventliteral=STRING
 		public Group getGroup() { return cGroup; }
 
-		//"on"
-		public Keyword getOnKeyword_0() { return cOnKeyword_0; }
+		//"onevent"
+		public Keyword getOneventKeyword_0() { return cOneventKeyword_0; }
 
 		//eventliteral=STRING
 		public Assignment getEventliteralAssignment_1() { return cEventliteralAssignment_1; }
@@ -394,8 +350,8 @@ public class RfsmGrammarAccess extends AbstractGrammarElementFinder {
 	
 	////this grammar is only for testing purposes!!
 	//State:
-	//	"state" name=ID "{" subnodes+=State* subnodes+=Connector* transitions+=Transition* ("entry: {[-" entry=[Function]
-	//	"-]}")? ("entry: {[-" doo=[Function] "-]}")? ("entry: {[-" exit=[Function] "-]}")? "}";
+	//	"state" name=ID "{" subnodes+=State* subnodes+=Connector* transitions+=Transition* ("entry:" entry=Function)? ("doo:"
+	//	doo=Function)? ("exit:" exit=Function)? "}";
 	public StateElements getStateAccess() {
 		return (pState != null) ? pState : (pState = new StateElements());
 	}
@@ -415,8 +371,8 @@ public class RfsmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Transition:
-	//	"transition" "from" source=[Node] "to" target=[Node] events+=[Event]* ("guard: {[-" guard=[Function] "-]}")?
-	//	("effect: {[-" effect=[Function] "-]}")? ("priority" priority_number=INT)?;
+	//	"transition" "from" source=[Node] "to" target=[Node] events+=Event* ("guard:" guard=Function)? ("effect:"
+	//	effect=Function)? ("priority" priority_number=INT)?;
 	public TransitionElements getTransitionAccess() {
 		return (pTransition != null) ? pTransition : (pTransition = new TransitionElements());
 	}
@@ -426,7 +382,7 @@ public class RfsmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Event:
-	//	"on" eventliteral=STRING;
+	//	"onevent" eventliteral=STRING;
 	public EventElements getEventAccess() {
 		return (pEvent != null) ? pEvent : (pEvent = new EventElements());
 	}

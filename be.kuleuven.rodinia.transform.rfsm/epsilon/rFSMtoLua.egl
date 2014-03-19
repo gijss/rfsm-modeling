@@ -1,76 +1,71 @@
 
-return rfsm.state {
-	[%state.printtolua();%]
-	
-[% operation State printtolua() { %]
-	rfsm.state{
-	[%/*print states*/
+return [%root.printtolua();%]
+
+[% operation State printtolua() { 
+	%]rfsm.state{[%
+	/*print states*/
 	for(node in self.subnodes) {
-		if(node.isTypeOf(State)) {
-			=node.name%] = 
-			[%node.printtolua();%]
-			,
-		[%}
+		if(node.isTypeOf(State)) {%]
+		[%out.print(node.name);%] = [%node.printtolua();%],[%
+		}
 	}
 	
 	/*print connectors*/
 	for(node in self.subnodes) {
-		if(node.isTypeOf(Connector)) {
-			=node.name%] = rfsm.conn{},
-		[%}
+		if(node.isTypeOf(Connector)) {%]
+
+			[%out.print(node.name);%] = rfsm.conn{},[%
+		}
 	}
 	
 	/*print transitions*/
 	for(transition in self.transitions) {
-		%]rfsm.trans{src='[%=transition.source%]', tgt='[%=transition.target%]'[%
+		%]
+
+rfsm.trans{src='[%=transition.source.name%]', tgt='[%=transition.target.name%]'[%
 		
 		/*print priority_number*/
-		if(transition.priority_number != 0)
-			%], pn=[%=transition.priority_number
+		if(transition.priority_number <> 0) {
+			%], pn=[%out.print(transition.priority_number);
 		}
 		
 		/*print events*/
-		if(events.size() > 0)
-			%],events={'[%
+		if(transition.events.size() > 0) {
+			%], events={[%
 			for(event in transition.events) {
-				%]'[%=event%]',[%
+				%]'[%=event.eventliteral%]',[%
 			}
 			%]}[%
 		}
 		
 		/*print guard function*/
-		if(transition.guard != null)
-			%], guard=function() [%=transition.guard%] end[%
+		if(transition.guard <> null) {
+			%], guard=function () [%out.print(transition.guard.sourcecode);%] end[%
 		}
 		
 		/*print effect function*/
-		if(transition.effect != null)
-			%], effect=function() [%=transition.effect%] end[%
-		}%]}
-		
-		
-	[%}
+		if(transition.effect <> null) {
+			%], effect=function () [%out.print(transition.effect.sourcecode);%] end[%
+		}%]},[%}
 	
 	/*print entry function*/
-	if(self.entry != null)
-		%], entry=function() [%=self.entry%] end
-		
-		[%
+	if(self.entry <> null) {
+		%]
+
+entry=function () [%=self.entry.sourcecode%] end,[%
 	}
-	
+
 	/*print doo function*/
-	if(self.doo != null)
-		%], doo=function() [%=self.doo%] end
-		
-		[%
+	if(self.doo <> null) {
+		%]
+
+doo=function () [%=self.doo.sourcecode%] end,[%
 	}
 	
 	/*print exit function*/
-	if(self.exit != null)
-		%], exit=function() [%=self.exit%] end
-		
-		[%
-	}
-%]}[%
-} %]
-}
+	if(self.exit <> null) {
+		%]
+
+exit=function () [%=self.exit.sourcecode%] end[%
+	}%]}[%
+}%]

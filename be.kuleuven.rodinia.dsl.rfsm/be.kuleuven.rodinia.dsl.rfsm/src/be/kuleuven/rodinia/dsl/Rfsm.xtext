@@ -10,9 +10,9 @@ State returns State:
 		(subnodes += State)*
 		(subnodes += Connector)*
 		(transitions += Transition)*
-		('entry: {[-' entry=[Function] '-]}')?
-		('entry: {[-' doo=[Function] '-]}')?
-		('entry: {[-' exit=[Function] '-]}')?
+		('entry:' entry=Function)?
+		('doo:' doo=Function)?
+		('exit:' exit=Function)?
 	'}'
 ;
 
@@ -24,14 +24,14 @@ Connector returns Connector:
 
 Transition returns Transition:
 	'transition' 'from' source=[Node|ID] 'to' target=[Node|ID]
-	(events += [Event])*
-	('guard: {[-' guard=[Function] '-]}')?
-	('effect: {[-' effect=[Function] '-]}')?
+	(events += Event)*
+	('guard:' guard=Function)?
+	('effect:' effect=Function)?
 	('priority' priority_number=INT)?
 ;
 
 Event returns Event:
-	'on' eventliteral=STRING
+	'onevent' eventliteral=STRING
 ;
 
 Function returns Function:

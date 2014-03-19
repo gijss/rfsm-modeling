@@ -3,8 +3,9 @@
 	//one state should be composed of everything else
 	var root : State := State.allInstances().at(0);
 
+	//var f = new Native("org.eclipse.epsilon.egl.formatter.language.JavaFormatter");
 	var stateSourceTemplate := TemplateFactory.load('rFSMtoLua.egl');
-			
+	//stateSourceTemplate.setFormatter(f);
 	stateSourceTemplate.populate('root', root);
 	stateSourceTemplate.generate('src/' + root.name + '.lua');
 	

@@ -104,9 +104,9 @@ public class RfsmSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         subnodes+=State* 
 	 *         subnodes+=Connector* 
 	 *         transitions+=Transition* 
-	 *         entry=[Function|ID]? 
-	 *         doo=[Function|ID]? 
-	 *         exit=[Function|ID]?
+	 *         entry=Function? 
+	 *         doo=Function? 
+	 *         exit=Function?
 	 *     )
 	 */
 	protected void sequence_State(EObject context, State semanticObject) {
@@ -119,9 +119,9 @@ public class RfsmSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (
 	 *         source=[Node|ID] 
 	 *         target=[Node|ID] 
-	 *         events+=[Event|ID]* 
-	 *         guard=[Function|ID]? 
-	 *         effect=[Function|ID]? 
+	 *         events+=Event* 
+	 *         guard=Function? 
+	 *         effect=Function? 
 	 *         priority_number=INT?
 	 *     )
 	 */
