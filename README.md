@@ -6,7 +6,7 @@ Introduction
 The purpose of this project is to create a meta-model for the representation of [rFSM](http://people.mech.kuleuven.be/~mklotzbucher/rfsm/README.html) programs. This meta-model is to be used in the [Rodinia project](http://www.roboticsmodelling.eu/tooling/rodinia). Note that this is very much a work in progress!
 
 This project contains:
-* A [meta-model](https://github.com/gijss/rfsm-modeling/blob/master/be.kuleuven.rodinia.model.rfsm/model/rfsm.xcore) for rFSM
+* A [meta-model](https://github.com/gijss/rfsm-modeling/blob/master/be.kuleuven.rodinia.model.rfsm/model/rfsm.xcore) of rFSM
 * A [grammar](https://github.com/gijss/rfsm-modeling/blob/master/be.kuleuven.rodinia.dsl.rfsm/be.kuleuven.rodinia.dsl.rfsm/src/be/kuleuven/rodinia/dsl/Rfsm.xtext) which is only defined for testing purposes
 * A complete programming environment based on that Xtext grammar
 * Lua [code generation](https://github.com/gijss/rfsm-modeling/tree/master/be.kuleuven.rodinia.transform.rfsm/epsilon) based on the model of an rFSM program
@@ -47,8 +47,18 @@ Installation and usage
 8. Create new project
 10. Create new file with an .rfsm extension
 11. Define rFSM program using the right grammar
-12. Select *.rfsm file and choose rFSM -> Create Structural Code from menu bar
-13. Lua .................
- 
-More information
+12. Select .rfsm file and choose rFSM -> Create Structural Code from menu bar
+13. Lua.................
+
+Current issues
 ---
+* Meta-model:
+    * Constrainst:
+        * more need to be defined
+        * don't work with Xtext yet (gives error in source-gen)
+    * Needs to be linked with Lua or other programming language meta-model?
+        * To specify real function instead of string
+* Grammar:
+    * Very temporary for testing purposes only: needs complete rework
+* Code generation:
+    * no indentation (can be implemented with org.eclipse.epsilon.egl.formatter)
