@@ -11,7 +11,7 @@ This project contains:
 * A complete programming environment based on that Xtext grammar
 * Lua [code generation](https://github.com/gijss/rfsm-modeling/tree/master/be.kuleuven.rodinia.transform.rfsm/epsilon) based on the model of an rFSM program
 
-This project illustrates the creation of a meta-model, DSL and proper programming tools through the use of Eclipse Modeling Framework. In particular, Xcore is used to define the meta-model, Xtext to define the grammar and create the programming environment, Epsilon to transform the meta-model and to generate source code for a compiler. 
+This project illustrates the creation of a meta-model, DSL and proper programming tools through the use of Eclipse Modeling Framework. In particular, Xcore is used to define the meta-model, Xtext to define the grammar and create the programming environment, Epsilon to transform the meta-model and to generate source code for an interpreter.
 
 Installation and usage
 ---
@@ -37,7 +37,7 @@ Installation and usage
 5. Register metamodel into Epsilon:
     1. Select `rfsm.ecore` from `be.kuleuven.rodinia.model.rfsm` project and
     2. Right click and choose Register EPackages from its context menu
-   6. Launch Runtime Eclipse:
+6. Launch Runtime Eclipse:
     1. Choose Run As -> Run Configurations...
     2. Choose Eclipse Application -> Launch Runtime Eclipse
     3. Click Run to run with default configuration
@@ -52,13 +52,15 @@ Installation and usage
 
 Current issues
 ---
-* Meta-model:
-    * Constrainst:
-        * more need to be defined
-        * don't work with Xtext yet (gives error in source-gen)
-    * Needs to be linked with Lua or other programming language meta-model?
+###Meta-model:
+* Constraints:
+    * More need to be defined
+    * Don't work with Xtext yet (gives error in source-gen)
+* Needs to be linked with Lua or other programming language meta-model?
         * To specify real function instead of string
-* Grammar:
-    * Very temporary for testing purposes only: needs complete rework
-* Code generation:
-    * no indentation (can be implemented with org.eclipse.epsilon.egl.formatter)
+
+###Grammar:
+* Very temporary for testing purposes only: needs complete rework
+
+###Code generation:
+* No indentation (can be implemented with org.eclipse.epsilon.egl.formatter)
