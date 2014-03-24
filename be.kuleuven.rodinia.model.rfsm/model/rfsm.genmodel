@@ -45,6 +45,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rfsm.ecore#//Transition/effect"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rfsm.ecore#//Transition/source"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rfsm.ecore#//Transition/target"/>
+      <genOperations ecoreOperation="rfsm.ecore#//Transition/isAncestor">
+        <genParameters ecoreParameter="rfsm.ecore#//Transition/isAncestor/one"/>
+        <genParameters ecoreParameter="rfsm.ecore#//Transition/isAncestor/two"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="rfsm.ecore#//Event">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rfsm.ecore#//Event/eventliteral"/>

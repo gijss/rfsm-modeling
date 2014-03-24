@@ -1,26 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="rfsm" nsURI="be.kuleuven.rodinia.model.rfsm" nsPrefix="rfsm">
-  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
-    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
-    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
-  </eAnnotations>
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="basePackage" value="be.kuleuven.rodinia.model"/>
   </eAnnotations>
   <eAnnotations source="http://www.eclipse.org/emf/2011/Xcore">
     <details key="Pivot" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
   </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore#/"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Node">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="This xcore started as a transformation of the ecore model in the rfsm paper"/>
+      <details key="documentation" value="This xcore metamodel started as a transformation of the ecore metamodel in the rfsm paper"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//State"
         eOpposite="#//State/subnodes"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#//Node">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="definitconn onlyoneinitconn"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="definitconn" value="self.subnodes->size() > 0 and Transition.allInstances()->select(t | t.target=self)->size() >= 1 implies (self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial'))->size() = 1"/>
+      <details key="onlyoneinitconn" value="self.subnodes->size() > 0 implies (self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial'))->size() &lt;= 1"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" upperBound="-1"
         eType="#//Transition" containment="true" resolveProxies="false" eOpposite="#//Transition/owner"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subnodes" upperBound="-1"
@@ -33,17 +43,25 @@
         containment="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Connector" eSuperTypes="#//Node">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="public" unique="false"
-        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="public" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="history" eType="#//History"
         containment="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transition">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="test"/>
+      <details key="constraints" value="transitionowner"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority_number" unique="false"
-        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="transitionowner" value="priority_number &lt;> 0"/>
+    </eAnnotations>
+    <eOperations name="isAncestor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="body" value="if(two.parent = null) then false else if(two.parent = one) then true else isAncestor(one, two.parent) endif endif"/>
+      </eAnnotations>
+      <eParameters name="one" eType="#//State"/>
+      <eParameters name="two" eType="#//State"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority_number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="#//State"
         eOpposite="#//State/transitions"/>
@@ -59,17 +77,15 @@
         eType="#//Node"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Event">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="eventliteral" unique="false"
-        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="eventliteral" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//Transition"
         eOpposite="#//Transition/events"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Function">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourcecode" unique="false"
-        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourcecode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="History">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="depth" unique="false" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hot" unique="false" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="depth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
 </ecore:EPackage>
