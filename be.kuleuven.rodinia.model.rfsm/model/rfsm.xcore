@@ -46,6 +46,7 @@ class Transition {
 	refers Node[1] source
 	refers Node[1] target
 	
+	//is one ancestor of two?
 	@Pivot(body="if (two.parent = null)
 				then false
 				else if (two.parent = one)
@@ -55,6 +56,7 @@ class Transition {
 				endif;")
 	op Boolean isAncestor(State one, State two)
 	
+	//calculate least common ancestor of node one and two
 	@Pivot(body="")
 	op State LCA(Node one, Node two)
 }
