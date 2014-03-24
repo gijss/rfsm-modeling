@@ -55,7 +55,6 @@ Current issues
 ###Meta-model:
 * Constraints:
     * More need to be defined
-    * Don't work with Xtext yet (gives error in source-gen)
 * Needs to be linked with Lua or other programming language meta-model?
         * To specify real function instead of string
 
