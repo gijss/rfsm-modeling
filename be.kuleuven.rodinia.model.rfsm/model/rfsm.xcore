@@ -6,20 +6,31 @@ package be.kuleuven.rodinia.model.rfsm
 annotation "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" as Pivot
 
 /*
- * This xcore metamodel started as a transformation of the ecore metamodel in the rfsm paper
+ * This Xcore metamodel started as an extension of the Ecore metamodel in the rFSM paper
  */
  
-//todo: Enforce that there is only one root node
+//the introduction of rootnode makes it easier to implement the 'only on root node constraint'
+//other possibility is to set Node to accept State[0..1] parent and to add a constraint that only one node has no parent
+//@Ecore(constraints="onlyOneRootNode")
+//There is only one node that has no parent (ie: root node)
+//@Pivot(onlyOneRootNode="RootNode.allInstances()->size() = 1")
+//class RootNode {
+//	String name
+//}
+ 
+@Ecore(constraints="onlyOneRootNode")
+//There is only one node that has no parent (ie: root node)
+@Pivot(onlyOneRootNode="(Node.allInstances()->select(n | n.parent.oclIsUndefined ()))->size() = 1")
 class Node {
-	String name	
+	String name
 	container State[0..1] parent opposite subnodes
 }
 
-@Ecore(constraints="definitconn onlyoneinitconn")
-//Enforce that each composite state that is target of a transition, defines an initial connector.
-@Pivot(definitconn="self.subnodes->size() > 0 and Transition.allInstances()->select(t | t.target=self)->size() >= 1 implies (self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial'))->size() = 1")
+@Ecore(constraints="defineInitialConnector defineMaxOneInitialConnector")
+//Each composite state that is target of a transition, defines an initial connector.
+@Pivot(defineInitialConnector="self.subnodes->size() > 0 and Transition.allInstances()->select(t | t.target=self)->size() >= 1 implies (self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial'))->size() = 1")
 //A composite state may define at most one initial connector.
-@Pivot(onlyoneinitconn="self.subnodes->size() > 0 implies (self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial'))->size() <= 1")
+@Pivot(defineMaxOneInitialConnector="self.subnodes->size() > 0 implies (self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial'))->size() <= 1")
 class State extends Node {
 	contains Transition[] transitions opposite owner
 	contains Node[] subnodes opposite parent
@@ -33,10 +44,10 @@ class Connector extends Node {
 	contains History[0..1] history
 }
 
-@Ecore(constraints="transitionowner")
+@Ecore(constraints="transitionOwner")
 //Transitions are owned by composite states and not, as often assumed, by the states from which they originate
 //todo: needs helper operations like least-common-ancestor
-@Pivot(transitionowner="priority_number <> 0") //example
+@Pivot(transitionOwner="priority_number <> -1") //example
 class Transition {
 	int priority_number = "0"
 	container State[1] owner opposite transitions
