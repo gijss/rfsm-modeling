@@ -46,9 +46,10 @@ Installation and usage
 
 8. Create new project
 10. Create new file with an .rfsm extension
-11. Define rFSM program using the right grammar
+11. Define rFSM program using the right grammar (example in `be.kuleuven.rodinia.transform.rfsm/examples`)
 12. Select .rfsm file and choose rFSM -> Create Structural Code from menu bar
-13. Lua.................
+13. A generated .lua file should be generated in the src/ folder
+14. Run this file with the rFSM simulator
 
 Current issues
 ---
