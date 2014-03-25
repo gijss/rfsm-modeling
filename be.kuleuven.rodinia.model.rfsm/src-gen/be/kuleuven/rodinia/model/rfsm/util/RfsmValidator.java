@@ -126,25 +126,25 @@ public class RfsmValidator extends EObjectValidator
     if (result || diagnostics != null) result &= validate_UniqueID(node, diagnostics, context);
     if (result || diagnostics != null) result &= validate_EveryKeyUnique(node, diagnostics, context);
     if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(node, diagnostics, context);
-    if (result || diagnostics != null) result &= validateNode_onlyOneRootNode(node, diagnostics, context);
+    if (result || diagnostics != null) result &= validateNode_defineOnlyOneRootNode(node, diagnostics, context);
     return result;
   }
 
   /**
-   * The cached validation expression for the onlyOneRootNode constraint of '<em>Node</em>'.
+   * The cached validation expression for the defineOnlyOneRootNode constraint of '<em>Node</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected static final String NODE__ONLY_ONE_ROOT_NODE__EEXPRESSION = "(Node.allInstances()->select(n | n.parent.oclIsUndefined ()))->size() = 1";
+  protected static final String NODE__DEFINE_ONLY_ONE_ROOT_NODE__EEXPRESSION = "(Node.allInstances()->select(n | n.parent.oclIsUndefined ()))->size() = 1";
 
   /**
-   * Validates the onlyOneRootNode constraint of '<em>Node</em>'.
+   * Validates the defineOnlyOneRootNode constraint of '<em>Node</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean validateNode_onlyOneRootNode(Node node, DiagnosticChain diagnostics, Map<Object, Object> context)
+  public boolean validateNode_defineOnlyOneRootNode(Node node, DiagnosticChain diagnostics, Map<Object, Object> context)
   {
     return
       validate
@@ -153,8 +153,8 @@ public class RfsmValidator extends EObjectValidator
          diagnostics,
          context,
          "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-         "onlyOneRootNode",
-         NODE__ONLY_ONE_ROOT_NODE__EEXPRESSION,
+         "defineOnlyOneRootNode",
+         NODE__DEFINE_ONLY_ONE_ROOT_NODE__EEXPRESSION,
          Diagnostic.ERROR,
          DIAGNOSTIC_SOURCE,
          0);
@@ -176,27 +176,28 @@ public class RfsmValidator extends EObjectValidator
     if (result || diagnostics != null) result &= validate_UniqueID(state, diagnostics, context);
     if (result || diagnostics != null) result &= validate_EveryKeyUnique(state, diagnostics, context);
     if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(state, diagnostics, context);
-    if (result || diagnostics != null) result &= validateNode_onlyOneRootNode(state, diagnostics, context);
-    if (result || diagnostics != null) result &= validateState_defineInitialConnector(state, diagnostics, context);
+    if (result || diagnostics != null) result &= validateNode_defineOnlyOneRootNode(state, diagnostics, context);
+    if (result || diagnostics != null) result &= validateState_defineInitialConnectorWhenComposite(state, diagnostics, context);
     if (result || diagnostics != null) result &= validateState_defineMaxOneInitialConnector(state, diagnostics, context);
+    if (result || diagnostics != null) result &= validateState_onlyLeafStatesHaveDoo(state, diagnostics, context);
     return result;
   }
 
   /**
-   * The cached validation expression for the defineInitialConnector constraint of '<em>State</em>'.
+   * The cached validation expression for the defineInitialConnectorWhenComposite constraint of '<em>State</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected static final String STATE__DEFINE_INITIAL_CONNECTOR__EEXPRESSION = "self.subnodes->size() > 0 and Transition.allInstances()->select(t | t.target=self)->size() >= 1 implies (self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial'))->size() = 1";
+  protected static final String STATE__DEFINE_INITIAL_CONNECTOR_WHEN_COMPOSITE__EEXPRESSION = "self.subnodes->size() > 0 and Transition.allInstances()->exists(t | t.target=self) implies self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial'))->size() = 1";
 
   /**
-   * Validates the defineInitialConnector constraint of '<em>State</em>'.
+   * Validates the defineInitialConnectorWhenComposite constraint of '<em>State</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean validateState_defineInitialConnector(State state, DiagnosticChain diagnostics, Map<Object, Object> context)
+  public boolean validateState_defineInitialConnectorWhenComposite(State state, DiagnosticChain diagnostics, Map<Object, Object> context)
   {
     return
       validate
@@ -205,8 +206,8 @@ public class RfsmValidator extends EObjectValidator
          diagnostics,
          context,
          "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-         "defineInitialConnector",
-         STATE__DEFINE_INITIAL_CONNECTOR__EEXPRESSION,
+         "defineInitialConnectorWhenComposite",
+         STATE__DEFINE_INITIAL_CONNECTOR_WHEN_COMPOSITE__EEXPRESSION,
          Diagnostic.ERROR,
          DIAGNOSTIC_SOURCE,
          0);
@@ -243,6 +244,36 @@ public class RfsmValidator extends EObjectValidator
   }
 
   /**
+   * The cached validation expression for the onlyLeafStatesHaveDoo constraint of '<em>State</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected static final String STATE__ONLY_LEAF_STATES_HAVE_DOO__EEXPRESSION = "(not self.doo.oclIsUndefined()) implies (self.subnodes->size() = 0)";
+
+  /**
+   * Validates the onlyLeafStatesHaveDoo constraint of '<em>State</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean validateState_onlyLeafStatesHaveDoo(State state, DiagnosticChain diagnostics, Map<Object, Object> context)
+  {
+    return
+      validate
+        (RfsmPackage.Literals.STATE,
+         state,
+         diagnostics,
+         context,
+         "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+         "onlyLeafStatesHaveDoo",
+         STATE__ONLY_LEAF_STATES_HAVE_DOO__EEXPRESSION,
+         Diagnostic.ERROR,
+         DIAGNOSTIC_SOURCE,
+         0);
+  }
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -258,7 +289,7 @@ public class RfsmValidator extends EObjectValidator
     if (result || diagnostics != null) result &= validate_UniqueID(connector, diagnostics, context);
     if (result || diagnostics != null) result &= validate_EveryKeyUnique(connector, diagnostics, context);
     if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(connector, diagnostics, context);
-    if (result || diagnostics != null) result &= validateNode_onlyOneRootNode(connector, diagnostics, context);
+    if (result || diagnostics != null) result &= validateNode_defineOnlyOneRootNode(connector, diagnostics, context);
     return result;
   }
 

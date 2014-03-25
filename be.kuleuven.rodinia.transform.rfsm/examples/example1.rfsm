@@ -1,0 +1,49 @@
+//this is the "more complete example" from the rFSM readme
+
+state root {
+	state on {
+		
+		state moving {
+			entry: 'print("starting to move")'
+			exit: 'print("stopping")'
+		}
+		
+		state waiting {}
+		
+		connector initial {}		
+		
+		transition from initial to waiting
+		transition from waiting to moving onevent 'e_start'
+		transition from moving to waiting onevent 'e_stop'
+		
+		entry: 'print("disabling brakes")'
+		exit: 'print("enabling brakes")'     
+	}
+	
+	state error {
+		doo: '   print ("Error detected - trying to fix")
+                 rfsm.yield()
+                 math.randomseed( os.time() )
+                 rfsm.yield()
+                 if math.random(0,100) < 40 then
+                    print("unable to fix, raising e_fatal_error")
+                    rfsm.send_events(fsm, "e_fatal_error")
+                 else
+                    print("repair succeeded!")
+                    rfsm.send_events(fsm, "e_error_fixed")
+                 end
+              '
+	}
+	
+	state fatal_error {}
+	
+	connector initial {}
+	
+	transition from initial to on effect: 'print("initializing system")'
+	transition from on to error onevent 'e_error'
+	transition from error to on onevent 'e_error_fixed'
+	transition from error to fatal_error onevent 'e_fatal_error'
+	transition from fatal_error to initial onevent 'e_reset'
+}
+
+	
