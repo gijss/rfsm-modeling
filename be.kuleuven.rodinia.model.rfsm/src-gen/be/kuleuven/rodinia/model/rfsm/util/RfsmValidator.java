@@ -311,6 +311,8 @@ public class RfsmValidator extends EObjectValidator
     if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(transition, diagnostics, context);
     if (result || diagnostics != null) result &= validateTransition_transitionOwner(transition, diagnostics, context);
     if (result || diagnostics != null) result &= validateTransition_legalBoundaryCrossing(transition, diagnostics, context);
+    if (result || diagnostics != null) result &= validateTransition_maxOneTransitionFromInitialConnector(transition, diagnostics, context);
+    if (result || diagnostics != null) result &= validateTransition_noGuardFromInitialConnector(transition, diagnostics, context);
     return result;
   }
 
@@ -369,6 +371,66 @@ public class RfsmValidator extends EObjectValidator
          "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
          "legalBoundaryCrossing",
          TRANSITION__LEGAL_BOUNDARY_CROSSING__EEXPRESSION,
+         Diagnostic.ERROR,
+         DIAGNOSTIC_SOURCE,
+         0);
+  }
+
+  /**
+   * The cached validation expression for the maxOneTransitionFromInitialConnector constraint of '<em>Transition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected static final String TRANSITION__MAX_ONE_TRANSITION_FROM_INITIAL_CONNECTOR__EEXPRESSION = "(self.source.oclIsTypeOf(Connector) and self.source.name='initial') implies (Transition.allInstances()->select(t | t.source = self.source)->size()) <= 1";
+
+  /**
+   * Validates the maxOneTransitionFromInitialConnector constraint of '<em>Transition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean validateTransition_maxOneTransitionFromInitialConnector(Transition transition, DiagnosticChain diagnostics, Map<Object, Object> context)
+  {
+    return
+      validate
+        (RfsmPackage.Literals.TRANSITION,
+         transition,
+         diagnostics,
+         context,
+         "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+         "maxOneTransitionFromInitialConnector",
+         TRANSITION__MAX_ONE_TRANSITION_FROM_INITIAL_CONNECTOR__EEXPRESSION,
+         Diagnostic.ERROR,
+         DIAGNOSTIC_SOURCE,
+         0);
+  }
+
+  /**
+   * The cached validation expression for the noGuardFromInitialConnector constraint of '<em>Transition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected static final String TRANSITION__NO_GUARD_FROM_INITIAL_CONNECTOR__EEXPRESSION = "(self.source.oclIsTypeOf(Connector) and self.source.name='initial') implies guard.oclIsUndefined()";
+
+  /**
+   * Validates the noGuardFromInitialConnector constraint of '<em>Transition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean validateTransition_noGuardFromInitialConnector(Transition transition, DiagnosticChain diagnostics, Map<Object, Object> context)
+  {
+    return
+      validate
+        (RfsmPackage.Literals.TRANSITION,
+         transition,
+         diagnostics,
+         context,
+         "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+         "noGuardFromInitialConnector",
+         TRANSITION__NO_GUARD_FROM_INITIAL_CONNECTOR__EEXPRESSION,
          Diagnostic.ERROR,
          DIAGNOSTIC_SOURCE,
          0);

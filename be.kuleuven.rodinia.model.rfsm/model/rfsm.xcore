@@ -6,7 +6,7 @@ package be.kuleuven.rodinia.model.rfsm
 annotation "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" as Pivot
 
 /*
- * This Xcore metamodel started as an extension of the Ecore metamodel in the rFSM paper
+ * This Xcore metamodel is based on the Ecore metamodel in the rFSM paper ('Coordinating Robotic Tasks and Systems with rFSM Statecharts' by M. Klotzbucher, H. Bruyninckx)
  */
  
 @Ecore(constraints="defineOnlyOneRootNode")
@@ -25,6 +25,7 @@ class Node {
 @Pivot(defineMaxOneInitialConnector="self.subnodes->size() > 0 implies (self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial')->size() <= 1)")
 //Only leaf-states can define a doo function. (not sure about this one)
 @Pivot(onlyLeafStatesHaveDoo="(not self.doo.oclIsUndefined()) implies (self.subnodes->size() = 0)")
+
 class State extends Node {
 	contains Transition[] transitions opposite owner
 	contains Node[] subnodes opposite parent
@@ -38,13 +39,18 @@ class Connector extends Node {
 	contains History[0..1] history
 }
 
-@Ecore(constraints="transitionOwner legalBoundaryCrossing")
+@Ecore(constraints="transitionOwner legalBoundaryCrossing maxOneTransitionFromInitialConnector noGuardFromInitialConnector")
 //Transitions are owned by composite states and not by the states from which they originate
 //It is required that transitions are owned by no state less nested than the transition LCA
 @Pivot(transitionOwner="let lca : State = LCA(self.source, self.target) in self.owner = lca or isAncestor(self.owner, lca)") //example
 //The transition target should point to a node less or equally nested than source node
-//So the parent of the target node is an ancestor of the source node and a transition from parent to direct child is illegal
+//So the parent of the target node is an ancestor of the source node 
+//and - IS THIS CORRECT? - a transition from parent to direct child is illegal
 @Pivot(legalBoundaryCrossing="(self.target.parent <> self.source) and isAncestor(self.target.parent, self.source)")
+//an initial connector can have only one transition
+@Pivot(maxOneTransitionFromInitialConnector="(self.source.oclIsTypeOf(Connector) and self.source.name='initial') implies (Transition.allInstances()->select(t | t.source = self.source)->size()) <= 1")
+//A transition from an initial connector can't have a guard function
+@Pivot(noGuardFromInitialConnector="(self.source.oclIsTypeOf(Connector) and self.source.name='initial') implies guard.oclIsUndefined()")
 class Transition {
 	int priority_number = "0"
 	container State[1] owner opposite transitions
@@ -106,4 +112,4 @@ class History {
 //exactly one leaf state is active and if a state is active, its parent is active too; so the set of active states is always transitively closed with respect to the parent relation.
 //The higher the source state of a transition is located in the state machine’s tree, the higher the priority of the transition.
 //as soon as an enabled transition is found, the searching terminates and the transition is executed
-//the program can't be in a connector, only in a state -> all guard functions on a compound transition should be true
+//the program can't be in a connector, only in a state -> all guard functions on a compound transition should be true before traversing to the next state
