@@ -164,11 +164,11 @@ public class RfsmGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cFromKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cSourceAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cSourceNodeCrossReference_2_0 = (CrossReference)cSourceAssignment_2.eContents().get(0);
-		private final RuleCall cSourceNodeIDTerminalRuleCall_2_0_1 = (RuleCall)cSourceNodeCrossReference_2_0.eContents().get(1);
+		private final RuleCall cSourceNodeQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cSourceNodeCrossReference_2_0.eContents().get(1);
 		private final Keyword cToKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cTargetAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final CrossReference cTargetNodeCrossReference_4_0 = (CrossReference)cTargetAssignment_4.eContents().get(0);
-		private final RuleCall cTargetNodeIDTerminalRuleCall_4_0_1 = (RuleCall)cTargetNodeCrossReference_4_0.eContents().get(1);
+		private final RuleCall cTargetNodeQualifiedNameParserRuleCall_4_0_1 = (RuleCall)cTargetNodeCrossReference_4_0.eContents().get(1);
 		private final Assignment cEventsAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cEventsEventParserRuleCall_5_0 = (RuleCall)cEventsAssignment_5.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
@@ -185,12 +185,12 @@ public class RfsmGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPriority_numberINTTerminalRuleCall_8_1_0 = (RuleCall)cPriority_numberAssignment_8_1.eContents().get(0);
 		
 		//Transition:
-		//	"transition" "from" source=[Node] "to" target=[Node] events+=Event* ("guard:" guard=Function)? ("effect:"
-		//	effect=Function)? ("priority" priority_number=INT)?;
+		//	"transition" "from" source=[Node|QualifiedName] "to" target=[Node|QualifiedName] events+=Event* ("guard:"
+		//	guard=Function)? ("effect:" effect=Function)? ("priority" priority_number=INT)?;
 		public ParserRule getRule() { return rule; }
 
-		//"transition" "from" source=[Node] "to" target=[Node] events+=Event* ("guard:" guard=Function)? ("effect:"
-		//effect=Function)? ("priority" priority_number=INT)?
+		//"transition" "from" source=[Node|QualifiedName] "to" target=[Node|QualifiedName] events+=Event* ("guard:"
+		//guard=Function)? ("effect:" effect=Function)? ("priority" priority_number=INT)?
 		public Group getGroup() { return cGroup; }
 
 		//"transition"
@@ -199,26 +199,26 @@ public class RfsmGrammarAccess extends AbstractGrammarElementFinder {
 		//"from"
 		public Keyword getFromKeyword_1() { return cFromKeyword_1; }
 
-		//source=[Node]
+		//source=[Node|QualifiedName]
 		public Assignment getSourceAssignment_2() { return cSourceAssignment_2; }
 
-		//[Node]
+		//[Node|QualifiedName]
 		public CrossReference getSourceNodeCrossReference_2_0() { return cSourceNodeCrossReference_2_0; }
 
-		//ID
-		public RuleCall getSourceNodeIDTerminalRuleCall_2_0_1() { return cSourceNodeIDTerminalRuleCall_2_0_1; }
+		//QualifiedName
+		public RuleCall getSourceNodeQualifiedNameParserRuleCall_2_0_1() { return cSourceNodeQualifiedNameParserRuleCall_2_0_1; }
 
 		//"to"
 		public Keyword getToKeyword_3() { return cToKeyword_3; }
 
-		//target=[Node]
+		//target=[Node|QualifiedName]
 		public Assignment getTargetAssignment_4() { return cTargetAssignment_4; }
 
-		//[Node]
+		//[Node|QualifiedName]
 		public CrossReference getTargetNodeCrossReference_4_0() { return cTargetNodeCrossReference_4_0; }
 
-		//ID
-		public RuleCall getTargetNodeIDTerminalRuleCall_4_0_1() { return cTargetNodeIDTerminalRuleCall_4_0_1; }
+		//QualifiedName
+		public RuleCall getTargetNodeQualifiedNameParserRuleCall_4_0_1() { return cTargetNodeQualifiedNameParserRuleCall_4_0_1; }
 
 		//events+=Event*
 		public Assignment getEventsAssignment_5() { return cEventsAssignment_5; }
@@ -302,6 +302,34 @@ public class RfsmGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getSourcecodeSTRINGTerminalRuleCall_0() { return cSourcecodeSTRINGTerminalRuleCall_0; }
 	}
+
+	public class QualifiedNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "QualifiedName");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		
+		//QualifiedName:
+		//	ID ("." ID)*;
+		public ParserRule getRule() { return rule; }
+
+		//ID ("." ID)*
+		public Group getGroup() { return cGroup; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+
+		//("." ID)*
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"."
+		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
+	}
 	
 	
 	private StateElements pState;
@@ -309,6 +337,7 @@ public class RfsmGrammarAccess extends AbstractGrammarElementFinder {
 	private TransitionElements pTransition;
 	private EventElements pEvent;
 	private FunctionElements pFunction;
+	private QualifiedNameElements pQualifiedName;
 	
 	private final Grammar grammar;
 
@@ -371,8 +400,8 @@ public class RfsmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Transition:
-	//	"transition" "from" source=[Node] "to" target=[Node] events+=Event* ("guard:" guard=Function)? ("effect:"
-	//	effect=Function)? ("priority" priority_number=INT)?;
+	//	"transition" "from" source=[Node|QualifiedName] "to" target=[Node|QualifiedName] events+=Event* ("guard:"
+	//	guard=Function)? ("effect:" effect=Function)? ("priority" priority_number=INT)?;
 	public TransitionElements getTransitionAccess() {
 		return (pTransition != null) ? pTransition : (pTransition = new TransitionElements());
 	}
@@ -399,6 +428,16 @@ public class RfsmGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getFunctionRule() {
 		return getFunctionAccess().getRule();
+	}
+
+	//QualifiedName:
+	//	ID ("." ID)*;
+	public QualifiedNameElements getQualifiedNameAccess() {
+		return (pQualifiedName != null) ? pQualifiedName : (pQualifiedName = new QualifiedNameElements());
+	}
+	
+	public ParserRule getQualifiedNameRule() {
+		return getQualifiedNameAccess().getRule();
 	}
 
 	//terminal ID returns ecore::EString:

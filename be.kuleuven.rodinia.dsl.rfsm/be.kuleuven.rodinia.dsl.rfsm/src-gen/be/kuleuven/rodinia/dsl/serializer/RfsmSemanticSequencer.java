@@ -117,8 +117,8 @@ public class RfsmSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         source=[Node|ID] 
-	 *         target=[Node|ID] 
+	 *         source=[Node|QualifiedName] 
+	 *         target=[Node|QualifiedName] 
 	 *         events+=Event* 
 	 *         guard=Function? 
 	 *         effect=Function? 

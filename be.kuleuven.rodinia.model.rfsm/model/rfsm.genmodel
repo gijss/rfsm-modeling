@@ -40,14 +40,18 @@
     <genClasses ecoreClass="rfsm.ecore#//Transition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rfsm.ecore#//Transition/priority_number"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rfsm.ecore#//Transition/owner"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rfsm.ecore#//Transition/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rfsm.ecore#//Transition/target"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rfsm.ecore#//Transition/events"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rfsm.ecore#//Transition/guard"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rfsm.ecore#//Transition/effect"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rfsm.ecore#//Transition/source"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rfsm.ecore#//Transition/target"/>
       <genOperations ecoreOperation="rfsm.ecore#//Transition/isAncestor">
         <genParameters ecoreParameter="rfsm.ecore#//Transition/isAncestor/one"/>
         <genParameters ecoreParameter="rfsm.ecore#//Transition/isAncestor/two"/>
+      </genOperations>
+      <genOperations ecoreOperation="rfsm.ecore#//Transition/LCA">
+        <genParameters ecoreParameter="rfsm.ecore#//Transition/LCA/one"/>
+        <genParameters ecoreParameter="rfsm.ecore#//Transition/LCA/two"/>
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="rfsm.ecore#//Event">

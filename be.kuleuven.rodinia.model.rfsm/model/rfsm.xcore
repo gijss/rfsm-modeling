@@ -20,9 +20,9 @@ class Node {
 
 @Ecore(constraints="defineInitialConnectorWhenComposite defineMaxOneInitialConnector onlyLeafStatesHaveDoo")
 //Each composite state that is target of a transition, defines an initial connector.
-@Pivot(defineInitialConnectorWhenComposite="self.subnodes->size() > 0 and Transition.allInstances()->exists(t | t.target=self) implies self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial'))->size() = 1")
+@Pivot(defineInitialConnectorWhenComposite="self.subnodes->size() > 0 and Transition.allInstances()->exists(t | t.target=self) implies self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial')->size() = 1")
 //A composite state may define at most one initial connector.
-@Pivot(defineMaxOneInitialConnector="self.subnodes->size() > 0 implies (self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial'))->size() <= 1")
+@Pivot(defineMaxOneInitialConnector="self.subnodes->size() > 0 implies (self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial')->size() <= 1)")
 //Only leaf-states can define a doo function. (not sure about this one)
 @Pivot(onlyLeafStatesHaveDoo="(not self.doo.oclIsUndefined()) implies (self.subnodes->size() = 0)")
 class State extends Node {
@@ -38,33 +38,49 @@ class Connector extends Node {
 	contains History[0..1] history
 }
 
-@Ecore(constraints="transitionOwner")
+@Ecore(constraints="transitionOwner legalBoundaryCrossing")
 //Transitions are owned by composite states and not by the states from which they originate
 //It is required that transitions are owned by no state less nested than the transition LCA
-//todo: needs helper operations like least-common-ancestor
-@Pivot(transitionOwner="priority_number <> -1") //example
+@Pivot(transitionOwner="let lca : State = LCA(self.source, self.target) in self.owner = lca or isAncestor(self.owner, lca)") //example
+//The transition target should point to a node less or equally nested than source node
+//So the parent of the target node is an ancestor of the source node and a transition from parent to direct child is illegal
+@Pivot(legalBoundaryCrossing="(self.target.parent <> self.source) and isAncestor(self.target.parent, self.source)")
 class Transition {
-	//todo: set default priority_number according to position in model tree
 	int priority_number = "0"
 	container State[1] owner opposite transitions
+	refers Node[1] source	//should only refer to node that is reachable from transition.owner or its subnodes->expressed by transitionOwner
+	refers Node[1] target	//should only refer to node that is reachable from transition.owner or its subnodes ->expressed by transitionOwner
 	contains Event[] events	opposite owner	//possible to add this logic to the guard function
 	contains Function[0..1] guard	//contains function in this example (original:refers)
 	contains Function[0..1] effect	//contains function in this example (original:refers)
-	refers Node[1] source
-	refers Node[1] target
+	
 	
 	//is one ancestor of two?
-	@Pivot(body="if (two.parent.oclIsUndefined ())
-				then false
-				else if (two.parent = one)
+	@Pivot(body="if (one = two) 
 					then true
-					else isAncestor(one, two.parent)
+				else
+					if (two.parent.oclIsUndefined ())
+						then false
+					else 
+						if (two.parent = one)
+							then true
+						else 
+							isAncestor(one, two.parent)
+						endif
 					endif
-				endif;")
-	op Boolean isAncestor(State one, State two)
+				endif")
+	op Boolean isAncestor(Node one, Node two)
 	
-	//calculate least common ancestor of node one and two
-	@Pivot(body="")
+	//get least common ancestor of node one and two
+	@Pivot(body="if isAncestor(one, two) and one.oclIsTypeOf(State)
+					then one.oclAsType(State)
+				else 
+					if isAncestor(two, one) and two.oclIsTypeOf(State)
+						then two.oclAsType(State)
+					else
+						LCA(one.parent,two.parent)
+					endif
+				endif")
 	op State LCA(Node one, Node two)
 }
 
@@ -90,3 +106,4 @@ class History {
 //exactly one leaf state is active and if a state is active, its parent is active too; so the set of active states is always transitively closed with respect to the parent relation.
 //The higher the source state of a transition is located in the state machine’s tree, the higher the priority of the transition.
 //as soon as an enabled transition is found, the searching terminates and the transition is executed
+//the program can't be in a connector, only in a state -> all guard functions on a compound transition should be true

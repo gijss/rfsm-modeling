@@ -314,10 +314,12 @@ ruleTransition returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getTransitionRule());
 	        }
         }
-	otherlv_2=RULE_ID
-	{
-		newLeafNode(otherlv_2, grammarAccess.getTransitionAccess().getSourceNodeCrossReference_2_0()); 
-	}
+		{ 
+	        newCompositeNode(grammarAccess.getTransitionAccess().getSourceNodeCrossReference_2_0()); 
+	    }
+		ruleQualifiedName		{ 
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
 )	otherlv_3='to' 
@@ -331,10 +333,12 @@ ruleTransition returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getTransitionRule());
 	        }
         }
-	otherlv_4=RULE_ID
-	{
-		newLeafNode(otherlv_4, grammarAccess.getTransitionAccess().getTargetNodeCrossReference_4_0()); 
-	}
+		{ 
+	        newCompositeNode(grammarAccess.getTransitionAccess().getTargetNodeCrossReference_4_0()); 
+	    }
+		ruleQualifiedName		{ 
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
 )(
@@ -505,6 +509,47 @@ ruleFunction returns [EObject current=null]
 )
 )
 ;
+
+
+
+
+
+// Entry rule entryRuleQualifiedName
+entryRuleQualifiedName returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getQualifiedNameRule()); } 
+	 iv_ruleQualifiedName=ruleQualifiedName 
+	 { $current=$iv_ruleQualifiedName.current.getText(); }  
+	 EOF 
+;
+
+// Rule QualifiedName
+ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(    this_ID_0=RULE_ID    {
+		$current.merge(this_ID_0);
+    }
+
+    { 
+    newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
+    }
+(
+	kw='.' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
+    }
+    this_ID_2=RULE_ID    {
+		$current.merge(this_ID_2);
+    }
+
+    { 
+    newLeafNode(this_ID_2, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1()); 
+    }
+)*)
+    ;
 
 
 

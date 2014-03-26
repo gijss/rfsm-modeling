@@ -23,7 +23,7 @@ Connector returns Connector:
 ;
 
 Transition returns Transition:
-	'transition' 'from' source=[Node|ID] 'to' target=[Node|ID]
+	'transition' 'from' source=[Node|QualifiedName] 'to' target=[Node|QualifiedName]
 	(events += Event)*
 	('guard:' guard=Function)?
 	('effect:' effect=Function)?
@@ -36,4 +36,8 @@ Event returns Event:
 
 Function returns Function:
 	sourcecode=STRING
+;
+
+QualifiedName:
+ID ('.' ID)*
 ;

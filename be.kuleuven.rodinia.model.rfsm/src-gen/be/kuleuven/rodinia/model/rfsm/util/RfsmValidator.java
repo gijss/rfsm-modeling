@@ -189,7 +189,7 @@ public class RfsmValidator extends EObjectValidator
    * <!-- end-user-doc -->
    * @generated
    */
-  protected static final String STATE__DEFINE_INITIAL_CONNECTOR_WHEN_COMPOSITE__EEXPRESSION = "self.subnodes->size() > 0 and Transition.allInstances()->exists(t | t.target=self) implies self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial'))->size() = 1";
+  protected static final String STATE__DEFINE_INITIAL_CONNECTOR_WHEN_COMPOSITE__EEXPRESSION = "self.subnodes->size() > 0 and Transition.allInstances()->exists(t | t.target=self) implies self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial')->size() = 1";
 
   /**
    * Validates the defineInitialConnectorWhenComposite constraint of '<em>State</em>'.
@@ -219,7 +219,7 @@ public class RfsmValidator extends EObjectValidator
    * <!-- end-user-doc -->
    * @generated
    */
-  protected static final String STATE__DEFINE_MAX_ONE_INITIAL_CONNECTOR__EEXPRESSION = "self.subnodes->size() > 0 implies (self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial'))->size() <= 1";
+  protected static final String STATE__DEFINE_MAX_ONE_INITIAL_CONNECTOR__EEXPRESSION = "self.subnodes->size() > 0 implies (self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial')->size() <= 1)";
 
   /**
    * Validates the defineMaxOneInitialConnector constraint of '<em>State</em>'.
@@ -310,6 +310,7 @@ public class RfsmValidator extends EObjectValidator
     if (result || diagnostics != null) result &= validate_EveryKeyUnique(transition, diagnostics, context);
     if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(transition, diagnostics, context);
     if (result || diagnostics != null) result &= validateTransition_transitionOwner(transition, diagnostics, context);
+    if (result || diagnostics != null) result &= validateTransition_legalBoundaryCrossing(transition, diagnostics, context);
     return result;
   }
 
@@ -319,7 +320,7 @@ public class RfsmValidator extends EObjectValidator
    * <!-- end-user-doc -->
    * @generated
    */
-  protected static final String TRANSITION__TRANSITION_OWNER__EEXPRESSION = "priority_number <> -1";
+  protected static final String TRANSITION__TRANSITION_OWNER__EEXPRESSION = "let lca : State = LCA(self.source, self.target) in self.owner = lca or isAncestor(self.owner, lca)";
 
   /**
    * Validates the transitionOwner constraint of '<em>Transition</em>'.
@@ -338,6 +339,36 @@ public class RfsmValidator extends EObjectValidator
          "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
          "transitionOwner",
          TRANSITION__TRANSITION_OWNER__EEXPRESSION,
+         Diagnostic.ERROR,
+         DIAGNOSTIC_SOURCE,
+         0);
+  }
+
+  /**
+   * The cached validation expression for the legalBoundaryCrossing constraint of '<em>Transition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected static final String TRANSITION__LEGAL_BOUNDARY_CROSSING__EEXPRESSION = "(self.target.parent <> self.source) and isAncestor(self.target.parent, self.source)";
+
+  /**
+   * Validates the legalBoundaryCrossing constraint of '<em>Transition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean validateTransition_legalBoundaryCrossing(Transition transition, DiagnosticChain diagnostics, Map<Object, Object> context)
+  {
+    return
+      validate
+        (RfsmPackage.Literals.TRANSITION,
+         transition,
+         diagnostics,
+         context,
+         "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+         "legalBoundaryCrossing",
+         TRANSITION__LEGAL_BOUNDARY_CROSSING__EEXPRESSION,
          Diagnostic.ERROR,
          DIAGNOSTIC_SOURCE,
          0);

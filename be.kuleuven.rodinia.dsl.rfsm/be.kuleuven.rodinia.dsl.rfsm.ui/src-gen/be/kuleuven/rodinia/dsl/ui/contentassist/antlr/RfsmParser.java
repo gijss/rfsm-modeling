@@ -47,6 +47,8 @@ public class RfsmParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTransitionAccess().getGroup_7(), "rule__Transition__Group_7__0");
 					put(grammarAccess.getTransitionAccess().getGroup_8(), "rule__Transition__Group_8__0");
 					put(grammarAccess.getEventAccess().getGroup(), "rule__Event__Group__0");
+					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
+					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
 					put(grammarAccess.getStateAccess().getNameAssignment_1(), "rule__State__NameAssignment_1");
 					put(grammarAccess.getStateAccess().getSubnodesAssignment_3(), "rule__State__SubnodesAssignment_3");
 					put(grammarAccess.getStateAccess().getSubnodesAssignment_4(), "rule__State__SubnodesAssignment_4");
