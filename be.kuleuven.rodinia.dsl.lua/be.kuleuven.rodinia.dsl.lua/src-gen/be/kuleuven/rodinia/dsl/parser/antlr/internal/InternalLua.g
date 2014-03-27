@@ -5,6 +5,7 @@ grammar InternalLua;
 
 options {
 	superClass=AbstractInternalAntlrParser;
+	backtrack=true;
 	
 }
 
@@ -34,6 +35,11 @@ import be.kuleuven.rodinia.dsl.services.LuaGrammarAccess;
 
 @parser::members {
 
+/*
+  This grammar contains a lot of empty actions to work around a bug in ANTLR.
+  Otherwise the ANTLR tool will create synpreds that cannot be compiled in some rare cases.
+*/
+ 
  	private LuaGrammarAccess grammarAccess;
  	
     public InternalLuaParser(TokenStream input, LuaGrammarAccess grammarAccess) {
@@ -85,6 +91,9 @@ ruleChunk returns [EObject current=null]
     }
     @after { leaveRule(); }:
 
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getChunkAccess().getBlockParserRuleCall()); 
     }
@@ -125,6 +134,9 @@ ruleBlock returns [EObject current=null]
     }
     @after { leaveRule(); }:
 ((
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElement(
             grammarAccess.getBlockAccess().getBlockAction_0(),
@@ -199,6 +211,9 @@ ruleLastStatement returns [EObject current=null]
     }
     @after { leaveRule(); }:
 (
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getLastStatementAccess().getLastStatement_ReturnParserRuleCall_0()); 
     }
@@ -209,6 +224,9 @@ ruleLastStatement returns [EObject current=null]
     }
 
     |
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getLastStatementAccess().getLastStatement_BreakParserRuleCall_1()); 
     }
@@ -243,6 +261,9 @@ ruleLastStatement_Return returns [EObject current=null]
     	newLeafNode(otherlv_0, grammarAccess.getLastStatement_ReturnAccess().getReturnKeyword_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElement(
             grammarAccess.getLastStatement_ReturnAccess().getLastStatement_ReturnWithValueAction_1(),
@@ -314,6 +335,9 @@ ruleLastStatement_Break returns [EObject current=null]
     	newLeafNode(otherlv_0, grammarAccess.getLastStatement_BreakAccess().getBreakKeyword_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElement(
             grammarAccess.getLastStatement_BreakAccess().getLastStatement_BreakAction_1(),
@@ -348,6 +372,9 @@ ruleStatement returns [EObject current=null]
     }
     @after { leaveRule(); }:
 (
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getStatementAccess().getStatement_BlockParserRuleCall_0()); 
     }
@@ -358,6 +385,9 @@ ruleStatement returns [EObject current=null]
     }
 
     |
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getStatementAccess().getStatement_WhileParserRuleCall_1()); 
     }
@@ -368,6 +398,9 @@ ruleStatement returns [EObject current=null]
     }
 
     |
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getStatementAccess().getStatement_RepeatParserRuleCall_2()); 
     }
@@ -378,6 +411,9 @@ ruleStatement returns [EObject current=null]
     }
 
     |
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getStatementAccess().getStatement_If_Then_ElseParserRuleCall_3()); 
     }
@@ -388,6 +424,9 @@ ruleStatement returns [EObject current=null]
     }
 
     |
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getStatementAccess().getStatement_For_NumericParserRuleCall_4()); 
     }
@@ -398,6 +437,9 @@ ruleStatement returns [EObject current=null]
     }
 
     |
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getStatementAccess().getStatement_For_GenericParserRuleCall_5()); 
     }
@@ -408,6 +450,9 @@ ruleStatement returns [EObject current=null]
     }
 
     |
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getStatementAccess().getStatement_GlobalFunction_DeclarationParserRuleCall_6()); 
     }
@@ -418,6 +463,9 @@ ruleStatement returns [EObject current=null]
     }
 
     |
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getStatementAccess().getStatement_LocalFunction_DeclarationParserRuleCall_7()); 
     }
@@ -428,6 +476,9 @@ ruleStatement returns [EObject current=null]
     }
 
     |
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getStatementAccess().getStatement_Local_Variable_DeclarationParserRuleCall_8()); 
     }
@@ -438,6 +489,9 @@ ruleStatement returns [EObject current=null]
     }
 
     |
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getStatementAccess().getStatement_FunctioncallOrAssignmentParserRuleCall_9()); 
     }
@@ -1383,6 +1437,9 @@ ruleStatement_FunctioncallOrAssignment returns [EObject current=null]
     }
     @after { leaveRule(); }:
 (
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getStatement_FunctioncallOrAssignmentAccess().getExpression_AccessMemberOrArrayElementParserRuleCall_0()); 
     }
@@ -1392,6 +1449,9 @@ ruleStatement_FunctioncallOrAssignment returns [EObject current=null]
         afterParserOrEnumRuleCall();
     }
 (((
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElementAndAdd(
             grammarAccess.getStatement_FunctioncallOrAssignmentAccess().getStatement_AssignmentVariableAction_1_0_0(),
@@ -1469,6 +1529,9 @@ ruleStatement_FunctioncallOrAssignment returns [EObject current=null]
     	newLeafNode(otherlv_8, grammarAccess.getStatement_FunctioncallOrAssignmentAccess().getColonKeyword_1_1_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElementAndSet(
             grammarAccess.getStatement_FunctioncallOrAssignmentAccess().getStatement_CallMemberFunctionObjectAction_1_1_1(),
@@ -1512,6 +1575,9 @@ ruleStatement_FunctioncallOrAssignment returns [EObject current=null]
 )
 ))
     |((
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElementAndSet(
             grammarAccess.getStatement_FunctioncallOrAssignmentAccess().getStatement_CallFunctionObjectAction_1_2_0(),
@@ -1564,6 +1630,9 @@ ruleExpression returns [EObject current=null]
     }
     @after { leaveRule(); }:
 
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getExpressionAccess().getExpression_OrParserRuleCall()); 
     }
@@ -1597,6 +1666,9 @@ ruleExpression_Or returns [EObject current=null]
     }
     @after { leaveRule(); }:
 (
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getExpression_OrAccess().getExpression_AndParserRuleCall_0()); 
     }
@@ -1610,6 +1682,9 @@ ruleExpression_Or returns [EObject current=null]
     	newLeafNode(otherlv_1, grammarAccess.getExpression_OrAccess().getOrKeyword_1_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElementAndSet(
             grammarAccess.getExpression_OrAccess().getExpression_OrLeftAction_1_1(),
@@ -1655,6 +1730,9 @@ ruleExpression_And returns [EObject current=null]
     }
     @after { leaveRule(); }:
 (
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getExpression_AndAccess().getExpression_CompareParserRuleCall_0()); 
     }
@@ -1668,6 +1746,9 @@ ruleExpression_And returns [EObject current=null]
     	newLeafNode(otherlv_1, grammarAccess.getExpression_AndAccess().getAndKeyword_1_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElementAndSet(
             grammarAccess.getExpression_AndAccess().getExpression_AndLeftAction_1_1(),
@@ -1713,6 +1794,9 @@ ruleExpression_Compare returns [EObject current=null]
     }
     @after { leaveRule(); }:
 (
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getExpression_CompareAccess().getExpression_ConcatenationParserRuleCall_0()); 
     }
@@ -1726,6 +1810,9 @@ ruleExpression_Compare returns [EObject current=null]
     	newLeafNode(otherlv_1, grammarAccess.getExpression_CompareAccess().getGreaterThanSignKeyword_1_0_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElementAndSet(
             grammarAccess.getExpression_CompareAccess().getExpression_LargerLeftAction_1_0_1(),
@@ -1755,6 +1842,9 @@ ruleExpression_Compare returns [EObject current=null]
     	newLeafNode(otherlv_4, grammarAccess.getExpression_CompareAccess().getGreaterThanSignEqualsSignKeyword_1_1_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElementAndSet(
             grammarAccess.getExpression_CompareAccess().getExpression_Larger_EqualLeftAction_1_1_1(),
@@ -1784,6 +1874,9 @@ ruleExpression_Compare returns [EObject current=null]
     	newLeafNode(otherlv_7, grammarAccess.getExpression_CompareAccess().getLessThanSignKeyword_1_2_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElementAndSet(
             grammarAccess.getExpression_CompareAccess().getExpression_SmallerLeftAction_1_2_1(),
@@ -1813,6 +1906,9 @@ ruleExpression_Compare returns [EObject current=null]
     	newLeafNode(otherlv_10, grammarAccess.getExpression_CompareAccess().getLessThanSignEqualsSignKeyword_1_3_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElementAndSet(
             grammarAccess.getExpression_CompareAccess().getExpression_Smaller_EqualLeftAction_1_3_1(),
@@ -1842,6 +1938,9 @@ ruleExpression_Compare returns [EObject current=null]
     	newLeafNode(otherlv_13, grammarAccess.getExpression_CompareAccess().getEqualsSignEqualsSignKeyword_1_4_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElementAndSet(
             grammarAccess.getExpression_CompareAccess().getExpression_EqualLeftAction_1_4_1(),
@@ -1871,6 +1970,9 @@ ruleExpression_Compare returns [EObject current=null]
     	newLeafNode(otherlv_16, grammarAccess.getExpression_CompareAccess().getTildeEqualsSignKeyword_1_5_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElementAndSet(
             grammarAccess.getExpression_CompareAccess().getExpression_Not_EqualLeftAction_1_5_1(),
@@ -1916,6 +2018,9 @@ ruleExpression_Concatenation returns [EObject current=null]
     }
     @after { leaveRule(); }:
 (
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getExpression_ConcatenationAccess().getExpression_PlusMinusParserRuleCall_0()); 
     }
@@ -1929,6 +2034,9 @@ ruleExpression_Concatenation returns [EObject current=null]
     	newLeafNode(otherlv_1, grammarAccess.getExpression_ConcatenationAccess().getFullStopFullStopKeyword_1_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElementAndSet(
             grammarAccess.getExpression_ConcatenationAccess().getExpression_ConcatenationLeftAction_1_1(),
@@ -1974,6 +2082,9 @@ ruleExpression_PlusMinus returns [EObject current=null]
     }
     @after { leaveRule(); }:
 (
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getExpression_PlusMinusAccess().getExpression_MultiplicationDivisionModuloParserRuleCall_0()); 
     }
@@ -1987,6 +2098,9 @@ ruleExpression_PlusMinus returns [EObject current=null]
     	newLeafNode(otherlv_1, grammarAccess.getExpression_PlusMinusAccess().getPlusSignKeyword_1_0_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElementAndSet(
             grammarAccess.getExpression_PlusMinusAccess().getExpression_PlusLeftAction_1_0_1(),
@@ -2016,6 +2130,9 @@ ruleExpression_PlusMinus returns [EObject current=null]
     	newLeafNode(otherlv_4, grammarAccess.getExpression_PlusMinusAccess().getHyphenMinusKeyword_1_1_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElementAndSet(
             grammarAccess.getExpression_PlusMinusAccess().getExpression_MinusLeftAction_1_1_1(),
@@ -2061,6 +2178,9 @@ ruleExpression_MultiplicationDivisionModulo returns [EObject current=null]
     }
     @after { leaveRule(); }:
 (
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getExpression_MultiplicationDivisionModuloAccess().getExpression_UnaryParserRuleCall_0()); 
     }
@@ -2074,6 +2194,9 @@ ruleExpression_MultiplicationDivisionModulo returns [EObject current=null]
     	newLeafNode(otherlv_1, grammarAccess.getExpression_MultiplicationDivisionModuloAccess().getAsteriskKeyword_1_0_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElementAndSet(
             grammarAccess.getExpression_MultiplicationDivisionModuloAccess().getExpression_MultiplicationLeftAction_1_0_1(),
@@ -2103,6 +2226,9 @@ ruleExpression_MultiplicationDivisionModulo returns [EObject current=null]
     	newLeafNode(otherlv_4, grammarAccess.getExpression_MultiplicationDivisionModuloAccess().getSolidusKeyword_1_1_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElementAndSet(
             grammarAccess.getExpression_MultiplicationDivisionModuloAccess().getExpression_DivisionLeftAction_1_1_1(),
@@ -2132,6 +2258,9 @@ ruleExpression_MultiplicationDivisionModulo returns [EObject current=null]
     	newLeafNode(otherlv_7, grammarAccess.getExpression_MultiplicationDivisionModuloAccess().getPercentSignKeyword_1_2_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElementAndSet(
             grammarAccess.getExpression_MultiplicationDivisionModuloAccess().getExpression_ModuloLeftAction_1_2_1(),
@@ -2177,6 +2306,9 @@ ruleExpression_Unary returns [EObject current=null]
     }
     @after { leaveRule(); }:
 (
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getExpression_UnaryAccess().getExpression_ExponentiationParserRuleCall_0()); 
     }
@@ -2191,6 +2323,9 @@ ruleExpression_Unary returns [EObject current=null]
     	newLeafNode(otherlv_1, grammarAccess.getExpression_UnaryAccess().getNotKeyword_1_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElement(
             grammarAccess.getExpression_UnaryAccess().getExpression_NegateAction_1_1(),
@@ -2220,6 +2355,9 @@ ruleExpression_Unary returns [EObject current=null]
     	newLeafNode(otherlv_4, grammarAccess.getExpression_UnaryAccess().getNumberSignKeyword_2_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElement(
             grammarAccess.getExpression_UnaryAccess().getExpression_LengthAction_2_1(),
@@ -2249,6 +2387,9 @@ ruleExpression_Unary returns [EObject current=null]
     	newLeafNode(otherlv_7, grammarAccess.getExpression_UnaryAccess().getHyphenMinusKeyword_3_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElement(
             grammarAccess.getExpression_UnaryAccess().getExpression_InvertAction_3_1(),
@@ -2294,6 +2435,9 @@ ruleExpression_Exponentiation returns [EObject current=null]
     }
     @after { leaveRule(); }:
 (
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getExpression_ExponentiationAccess().getExpression_TerminalParserRuleCall_0()); 
     }
@@ -2307,6 +2451,9 @@ ruleExpression_Exponentiation returns [EObject current=null]
     	newLeafNode(otherlv_1, grammarAccess.getExpression_ExponentiationAccess().getCircumflexAccentKeyword_1_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElementAndSet(
             grammarAccess.getExpression_ExponentiationAccess().getExpression_ExponentiationLeftAction_1_1(),
@@ -2352,6 +2499,9 @@ ruleExpression_Terminal returns [EObject current=null]
     }
     @after { leaveRule(); }:
 (
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getExpression_TerminalAccess().getExpression_NilParserRuleCall_0()); 
     }
@@ -2362,6 +2512,9 @@ ruleExpression_Terminal returns [EObject current=null]
     }
 
     |
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getExpression_TerminalAccess().getExpression_TrueParserRuleCall_1()); 
     }
@@ -2372,6 +2525,9 @@ ruleExpression_Terminal returns [EObject current=null]
     }
 
     |
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getExpression_TerminalAccess().getExpression_FalseParserRuleCall_2()); 
     }
@@ -2382,6 +2538,9 @@ ruleExpression_Terminal returns [EObject current=null]
     }
 
     |
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getExpression_TerminalAccess().getExpression_NumberParserRuleCall_3()); 
     }
@@ -2392,6 +2551,9 @@ ruleExpression_Terminal returns [EObject current=null]
     }
 
     |
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getExpression_TerminalAccess().getExpression_VarArgsParserRuleCall_4()); 
     }
@@ -2402,6 +2564,9 @@ ruleExpression_Terminal returns [EObject current=null]
     }
 
     |
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getExpression_TerminalAccess().getExpression_StringParserRuleCall_5()); 
     }
@@ -2412,6 +2577,9 @@ ruleExpression_Terminal returns [EObject current=null]
     }
 
     |
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getExpression_TerminalAccess().getExpression_FunctionParserRuleCall_6()); 
     }
@@ -2422,6 +2590,9 @@ ruleExpression_Terminal returns [EObject current=null]
     }
 
     |
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getExpression_TerminalAccess().getExpression_TableConstructorParserRuleCall_7()); 
     }
@@ -2432,6 +2603,9 @@ ruleExpression_Terminal returns [EObject current=null]
     }
 
     |
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getExpression_TerminalAccess().getExpression_FunctioncallParserRuleCall_8()); 
     }
@@ -2466,6 +2640,9 @@ ruleExpression_Nil returns [EObject current=null]
     	newLeafNode(otherlv_0, grammarAccess.getExpression_NilAccess().getNilKeyword_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElement(
             grammarAccess.getExpression_NilAccess().getExpression_NilAction_1(),
@@ -2497,6 +2674,9 @@ ruleExpression_True returns [EObject current=null]
     	newLeafNode(otherlv_0, grammarAccess.getExpression_TrueAccess().getTrueKeyword_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElement(
             grammarAccess.getExpression_TrueAccess().getExpression_TrueAction_1(),
@@ -2528,6 +2708,9 @@ ruleExpression_False returns [EObject current=null]
     	newLeafNode(otherlv_0, grammarAccess.getExpression_FalseAccess().getFalseKeyword_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElement(
             grammarAccess.getExpression_FalseAccess().getExpression_FalseAction_1(),
@@ -2598,6 +2781,9 @@ ruleExpression_VarArgs returns [EObject current=null]
     	newLeafNode(otherlv_0, grammarAccess.getExpression_VarArgsAccess().getFullStopFullStopFullStopKeyword_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElement(
             grammarAccess.getExpression_VarArgsAccess().getExpression_VarArgsAction_1(),
@@ -2715,6 +2901,9 @@ ruleExpression_TableConstructor returns [EObject current=null]
     	newLeafNode(otherlv_0, grammarAccess.getExpression_TableConstructorAccess().getLeftCurlyBracketKeyword_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElement(
             grammarAccess.getExpression_TableConstructorAccess().getExpression_TableConstructorAction_1(),
@@ -2800,6 +2989,9 @@ ruleExpression_Functioncall returns [EObject current=null]
     }
     @after { leaveRule(); }:
 (
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getExpression_FunctioncallAccess().getExpression_AccessMemberOrArrayElementParserRuleCall_0()); 
     }
@@ -2813,6 +3005,9 @@ ruleExpression_Functioncall returns [EObject current=null]
     	newLeafNode(otherlv_1, grammarAccess.getExpression_FunctioncallAccess().getColonKeyword_1_0_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElementAndSet(
             grammarAccess.getExpression_FunctioncallAccess().getExpression_CallMemberFunctionObjectAction_1_0_1(),
@@ -2856,6 +3051,9 @@ ruleExpression_Functioncall returns [EObject current=null]
 )
 ))
     |((
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElementAndSet(
             grammarAccess.getExpression_FunctioncallAccess().getExpression_CallFunctionObjectAction_1_1_0(),
@@ -2901,6 +3099,9 @@ ruleExpression_AccessMemberOrArrayElement returns [EObject current=null]
     }
     @after { leaveRule(); }:
 (
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getExpression_AccessMemberOrArrayElementAccess().getExpression_VariableNameParserRuleCall_0()); 
     }
@@ -2914,6 +3115,9 @@ ruleExpression_AccessMemberOrArrayElement returns [EObject current=null]
     	newLeafNode(otherlv_1, grammarAccess.getExpression_AccessMemberOrArrayElementAccess().getLeftSquareBracketKeyword_1_0_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElementAndSet(
             grammarAccess.getExpression_AccessMemberOrArrayElementAccess().getExpression_AccessArrayArrayAction_1_0_1(),
@@ -2947,6 +3151,9 @@ ruleExpression_AccessMemberOrArrayElement returns [EObject current=null]
     	newLeafNode(otherlv_5, grammarAccess.getExpression_AccessMemberOrArrayElementAccess().getFullStopKeyword_1_1_0());
     }
 (
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElementAndSet(
             grammarAccess.getExpression_AccessMemberOrArrayElementAccess().getExpression_AccessMemberObjectAction_1_1_1(),
@@ -2996,6 +3203,9 @@ ruleExpression_VariableName returns [EObject current=null]
     	newLeafNode(otherlv_0, grammarAccess.getExpression_VariableNameAccess().getLeftParenthesisKeyword_0_0());
     }
 
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getExpression_VariableNameAccess().getExpressionParserRuleCall_0_1()); 
     }
@@ -3010,6 +3220,9 @@ ruleExpression_VariableName returns [EObject current=null]
     }
 )
     |((
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElement(
             grammarAccess.getExpression_VariableNameAccess().getExpression_VariableNameAction_1_0(),
@@ -3161,6 +3374,9 @@ ruleFunctioncall_Arguments returns [EObject current=null]
     }
     @after { leaveRule(); }:
 ((
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElement(
             grammarAccess.getFunctioncall_ArgumentsAccess().getFunctioncall_ArgumentsAction_0(),
@@ -3274,6 +3490,9 @@ ruleField returns [EObject current=null]
     }
     @after { leaveRule(); }:
 (
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getFieldAccess().getField_AddEntryToTable_BracketsParserRuleCall_0()); 
     }
@@ -3284,6 +3503,9 @@ ruleField returns [EObject current=null]
     }
 
     |
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getFieldAccess().getField_AddEntryToTableParserRuleCall_1()); 
     }
@@ -3294,6 +3516,9 @@ ruleField returns [EObject current=null]
     }
 
     |
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getFieldAccess().getField_AppendEntryToTableParserRuleCall_2()); 
     }

@@ -86,7 +86,7 @@ public class LuaSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     ';' | ','
+	 *     ',' | ';'
 	 */
 	protected void emit_Expression_TableConstructor_CommaKeyword_2_1_0_0_or_SemicolonKeyword_2_1_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -94,7 +94,7 @@ public class LuaSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     (';' | ',')?
+	 *     (',' | ';')?
 	 */
 	protected void emit_Expression_TableConstructor___CommaKeyword_2_2_0_or_SemicolonKeyword_2_2_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

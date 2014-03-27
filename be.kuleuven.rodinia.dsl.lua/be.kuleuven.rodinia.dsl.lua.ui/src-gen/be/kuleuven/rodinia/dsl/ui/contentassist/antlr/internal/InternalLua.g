@@ -5,6 +5,7 @@ grammar InternalLua;
 
 options {
 	superClass=AbstractInternalContentAssistParser;
+	backtrack=true;
 	
 }
 
