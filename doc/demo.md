@@ -16,7 +16,7 @@ To get started with the demo, it's necessary to have the rFSM modeling tools up 
 Creating your first program
 ---
 
-The first task of this demo is not yet based on rFSM's [Extended example](http://people.mech.kuleuven.be/~mklotzbucher/rfsm/README.html#sec-8-1), but involves creating a "hello world" program. This traditional approach allows the reader to become familiar with the very basics of the framework.
+The first task of this demo is not yet based on rFSM's Extended example, but involves creating a ["hello world" program](http://people.mech.kuleuven.be/~mklotzbucher/rfsm/README.html#sec-3). This traditional approach allows the reader to become familiar with the very basics of the framework.
 
 ###Create an rFSM Project
 1. Do __File > New > Project__.
@@ -31,7 +31,7 @@ The first task of this demo is not yet based on rFSM's [Extended example](http:/
 4. Click __Yes__ to add the Xtext nature to the project.
 5. Type the following in the editor (Hint: Ctrl+Space is autocomplete):
 
-'''
+```
 state helloworld {
 	state hello {
 		exit: 'print("hello")'
@@ -47,12 +47,12 @@ state helloworld {
 	transition from hello to world onevent 'e_done'
 	transition from world to hello onevent 'e_restart'	
 }
-'''
+```
 
 ####Clarifications on the model/grammar
-Every model should have one toplevel composite state, which is _helloworld_ in this model. Two substates, namely _hello_ and _world_ are defined. The former defines an exit function in pure Lua code, the latter an exit function in pure Lua. An initial connector has to be defined to determine the starting state.
+Every model should have one toplevel composite state. In this model,_helloworld_ takes that role. Two substates, namely _hello_ and _world_ are defined. The former defines an exit function in pure Lua code, the latter an exit function in pure Lua. An initial connector has to be defined to determine the starting state.
 
-This starting position is then further defined in a transition from _initial_ to _hello_. Further transitions from hello to world and vice versa will happen when certain events occur.
+This starting position is then further defined in a transition from _initial_ to _hello_. Further transitions from _hello_ to _world_ and vice versa will happen when certain events occur.
 
 ###Transforming the rFSM model to Lua input for the rFSM simulator
 1. Select the _helloworld.rfsm_ file in the _Project Explorer_.
