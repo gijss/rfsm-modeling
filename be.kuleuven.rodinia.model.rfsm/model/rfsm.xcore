@@ -20,9 +20,10 @@ class Node {
 
 @Ecore(constraints="defineInitialConnectorWhenComposite defineMaxOneInitialConnector onlyLeafStatesHaveDoo")
 //Each composite state that is target of a transition, defines an initial connector.
+//So the root composite state should define an initial connector??? (constraint is taken from rFSM paper)
 @Pivot(defineInitialConnectorWhenComposite="self.subnodes->size() > 0 and Transition.allInstances()->exists(t | t.target=self) implies self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial')->size() = 1")
 //A composite state may define at most one initial connector.
-@Pivot(defineMaxOneInitialConnector="self.subnodes->size() > 0 implies (self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial')->size() <= 1)")
+@Pivot(defineMaxOneInitialConnector="(self.subnodes->size() > 0) implies (self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial')->size() <= 1)")
 //Only leaf-states can define a doo function. (not sure about this one)
 @Pivot(onlyLeafStatesHaveDoo="(not self.doo.oclIsUndefined()) implies (self.subnodes->size() = 0)")
 class State extends Node {
@@ -58,7 +59,6 @@ class Transition {
 	contains Event[] events	opposite owner	//possible to add this logic to the guard function
 	contains Function[0..1] guard	//contains function in this example (original:refers)
 	contains Function[0..1] effect	//contains function in this example (original:refers)
-	
 	
 	//is one ancestor of two?
 	@Pivot(body="if (one = two) 
@@ -102,6 +102,7 @@ class Function {
 }
 
 //how to model history behaviour?
+//not implemented in Lua yet (I think)
 class History {
 	int depth
 	boolean hot

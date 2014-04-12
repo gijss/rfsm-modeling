@@ -51,6 +51,9 @@ Installation and usage
 13. A generated .lua file should be generated in the src/ folder
 14. Run this file with the rFSM simulator
 
+###Tutorial
+See [tutorial](https://github.com/gijss/rfsm-modeling/blob/master/doc/demo.md)
+
 Current issues
 ---
 ###Meta-model:

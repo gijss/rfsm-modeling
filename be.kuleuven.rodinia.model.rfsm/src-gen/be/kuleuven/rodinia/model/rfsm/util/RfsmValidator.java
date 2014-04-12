@@ -219,7 +219,7 @@ public class RfsmValidator extends EObjectValidator
    * <!-- end-user-doc -->
    * @generated
    */
-  protected static final String STATE__DEFINE_MAX_ONE_INITIAL_CONNECTOR__EEXPRESSION = "self.subnodes->size() > 0 implies (self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial')->size() <= 1)";
+  protected static final String STATE__DEFINE_MAX_ONE_INITIAL_CONNECTOR__EEXPRESSION = "(self.subnodes->size() > 0) implies (self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial')->size() <= 1)";
 
   /**
    * Validates the defineMaxOneInitialConnector constraint of '<em>State</em>'.
