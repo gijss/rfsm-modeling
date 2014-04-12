@@ -5,9 +5,9 @@ return [%root.printtolua();%]
 	%]rfsm.state{[%
 	/*print states*/
 	for(node in self.subnodes) {
-		out.print(node.parent);
 	
 		if(node.isTypeOf(State)) {%]
+		
 		[%out.print(node.name);%] = [%node.printtolua();%],[%
 		}
 	}
