@@ -4,9 +4,9 @@ rFSM Modeling Demo
 Introduction
 ---
 
-This demo will illustrate the purpose and features of the current rFSM modeling project. The [Extended example](http://people.mech.kuleuven.be/~mklotzbucher/rfsm/README.html#sec-8-1) from the rFSM Statecharts readme will be used as a basis.
+This demo will illustrate the purpose and features of the current rFSM modeling project. Basic usage is explained using a simple "hello world" program and more advanced features and constraints on the language are explained using an extended model. For installation instructions, read this project's [README.md](https://github.com/gijss/rfsm-modeling).
 
-The rest of this document assumes at least some basic knowledge of [rFSM Statecharts](https://github.com/kmarkus/rFSM), so please read its [readme](http://people.mech.kuleuven.be/~mklotzbucher/rfsm/README.html) if you aren't familiar with rFSM.
+The rest of this document assumes at least some basic knowledge of [rFSM Statecharts](https://github.com/kmarkus/rFSM), so please read its [documentation](http://people.mech.kuleuven.be/~mklotzbucher/rfsm/README.html) if you aren't familiar with rFSM.
 
 Installation
 ---
@@ -50,7 +50,7 @@ state helloworld {
 ```
 
 ####Clarifications on the model/grammar
-Every model should have one toplevel composite state. In this model,_helloworld_ takes that role. Two substates, namely _hello_ and _world_ are defined. The former defines an exit function in pure Lua code, the latter an exit function in pure Lua. An initial connector has to be defined to determine the starting state.
+Every model should have one toplevel composite state. In this model, _helloworld_ takes that role. Two substates, namely _hello_ and _world_ are defined. The former defines an exit function in pure Lua code, the latter an entry function in pure Lua. An initial connector has to be defined to determine the starting state.
 
 This starting position is then further defined in a transition from _initial_ to _hello_. Further transitions from _hello_ to _world_ and vice versa will happen when certain events occur.
 
@@ -61,4 +61,20 @@ This starting position is then further defined in a transition from _initial_ to
 4. A generated file _src/helloworld.lua_ should be visible now.
 
 ###Run the generated Lua code in the rFSM simulator
-The generated helloworld.lua can now be run in the rFSM simulator. How to do this, is perfectly explained in the [rFSM readme](http://people.mech.kuleuven.be/~mklotzbucher/rfsm/README.html#sec-3).
+
+The generated code can now be run in the rFSM simulator. This text uses $RFSMPATH as the location of the git rFSM repository. Now, open a terminal, go to your current workspace and type:
+
+```shell
+$RFSMPATH/tools/rfsm-sim helloworld/src/helloworld.lua
+```
+
+To advance the machine, execute `step(p)` in the simulator. An event can be executed by typing `se("eventname")` e.g. `se_restart`.
+
+Note: If the simulator doesn't run the program, check if the rFSM folder is in your LUA_PATH. Otherwise, do:
+
+```shell
+export LUA_PATH="$LUA_PATH;$RFSMPATH/?.lua"
+```
+
+More information on the rFSM simulator can be found in the [rFSM readme](http://people.mech.kuleuven.be/~mklotzbucher/rfsm/README.html).
+
