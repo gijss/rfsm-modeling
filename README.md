@@ -30,37 +30,40 @@ Installation and usage
 ###Build programming environment
 3. Start Eclipse and import into workspace:
     1. All projects from rFSM repository
-    2. Project `be.kuleuven.rodinia.epsilon.service` from Rodinia repository (Graphiti branch)
+    2. Project __be.kuleuven.rodinia.epsilon.service__ from Rodinia repository (Graphiti branch)
 4. Generate Xtext Artifacts:
-    1. Select `Rfsm.xtext` from `be.kuleuven.rodinia.model.rfsm` project and
-    2. Right click and choose Run As -> Generate Xtext Artifacts from its context menu
+    1. Select __Rfsm.xtext__ from __be.kuleuven.rodinia.model.rfsm__ project and
+    2. Right click and choose __Run As > Generate Xtext Artifacts__ from its context menu
 5. Register metamodel into Epsilon:
-    1. Select `rfsm.ecore` from `be.kuleuven.rodinia.model.rfsm` project and
-    2. Right click and choose Register EPackages from its context menu
+    1. Select _rfsm.ecore_ from __be.kuleuven.rodinia.model.rfsm__ project and
+    2. Right click and choose __Register EPackages__ from its context menu
 6. Launch Runtime Eclipse:
-    1. Choose Run As -> Run Configurations...
-    2. Choose Eclipse Application -> Launch Runtime Eclipse
-    3. Click Run to run with default configuration
+    1. Choose __Run As > Run Configurations...__
+    2. Choose __Eclipse Application > Launch Runtime Eclipse__
+    3. Click __Run__ to run with default configuration
 
 ###Program and run an rFSM
 
 8. Create new project
 10. Create new file with an .rfsm extension
-11. Define rFSM program using the right grammar (example in `be.kuleuven.rodinia.transform.rfsm/examples`)
-12. Select .rfsm file and choose rFSM -> Create Structural Code from menu bar
-13. A generated .lua file should be generated in the src/ folder
+11. Define rFSM program using the right grammar (example in __be.kuleuven.rodinia.transform.rfsm/examples__)
+12. Select .rfsm file and choose __rFSM > Create Structural Code__ from menu bar
+13. A generated .lua file should be generated in the _src/_ folder
 14. Run this file with the rFSM simulator
 
+For more info on usage, see [tutorial](https://github.com/gijss/rfsm-modeling/blob/master/doc/demo.md).
+
 ###Tutorial
-See [tutorial](https://github.com/gijss/rfsm-modeling/blob/master/doc/demo.md)
+See [tutorial](https://github.com/gijss/rfsm-modeling/blob/master/doc/demo.md).
 
 Current issues
 ---
 ###Meta-model:
+* Rework meta-model towards more generic hypergraph model
 * Constraints:
-    * More need to be defined
+    * More need to be defined?
 * Needs to be linked with Lua or other programming language meta-model?
-        * To specify real function instead of string
+    * To specify real function instead of string
 
 ###Grammar:
 * Very temporary for testing purposes only: needs complete rework
