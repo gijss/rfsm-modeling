@@ -30,12 +30,12 @@ Installation and usage
 ###Build programming environment
 3. Start Eclipse and import into workspace:
     1. All projects from rFSM repository
-    2. Project __be.kuleuven.rodinia.epsilon.service__ from Rodinia repository (Graphiti branch)
+    2. Project _be.kuleuven.rodinia.epsilon.service_ from Rodinia repository (Graphiti branch)
 4. Generate Xtext Artifacts:
-    1. Select __Rfsm.xtext__ from __be.kuleuven.rodinia.model.rfsm__ project and
+    1. Select _Rfsm.xtext_ from _be.kuleuven.rodinia.model.rfsm_ project and
     2. Right click and choose __Run As > Generate Xtext Artifacts__ from its context menu
 5. Register metamodel into Epsilon:
-    1. Select _rfsm.ecore_ from __be.kuleuven.rodinia.model.rfsm__ project and
+    1. Select _rfsm.ecore_ from _be.kuleuven.rodinia.model.rfsm_ project and
     2. Right click and choose __Register EPackages__ from its context menu
 6. Launch Runtime Eclipse:
     1. Choose __Run As > Run Configurations...__
@@ -46,7 +46,7 @@ Installation and usage
 
 8. Create new project
 10. Create new file with an .rfsm extension
-11. Define rFSM program using the right grammar (example in __be.kuleuven.rodinia.transform.rfsm/examples__)
+11. Define rFSM program using the right grammar (example in _be.kuleuven.rodinia.transform.rfsm/examples_)
 12. Select .rfsm file and choose __rFSM > Create Structural Code__ from menu bar
 13. A generated .lua file should be generated in the _src/_ folder
 14. Run this file with the rFSM simulator
