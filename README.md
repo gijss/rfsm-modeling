@@ -29,7 +29,7 @@ Installation and usage
 
 ###Build programming environment
 3. Start Eclipse and import into workspace:
-    1. All projects from rFSM repository
+    1. All projects from rFSM-modeling repository
     2. Project _be.kuleuven.rodinia.epsilon.service_ from Rodinia repository (Graphiti branch)
 4. Generate Xtext Artifacts:
     1. Select _Rfsm.xtext_ from _be.kuleuven.rodinia.model.rfsm_ project and
