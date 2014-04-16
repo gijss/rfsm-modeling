@@ -91,16 +91,8 @@ public class RfsmValidator extends EObjectValidator
   {
     switch (classifierID)
     {
-      case RfsmPackage.VERTEX:
-        return validateVertex((Vertex)value, diagnostics, context);
-      case RfsmPackage.EDGE:
-        return validateEdge((Edge)value, diagnostics, context);
-      case RfsmPackage.HYPER_VERTEX:
-        return validateHyperVertex((HyperVertex)value, diagnostics, context);
-      case RfsmPackage.GRAPH_EDGE:
-        return validateGraphEdge((GraphEdge)value, diagnostics, context);
-      case RfsmPackage.HYPER_GRAPH:
-        return validateHyperGraph((HyperGraph)value, diagnostics, context);
+      case RfsmPackage.NODE:
+        return validateNode((Node)value, diagnostics, context);
       case RfsmPackage.STATE:
         return validateState((State)value, diagnostics, context);
       case RfsmPackage.CONNECTOR:
@@ -123,170 +115,49 @@ public class RfsmValidator extends EObjectValidator
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean validateVertex(Vertex vertex, DiagnosticChain diagnostics, Map<Object, Object> context)
+  public boolean validateNode(Node node, DiagnosticChain diagnostics, Map<Object, Object> context)
   {
-    return validate_EveryDefaultConstraint(vertex, diagnostics, context);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public boolean validateEdge(Edge edge, DiagnosticChain diagnostics, Map<Object, Object> context)
-  {
-    return validate_EveryDefaultConstraint(edge, diagnostics, context);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public boolean validateHyperVertex(HyperVertex hyperVertex, DiagnosticChain diagnostics, Map<Object, Object> context)
-  {
-    if (!validate_NoCircularContainment(hyperVertex, diagnostics, context)) return false;
-    boolean result = validate_EveryMultiplicityConforms(hyperVertex, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_EveryDataValueConforms(hyperVertex, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(hyperVertex, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(hyperVertex, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_EveryProxyResolves(hyperVertex, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_UniqueID(hyperVertex, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_EveryKeyUnique(hyperVertex, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(hyperVertex, diagnostics, context);
-    if (result || diagnostics != null) result &= validateHyperVertex_defineOnlyOneRootHyperVertex(hyperVertex, diagnostics, context);
+    if (!validate_NoCircularContainment(node, diagnostics, context)) return false;
+    boolean result = validate_EveryMultiplicityConforms(node, diagnostics, context);
+    if (result || diagnostics != null) result &= validate_EveryDataValueConforms(node, diagnostics, context);
+    if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(node, diagnostics, context);
+    if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(node, diagnostics, context);
+    if (result || diagnostics != null) result &= validate_EveryProxyResolves(node, diagnostics, context);
+    if (result || diagnostics != null) result &= validate_UniqueID(node, diagnostics, context);
+    if (result || diagnostics != null) result &= validate_EveryKeyUnique(node, diagnostics, context);
+    if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(node, diagnostics, context);
+    if (result || diagnostics != null) result &= validateNode_defineOnlyOneRootNode(node, diagnostics, context);
     return result;
   }
 
   /**
-   * The cached validation expression for the defineOnlyOneRootHyperVertex constraint of '<em>Hyper Vertex</em>'.
+   * The cached validation expression for the defineOnlyOneRootNode constraint of '<em>Node</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected static final String HYPER_VERTEX__DEFINE_ONLY_ONE_ROOT_HYPER_VERTEX__EEXPRESSION = "(HyperVertex.allInstances()->select(n | n.parent.oclIsUndefined ()))->size() = 1";
+  protected static final String NODE__DEFINE_ONLY_ONE_ROOT_NODE__EEXPRESSION = "(Node.allInstances()->select(n | n.parent.oclIsUndefined ()))->size() = 1";
 
   /**
-   * Validates the defineOnlyOneRootHyperVertex constraint of '<em>Hyper Vertex</em>'.
+   * Validates the defineOnlyOneRootNode constraint of '<em>Node</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean validateHyperVertex_defineOnlyOneRootHyperVertex(HyperVertex hyperVertex, DiagnosticChain diagnostics, Map<Object, Object> context)
+  public boolean validateNode_defineOnlyOneRootNode(Node node, DiagnosticChain diagnostics, Map<Object, Object> context)
   {
     return
       validate
-        (RfsmPackage.Literals.HYPER_VERTEX,
-         hyperVertex,
+        (RfsmPackage.Literals.NODE,
+         node,
          diagnostics,
          context,
          "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-         "defineOnlyOneRootHyperVertex",
-         HYPER_VERTEX__DEFINE_ONLY_ONE_ROOT_HYPER_VERTEX__EEXPRESSION,
+         "defineOnlyOneRootNode",
+         NODE__DEFINE_ONLY_ONE_ROOT_NODE__EEXPRESSION,
          Diagnostic.ERROR,
          DIAGNOSTIC_SOURCE,
          0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public boolean validateGraphEdge(GraphEdge graphEdge, DiagnosticChain diagnostics, Map<Object, Object> context)
-  {
-    if (!validate_NoCircularContainment(graphEdge, diagnostics, context)) return false;
-    boolean result = validate_EveryMultiplicityConforms(graphEdge, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_EveryDataValueConforms(graphEdge, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(graphEdge, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(graphEdge, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_EveryProxyResolves(graphEdge, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_UniqueID(graphEdge, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_EveryKeyUnique(graphEdge, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(graphEdge, diagnostics, context);
-    if (result || diagnostics != null) result &= validateGraphEdge_transitionOwner(graphEdge, diagnostics, context);
-    if (result || diagnostics != null) result &= validateGraphEdge_legalBoundaryCrossing(graphEdge, diagnostics, context);
-    return result;
-  }
-
-  /**
-   * The cached validation expression for the transitionOwner constraint of '<em>Graph Edge</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected static final String GRAPH_EDGE__TRANSITION_OWNER__EEXPRESSION = "let lca : State = LCA(self.source, self.target) in self.owner = lca or isAncestor(self.owner, lca)";
-
-  /**
-   * Validates the transitionOwner constraint of '<em>Graph Edge</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public boolean validateGraphEdge_transitionOwner(GraphEdge graphEdge, DiagnosticChain diagnostics, Map<Object, Object> context)
-  {
-    return
-      validate
-        (RfsmPackage.Literals.GRAPH_EDGE,
-         graphEdge,
-         diagnostics,
-         context,
-         "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-         "transitionOwner",
-         GRAPH_EDGE__TRANSITION_OWNER__EEXPRESSION,
-         Diagnostic.ERROR,
-         DIAGNOSTIC_SOURCE,
-         0);
-  }
-
-  /**
-   * The cached validation expression for the legalBoundaryCrossing constraint of '<em>Graph Edge</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected static final String GRAPH_EDGE__LEGAL_BOUNDARY_CROSSING__EEXPRESSION = "(self.target.parent <> self.source) and isAncestor(self.target.parent, self.source)";
-
-  /**
-   * Validates the legalBoundaryCrossing constraint of '<em>Graph Edge</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public boolean validateGraphEdge_legalBoundaryCrossing(GraphEdge graphEdge, DiagnosticChain diagnostics, Map<Object, Object> context)
-  {
-    return
-      validate
-        (RfsmPackage.Literals.GRAPH_EDGE,
-         graphEdge,
-         diagnostics,
-         context,
-         "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-         "legalBoundaryCrossing",
-         GRAPH_EDGE__LEGAL_BOUNDARY_CROSSING__EEXPRESSION,
-         Diagnostic.ERROR,
-         DIAGNOSTIC_SOURCE,
-         0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public boolean validateHyperGraph(HyperGraph hyperGraph, DiagnosticChain diagnostics, Map<Object, Object> context)
-  {
-    if (!validate_NoCircularContainment(hyperGraph, diagnostics, context)) return false;
-    boolean result = validate_EveryMultiplicityConforms(hyperGraph, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_EveryDataValueConforms(hyperGraph, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(hyperGraph, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(hyperGraph, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_EveryProxyResolves(hyperGraph, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_UniqueID(hyperGraph, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_EveryKeyUnique(hyperGraph, diagnostics, context);
-    if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(hyperGraph, diagnostics, context);
-    if (result || diagnostics != null) result &= validateHyperVertex_defineOnlyOneRootHyperVertex(hyperGraph, diagnostics, context);
-    return result;
   }
 
   /**
@@ -305,7 +176,7 @@ public class RfsmValidator extends EObjectValidator
     if (result || diagnostics != null) result &= validate_UniqueID(state, diagnostics, context);
     if (result || diagnostics != null) result &= validate_EveryKeyUnique(state, diagnostics, context);
     if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(state, diagnostics, context);
-    if (result || diagnostics != null) result &= validateHyperVertex_defineOnlyOneRootHyperVertex(state, diagnostics, context);
+    if (result || diagnostics != null) result &= validateNode_defineOnlyOneRootNode(state, diagnostics, context);
     if (result || diagnostics != null) result &= validateState_defineInitialConnectorWhenComposite(state, diagnostics, context);
     if (result || diagnostics != null) result &= validateState_defineMaxOneInitialConnector(state, diagnostics, context);
     if (result || diagnostics != null) result &= validateState_onlyLeafStatesHaveDoo(state, diagnostics, context);
@@ -318,7 +189,7 @@ public class RfsmValidator extends EObjectValidator
    * <!-- end-user-doc -->
    * @generated
    */
-  protected static final String STATE__DEFINE_INITIAL_CONNECTOR_WHEN_COMPOSITE__EEXPRESSION = "self.subHyperVertices->size() > 0 and Transition.allInstances()->exists(t | t.target=self) implies self.subHyperVertexs->select(c | c.oclIsTypeOf(Connector) and c.name='initial')->size() = 1";
+  protected static final String STATE__DEFINE_INITIAL_CONNECTOR_WHEN_COMPOSITE__EEXPRESSION = "self.subnodes->size() > 0 and Transition.allInstances()->exists(t | t.target=self) implies self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial')->size() = 1";
 
   /**
    * Validates the defineInitialConnectorWhenComposite constraint of '<em>State</em>'.
@@ -348,7 +219,7 @@ public class RfsmValidator extends EObjectValidator
    * <!-- end-user-doc -->
    * @generated
    */
-  protected static final String STATE__DEFINE_MAX_ONE_INITIAL_CONNECTOR__EEXPRESSION = "(self.subHyperVertices->size() > 0) implies (self.subHyperVertices->select(c | c.oclIsTypeOf(Connector) and c.name='initial')->size() <= 1)";
+  protected static final String STATE__DEFINE_MAX_ONE_INITIAL_CONNECTOR__EEXPRESSION = "(self.subnodes->size() > 0) implies (self.subnodes->select(c | c.oclIsTypeOf(Connector) and c.name='initial')->size() <= 1)";
 
   /**
    * Validates the defineMaxOneInitialConnector constraint of '<em>State</em>'.
@@ -378,7 +249,7 @@ public class RfsmValidator extends EObjectValidator
    * <!-- end-user-doc -->
    * @generated
    */
-  protected static final String STATE__ONLY_LEAF_STATES_HAVE_DOO__EEXPRESSION = "(not self.doo.oclIsUndefined()) implies (self.subHyperVertices->size() = 0)";
+  protected static final String STATE__ONLY_LEAF_STATES_HAVE_DOO__EEXPRESSION = "(not self.doo.oclIsUndefined()) implies (self.subnodes->size() = 0)";
 
   /**
    * Validates the onlyLeafStatesHaveDoo constraint of '<em>State</em>'.
@@ -409,7 +280,17 @@ public class RfsmValidator extends EObjectValidator
    */
   public boolean validateConnector(Connector connector, DiagnosticChain diagnostics, Map<Object, Object> context)
   {
-    return validate_EveryDefaultConstraint(connector, diagnostics, context);
+    if (!validate_NoCircularContainment(connector, diagnostics, context)) return false;
+    boolean result = validate_EveryMultiplicityConforms(connector, diagnostics, context);
+    if (result || diagnostics != null) result &= validate_EveryDataValueConforms(connector, diagnostics, context);
+    if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(connector, diagnostics, context);
+    if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(connector, diagnostics, context);
+    if (result || diagnostics != null) result &= validate_EveryProxyResolves(connector, diagnostics, context);
+    if (result || diagnostics != null) result &= validate_UniqueID(connector, diagnostics, context);
+    if (result || diagnostics != null) result &= validate_EveryKeyUnique(connector, diagnostics, context);
+    if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(connector, diagnostics, context);
+    if (result || diagnostics != null) result &= validateNode_defineOnlyOneRootNode(connector, diagnostics, context);
+    return result;
   }
 
   /**
@@ -428,11 +309,71 @@ public class RfsmValidator extends EObjectValidator
     if (result || diagnostics != null) result &= validate_UniqueID(transition, diagnostics, context);
     if (result || diagnostics != null) result &= validate_EveryKeyUnique(transition, diagnostics, context);
     if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(transition, diagnostics, context);
-    if (result || diagnostics != null) result &= validateGraphEdge_transitionOwner(transition, diagnostics, context);
-    if (result || diagnostics != null) result &= validateGraphEdge_legalBoundaryCrossing(transition, diagnostics, context);
+    if (result || diagnostics != null) result &= validateTransition_transitionOwner(transition, diagnostics, context);
+    if (result || diagnostics != null) result &= validateTransition_legalBoundaryCrossing(transition, diagnostics, context);
     if (result || diagnostics != null) result &= validateTransition_maxOneTransitionFromInitialConnector(transition, diagnostics, context);
     if (result || diagnostics != null) result &= validateTransition_noGuardFromInitialConnector(transition, diagnostics, context);
     return result;
+  }
+
+  /**
+   * The cached validation expression for the transitionOwner constraint of '<em>Transition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected static final String TRANSITION__TRANSITION_OWNER__EEXPRESSION = "let lca : State = LCA(self.source, self.target) in self.owner = lca or isAncestor(self.owner, lca)";
+
+  /**
+   * Validates the transitionOwner constraint of '<em>Transition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean validateTransition_transitionOwner(Transition transition, DiagnosticChain diagnostics, Map<Object, Object> context)
+  {
+    return
+      validate
+        (RfsmPackage.Literals.TRANSITION,
+         transition,
+         diagnostics,
+         context,
+         "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+         "transitionOwner",
+         TRANSITION__TRANSITION_OWNER__EEXPRESSION,
+         Diagnostic.ERROR,
+         DIAGNOSTIC_SOURCE,
+         0);
+  }
+
+  /**
+   * The cached validation expression for the legalBoundaryCrossing constraint of '<em>Transition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected static final String TRANSITION__LEGAL_BOUNDARY_CROSSING__EEXPRESSION = "(self.target.parent <> self.source) and isAncestor(self.target.parent, self.source)";
+
+  /**
+   * Validates the legalBoundaryCrossing constraint of '<em>Transition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean validateTransition_legalBoundaryCrossing(Transition transition, DiagnosticChain diagnostics, Map<Object, Object> context)
+  {
+    return
+      validate
+        (RfsmPackage.Literals.TRANSITION,
+         transition,
+         diagnostics,
+         context,
+         "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+         "legalBoundaryCrossing",
+         TRANSITION__LEGAL_BOUNDARY_CROSSING__EEXPRESSION,
+         Diagnostic.ERROR,
+         DIAGNOSTIC_SOURCE,
+         0);
   }
 
   /**
