@@ -41,6 +41,15 @@ public interface RfsmFactory extends EFactory
   Edge createEdge();
 
   /**
+   * Returns a new object of class '<em>Hyper Edge</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Hyper Edge</em>'.
+   * @generated
+   */
+  HyperEdge createHyperEdge();
+
+  /**
    * Returns a new object of class '<em>Hyper Vertex</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

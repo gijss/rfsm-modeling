@@ -21,6 +21,11 @@ class Edge {
 	refers Vertex[1] target
 }
 
+//Hyperedge can connect any number of nodes
+class HyperEdge {
+	refers Vertex[] vertices
+}
+
 @Ecore(constraints="defineOnlyOneRootHyperVertex")
 //There is only one HyperVertex that has no parent (ie: root HyperVertex),
 //a rFSM model is always contained within a state

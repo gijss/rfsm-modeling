@@ -86,6 +86,13 @@ public class RfsmSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case RfsmPackage.HYPER_EDGE:
+      {
+        HyperEdge hyperEdge = (HyperEdge)theEObject;
+        T result = caseHyperEdge(hyperEdge);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case RfsmPackage.HYPER_VERTEX:
       {
         HyperVertex hyperVertex = (HyperVertex)theEObject;
@@ -191,6 +198,22 @@ public class RfsmSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseEdge(Edge object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Hyper Edge</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Hyper Edge</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseHyperEdge(HyperEdge object)
   {
     return null;
   }

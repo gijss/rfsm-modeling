@@ -66,6 +66,7 @@ public class RfsmFactoryImpl extends EFactoryImpl implements RfsmFactory
     {
       case RfsmPackage.VERTEX: return createVertex();
       case RfsmPackage.EDGE: return createEdge();
+      case RfsmPackage.HYPER_EDGE: return createHyperEdge();
       case RfsmPackage.HYPER_VERTEX: return createHyperVertex();
       case RfsmPackage.GRAPH_EDGE: return createGraphEdge();
       case RfsmPackage.HYPER_GRAPH: return createHyperGraph();
@@ -100,6 +101,17 @@ public class RfsmFactoryImpl extends EFactoryImpl implements RfsmFactory
   {
     EdgeImpl edge = new EdgeImpl();
     return edge;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public HyperEdge createHyperEdge()
+  {
+    HyperEdgeImpl hyperEdge = new HyperEdgeImpl();
+    return hyperEdge;
   }
 
   /**

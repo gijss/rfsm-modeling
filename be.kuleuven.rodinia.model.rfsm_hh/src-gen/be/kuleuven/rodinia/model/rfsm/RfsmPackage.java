@@ -154,6 +154,43 @@ public interface RfsmPackage extends EPackage
   int EDGE_OPERATION_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link be.kuleuven.rodinia.model.rfsm.impl.HyperEdgeImpl <em>Hyper Edge</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see be.kuleuven.rodinia.model.rfsm.impl.HyperEdgeImpl
+   * @see be.kuleuven.rodinia.model.rfsm.impl.RfsmPackageImpl#getHyperEdge()
+   * @generated
+   */
+  int HYPER_EDGE = 2;
+
+  /**
+   * The feature id for the '<em><b>Vertices</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HYPER_EDGE__VERTICES = 0;
+
+  /**
+   * The number of structural features of the '<em>Hyper Edge</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HYPER_EDGE_FEATURE_COUNT = 1;
+
+  /**
+   * The number of operations of the '<em>Hyper Edge</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HYPER_EDGE_OPERATION_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link be.kuleuven.rodinia.model.rfsm.impl.HyperVertexImpl <em>Hyper Vertex</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -161,7 +198,7 @@ public interface RfsmPackage extends EPackage
    * @see be.kuleuven.rodinia.model.rfsm.impl.RfsmPackageImpl#getHyperVertex()
    * @generated
    */
-  int HYPER_VERTEX = 2;
+  int HYPER_VERTEX = 3;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -234,7 +271,7 @@ public interface RfsmPackage extends EPackage
    * @see be.kuleuven.rodinia.model.rfsm.impl.RfsmPackageImpl#getGraphEdge()
    * @generated
    */
-  int GRAPH_EDGE = 3;
+  int GRAPH_EDGE = 4;
 
   /**
    * The feature id for the '<em><b>Source</b></em>' reference.
@@ -289,7 +326,7 @@ public interface RfsmPackage extends EPackage
    * @see be.kuleuven.rodinia.model.rfsm.impl.RfsmPackageImpl#getHyperGraph()
    * @generated
    */
-  int HYPER_GRAPH = 4;
+  int HYPER_GRAPH = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -371,7 +408,7 @@ public interface RfsmPackage extends EPackage
    * @see be.kuleuven.rodinia.model.rfsm.impl.RfsmPackageImpl#getState()
    * @generated
    */
-  int STATE = 5;
+  int STATE = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -480,7 +517,7 @@ public interface RfsmPackage extends EPackage
    * @see be.kuleuven.rodinia.model.rfsm.impl.RfsmPackageImpl#getConnector()
    * @generated
    */
-  int CONNECTOR = 6;
+  int CONNECTOR = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -544,7 +581,7 @@ public interface RfsmPackage extends EPackage
    * @see be.kuleuven.rodinia.model.rfsm.impl.RfsmPackageImpl#getTransition()
    * @generated
    */
-  int TRANSITION = 7;
+  int TRANSITION = 8;
 
   /**
    * The feature id for the '<em><b>Source</b></em>' reference.
@@ -635,7 +672,7 @@ public interface RfsmPackage extends EPackage
    * @see be.kuleuven.rodinia.model.rfsm.impl.RfsmPackageImpl#getEvent()
    * @generated
    */
-  int EVENT = 8;
+  int EVENT = 9;
 
   /**
    * The feature id for the '<em><b>Eventliteral</b></em>' attribute.
@@ -681,7 +718,7 @@ public interface RfsmPackage extends EPackage
    * @see be.kuleuven.rodinia.model.rfsm.impl.RfsmPackageImpl#getFunction()
    * @generated
    */
-  int FUNCTION = 9;
+  int FUNCTION = 10;
 
   /**
    * The feature id for the '<em><b>Sourcecode</b></em>' attribute.
@@ -718,7 +755,7 @@ public interface RfsmPackage extends EPackage
    * @see be.kuleuven.rodinia.model.rfsm.impl.RfsmPackageImpl#getHistory()
    * @generated
    */
-  int HISTORY = 10;
+  int HISTORY = 11;
 
   /**
    * The feature id for the '<em><b>Depth</b></em>' attribute.
@@ -820,6 +857,27 @@ public interface RfsmPackage extends EPackage
    * @generated
    */
   EReference getEdge_Target();
+
+  /**
+   * Returns the meta object for class '{@link be.kuleuven.rodinia.model.rfsm.HyperEdge <em>Hyper Edge</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Hyper Edge</em>'.
+   * @see be.kuleuven.rodinia.model.rfsm.HyperEdge
+   * @generated
+   */
+  EClass getHyperEdge();
+
+  /**
+   * Returns the meta object for the reference list '{@link be.kuleuven.rodinia.model.rfsm.HyperEdge#getVertices <em>Vertices</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Vertices</em>'.
+   * @see be.kuleuven.rodinia.model.rfsm.HyperEdge#getVertices()
+   * @see #getHyperEdge()
+   * @generated
+   */
+  EReference getHyperEdge_Vertices();
 
   /**
    * Returns the meta object for class '{@link be.kuleuven.rodinia.model.rfsm.HyperVertex <em>Hyper Vertex</em>}'.
@@ -1193,6 +1251,24 @@ public interface RfsmPackage extends EPackage
      * @generated
      */
     EReference EDGE__TARGET = eINSTANCE.getEdge_Target();
+
+    /**
+     * The meta object literal for the '{@link be.kuleuven.rodinia.model.rfsm.impl.HyperEdgeImpl <em>Hyper Edge</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see be.kuleuven.rodinia.model.rfsm.impl.HyperEdgeImpl
+     * @see be.kuleuven.rodinia.model.rfsm.impl.RfsmPackageImpl#getHyperEdge()
+     * @generated
+     */
+    EClass HYPER_EDGE = eINSTANCE.getHyperEdge();
+
+    /**
+     * The meta object literal for the '<em><b>Vertices</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference HYPER_EDGE__VERTICES = eINSTANCE.getHyperEdge_Vertices();
 
     /**
      * The meta object literal for the '{@link be.kuleuven.rodinia.model.rfsm.impl.HyperVertexImpl <em>Hyper Vertex</em>}' class.

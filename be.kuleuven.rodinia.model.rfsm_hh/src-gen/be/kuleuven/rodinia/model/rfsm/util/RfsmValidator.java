@@ -95,6 +95,8 @@ public class RfsmValidator extends EObjectValidator
         return validateVertex((Vertex)value, diagnostics, context);
       case RfsmPackage.EDGE:
         return validateEdge((Edge)value, diagnostics, context);
+      case RfsmPackage.HYPER_EDGE:
+        return validateHyperEdge((HyperEdge)value, diagnostics, context);
       case RfsmPackage.HYPER_VERTEX:
         return validateHyperVertex((HyperVertex)value, diagnostics, context);
       case RfsmPackage.GRAPH_EDGE:
@@ -136,6 +138,16 @@ public class RfsmValidator extends EObjectValidator
   public boolean validateEdge(Edge edge, DiagnosticChain diagnostics, Map<Object, Object> context)
   {
     return validate_EveryDefaultConstraint(edge, diagnostics, context);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean validateHyperEdge(HyperEdge hyperEdge, DiagnosticChain diagnostics, Map<Object, Object> context)
+  {
+    return validate_EveryDefaultConstraint(hyperEdge, diagnostics, context);
   }
 
   /**

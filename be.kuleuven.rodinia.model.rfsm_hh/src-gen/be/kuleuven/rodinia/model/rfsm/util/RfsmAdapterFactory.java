@@ -85,6 +85,11 @@ public class RfsmAdapterFactory extends AdapterFactoryImpl
         return createEdgeAdapter();
       }
       @Override
+      public Adapter caseHyperEdge(HyperEdge object)
+      {
+        return createHyperEdgeAdapter();
+      }
+      @Override
       public Adapter caseHyperVertex(HyperVertex object)
       {
         return createHyperVertexAdapter();
@@ -177,6 +182,21 @@ public class RfsmAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createEdgeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link be.kuleuven.rodinia.model.rfsm.HyperEdge <em>Hyper Edge</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see be.kuleuven.rodinia.model.rfsm.HyperEdge
+   * @generated
+   */
+  public Adapter createHyperEdgeAdapter()
   {
     return null;
   }

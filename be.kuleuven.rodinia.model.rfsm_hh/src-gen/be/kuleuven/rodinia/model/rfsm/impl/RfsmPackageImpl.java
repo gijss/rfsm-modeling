@@ -8,6 +8,7 @@ import be.kuleuven.rodinia.model.rfsm.Event;
 import be.kuleuven.rodinia.model.rfsm.Function;
 import be.kuleuven.rodinia.model.rfsm.GraphEdge;
 import be.kuleuven.rodinia.model.rfsm.History;
+import be.kuleuven.rodinia.model.rfsm.HyperEdge;
 import be.kuleuven.rodinia.model.rfsm.HyperGraph;
 import be.kuleuven.rodinia.model.rfsm.HyperVertex;
 import be.kuleuven.rodinia.model.rfsm.RfsmFactory;
@@ -49,6 +50,13 @@ public class RfsmPackageImpl extends EPackageImpl implements RfsmPackage
    * @generated
    */
   private EClass edgeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass hyperEdgeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -248,6 +256,26 @@ public class RfsmPackageImpl extends EPackageImpl implements RfsmPackage
   public EReference getEdge_Target()
   {
     return (EReference)edgeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getHyperEdge()
+  {
+    return hyperEdgeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getHyperEdge_Vertices()
+  {
+    return (EReference)hyperEdgeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -568,6 +596,9 @@ public class RfsmPackageImpl extends EPackageImpl implements RfsmPackage
     createEReference(edgeEClass, EDGE__SOURCE);
     createEReference(edgeEClass, EDGE__TARGET);
 
+    hyperEdgeEClass = createEClass(HYPER_EDGE);
+    createEReference(hyperEdgeEClass, HYPER_EDGE__VERTICES);
+
     hyperVertexEClass = createEClass(HYPER_VERTEX);
     createEReference(hyperVertexEClass, HYPER_VERTEX__SUB_VERTICES);
     createEOperation(hyperVertexEClass, HYPER_VERTEX___IS_ANCESTOR__VERTEX_VERTEX);
@@ -653,6 +684,9 @@ public class RfsmPackageImpl extends EPackageImpl implements RfsmPackage
     initEClass(edgeEClass, Edge.class, "Edge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEdge_Source(), this.getVertex(), null, "source", null, 1, 1, Edge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEdge_Target(), this.getVertex(), null, "target", null, 1, 1, Edge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(hyperEdgeEClass, HyperEdge.class, "HyperEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getHyperEdge_Vertices(), this.getVertex(), null, "vertices", null, 0, -1, HyperEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(hyperVertexEClass, HyperVertex.class, "HyperVertex", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getHyperVertex_SubVertices(), this.getVertex(), this.getVertex_Parent(), "subVertices", null, 0, -1, HyperVertex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
