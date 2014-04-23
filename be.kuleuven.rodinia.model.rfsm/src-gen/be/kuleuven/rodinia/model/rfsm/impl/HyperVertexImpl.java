@@ -2,7 +2,6 @@
  */
 package be.kuleuven.rodinia.model.rfsm.impl;
 
-import be.kuleuven.rodinia.model.rfsm.HyperGraph;
 import be.kuleuven.rodinia.model.rfsm.HyperVertex;
 import be.kuleuven.rodinia.model.rfsm.RfsmPackage;
 
@@ -36,7 +35,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link be.kuleuven.rodinia.model.rfsm.impl.HyperVertexImpl#getName <em>Name</em>}</li>
- *   <li>{@link be.kuleuven.rodinia.model.rfsm.impl.HyperVertexImpl#getParentHyperGraph <em>Parent Hyper Graph</em>}</li>
  *   <li>{@link be.kuleuven.rodinia.model.rfsm.impl.HyperVertexImpl#getSubHyperVertices <em>Sub Hyper Vertices</em>}</li>
  *   <li>{@link be.kuleuven.rodinia.model.rfsm.impl.HyperVertexImpl#getParent <em>Parent</em>}</li>
  * </ul>
@@ -118,62 +116,6 @@ public class HyperVertexImpl extends MinimalEObjectImpl.Container implements Hyp
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RfsmPackage.HYPER_VERTEX__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public HyperGraph getParentHyperGraph()
-  {
-    if (eContainerFeatureID() != RfsmPackage.HYPER_VERTEX__PARENT_HYPER_GRAPH) return null;
-    return (HyperGraph)eContainer();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public HyperGraph basicGetParentHyperGraph()
-  {
-    if (eContainerFeatureID() != RfsmPackage.HYPER_VERTEX__PARENT_HYPER_GRAPH) return null;
-    return (HyperGraph)eInternalContainer();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetParentHyperGraph(HyperGraph newParentHyperGraph, NotificationChain msgs)
-  {
-    msgs = eBasicSetContainer((InternalEObject)newParentHyperGraph, RfsmPackage.HYPER_VERTEX__PARENT_HYPER_GRAPH, msgs);
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setParentHyperGraph(HyperGraph newParentHyperGraph)
-  {
-    if (newParentHyperGraph != eInternalContainer() || (eContainerFeatureID() != RfsmPackage.HYPER_VERTEX__PARENT_HYPER_GRAPH && newParentHyperGraph != null))
-    {
-      if (EcoreUtil.isAncestor(this, newParentHyperGraph))
-        throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-      NotificationChain msgs = null;
-      if (eInternalContainer() != null)
-        msgs = eBasicRemoveFromContainer(msgs);
-      if (newParentHyperGraph != null)
-        msgs = ((InternalEObject)newParentHyperGraph).eInverseAdd(this, RfsmPackage.HYPER_GRAPH__HYPER_VERTICES, HyperGraph.class, msgs);
-      msgs = basicSetParentHyperGraph(newParentHyperGraph, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RfsmPackage.HYPER_VERTEX__PARENT_HYPER_GRAPH, newParentHyperGraph, newParentHyperGraph));
   }
 
   /**
@@ -311,10 +253,6 @@ public class HyperVertexImpl extends MinimalEObjectImpl.Container implements Hyp
   {
     switch (featureID)
     {
-      case RfsmPackage.HYPER_VERTEX__PARENT_HYPER_GRAPH:
-        if (eInternalContainer() != null)
-          msgs = eBasicRemoveFromContainer(msgs);
-        return basicSetParentHyperGraph((HyperGraph)otherEnd, msgs);
       case RfsmPackage.HYPER_VERTEX__SUB_HYPER_VERTICES:
         return ((InternalEList<InternalEObject>)(InternalEList<?>)getSubHyperVertices()).basicAdd(otherEnd, msgs);
       case RfsmPackage.HYPER_VERTEX__PARENT:
@@ -335,8 +273,6 @@ public class HyperVertexImpl extends MinimalEObjectImpl.Container implements Hyp
   {
     switch (featureID)
     {
-      case RfsmPackage.HYPER_VERTEX__PARENT_HYPER_GRAPH:
-        return basicSetParentHyperGraph(null, msgs);
       case RfsmPackage.HYPER_VERTEX__SUB_HYPER_VERTICES:
         return ((InternalEList<?>)getSubHyperVertices()).basicRemove(otherEnd, msgs);
       case RfsmPackage.HYPER_VERTEX__PARENT:
@@ -355,8 +291,6 @@ public class HyperVertexImpl extends MinimalEObjectImpl.Container implements Hyp
   {
     switch (eContainerFeatureID())
     {
-      case RfsmPackage.HYPER_VERTEX__PARENT_HYPER_GRAPH:
-        return eInternalContainer().eInverseRemove(this, RfsmPackage.HYPER_GRAPH__HYPER_VERTICES, HyperGraph.class, msgs);
       case RfsmPackage.HYPER_VERTEX__PARENT:
         return eInternalContainer().eInverseRemove(this, RfsmPackage.HYPER_VERTEX__SUB_HYPER_VERTICES, HyperVertex.class, msgs);
     }
@@ -375,9 +309,6 @@ public class HyperVertexImpl extends MinimalEObjectImpl.Container implements Hyp
     {
       case RfsmPackage.HYPER_VERTEX__NAME:
         return getName();
-      case RfsmPackage.HYPER_VERTEX__PARENT_HYPER_GRAPH:
-        if (resolve) return getParentHyperGraph();
-        return basicGetParentHyperGraph();
       case RfsmPackage.HYPER_VERTEX__SUB_HYPER_VERTICES:
         return getSubHyperVertices();
       case RfsmPackage.HYPER_VERTEX__PARENT:
@@ -400,9 +331,6 @@ public class HyperVertexImpl extends MinimalEObjectImpl.Container implements Hyp
     {
       case RfsmPackage.HYPER_VERTEX__NAME:
         setName((String)newValue);
-        return;
-      case RfsmPackage.HYPER_VERTEX__PARENT_HYPER_GRAPH:
-        setParentHyperGraph((HyperGraph)newValue);
         return;
       case RfsmPackage.HYPER_VERTEX__SUB_HYPER_VERTICES:
         getSubHyperVertices().clear();
@@ -428,9 +356,6 @@ public class HyperVertexImpl extends MinimalEObjectImpl.Container implements Hyp
       case RfsmPackage.HYPER_VERTEX__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case RfsmPackage.HYPER_VERTEX__PARENT_HYPER_GRAPH:
-        setParentHyperGraph((HyperGraph)null);
-        return;
       case RfsmPackage.HYPER_VERTEX__SUB_HYPER_VERTICES:
         getSubHyperVertices().clear();
         return;
@@ -453,8 +378,6 @@ public class HyperVertexImpl extends MinimalEObjectImpl.Container implements Hyp
     {
       case RfsmPackage.HYPER_VERTEX__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case RfsmPackage.HYPER_VERTEX__PARENT_HYPER_GRAPH:
-        return basicGetParentHyperGraph() != null;
       case RfsmPackage.HYPER_VERTEX__SUB_HYPER_VERTICES:
         return subHyperVertices != null && !subHyperVertices.isEmpty();
       case RfsmPackage.HYPER_VERTEX__PARENT:

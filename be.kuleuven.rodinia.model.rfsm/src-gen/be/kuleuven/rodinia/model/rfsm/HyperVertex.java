@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link be.kuleuven.rodinia.model.rfsm.HyperVertex#getName <em>Name</em>}</li>
- *   <li>{@link be.kuleuven.rodinia.model.rfsm.HyperVertex#getParentHyperGraph <em>Parent Hyper Graph</em>}</li>
  *   <li>{@link be.kuleuven.rodinia.model.rfsm.HyperVertex#getSubHyperVertices <em>Sub Hyper Vertices</em>}</li>
  *   <li>{@link be.kuleuven.rodinia.model.rfsm.HyperVertex#getParent <em>Parent</em>}</li>
  * </ul>
@@ -53,34 +52,6 @@ public interface HyperVertex extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Parent Hyper Graph</b></em>' container reference.
-   * It is bidirectional and its opposite is '{@link be.kuleuven.rodinia.model.rfsm.HyperGraph#getHyperVertices <em>Hyper Vertices</em>}'.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Parent Hyper Graph</em>' container reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Parent Hyper Graph</em>' container reference.
-   * @see #setParentHyperGraph(HyperGraph)
-   * @see be.kuleuven.rodinia.model.rfsm.RfsmPackage#getHyperVertex_ParentHyperGraph()
-   * @see be.kuleuven.rodinia.model.rfsm.HyperGraph#getHyperVertices
-   * @model opposite="hyperVertices" transient="false"
-   * @generated
-   */
-  HyperGraph getParentHyperGraph();
-
-  /**
-   * Sets the value of the '{@link be.kuleuven.rodinia.model.rfsm.HyperVertex#getParentHyperGraph <em>Parent Hyper Graph</em>}' container reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Parent Hyper Graph</em>' container reference.
-   * @see #getParentHyperGraph()
-   * @generated
-   */
-  void setParentHyperGraph(HyperGraph value);
 
   /**
    * Returns the value of the '<em><b>Sub Hyper Vertices</b></em>' containment reference list.
