@@ -1,54 +1,37 @@
 
-return [%root.printtolua();%]
+return [%root.printGraphToLua();%]
 
-[% operation State printtolua() { 
+[% operation HyperGraph printGraphToLua() { 
+	
+	/*print root state*/
 	%]rfsm.state{[%
-	/*print states*/
-	for(node in self.subnodes) {
-	
-		if(node.isTypeOf(State)) {%]
-		
-		[%out.print(node.name);%] = [%node.printtolua();%],[%
-		}
-	}
-	
-	/*print connectors*/
-	for(node in self.subnodes) {
-		if(node.isTypeOf(Connector)) {%]
-
-			[%out.print(node.name);%] = rfsm.conn{},[%
-		}
-	}
+	self.hyperVertices.at(0).printStateBodyToLua();
 	
 	/*print transitions*/
-	for(transition in self.transitions) {
-		%]
+	for(hyperEdge in self.hyperEdges) {
+		hyperEdge.printTransitionToLua();
+	}
+	//if target is direct child of source --> initial transition
+	
+	
+	%]}[%
+}%]
 
-rfsm.trans{src='[%=transition.source.name%]', tgt='[%=transition.target.name%]'[%
+[% operation State printStateToLua() { 
+	%]rfsm.state{[%
+	self.printStateBodyToLua();
+	%]}[%
+}%]
+
+[% operation State printStateBodyToLua() { 
+	
+	/*print states*/
+	for(node in self.subHyperVertices) {
+		%]
 		
-		/*print priority_number*/
-		if(transition.priority_number <> 0) {
-			%], pn=[%out.print(transition.priority_number);
-		}
-		
-		/*print events*/
-		if(transition.events.size() > 0) {
-			%], events={[%
-			for(event in transition.events) {
-				%]'[%=event.eventliteral%]',[%
-			}
-			%]}[%
-		}
-		
-		/*print guard function*/
-		if(transition.guard <> null) {
-			%], guard=function () [%out.print(transition.guard.sourcecode);%] end[%
-		}
-		
-		/*print effect function*/
-		if(transition.effect <> null) {
-			%], effect=function () [%out.print(transition.effect.sourcecode);%] end[%
-		}%]},[%}
+		[%
+		out.print(node.name);%] = [%node.printStateToLua();%],[%
+	}	
 	
 	/*print entry function*/
 	if(self.entry <> null) {
@@ -69,5 +52,41 @@ doo=function () [%=self.doo.sourcecode%] end,[%
 		%]
 
 exit=function () [%=self.exit.sourcecode%] end[%
-	}%]}[%
+	}
+}%]
+
+[% operation Transition printTransitionToLua() { 
+%]
+
+rfsm.[%self.printTransitionBodyToLua();
+%]},[%
+}%]
+
+[% operation Transition printTransitionBodyToLua() { 
+//qualifiednames: omhoog gaan tot parent en dan telkens . tussen zitten
+	%]trans{src='[%out.print(self.source.name);%]', tgt='[%out.print(self.target.name);%]'[%
+	
+	/*print priority_number*/
+	if(self.priority_number <> 0) {
+		%], pn=[%out.print(self.priority_number);
+	}
+	
+	/*print events*/
+	if(self.events.size() > 0) {
+		%], events={[%
+		for(event in self.events) {
+			%]'[%=event.eventliteral%]',[%
+		}
+		%]}[%
+	}
+	
+	/*print guard function*/
+	if(self.guard <> null) {
+		%], guard=function () [%out.print(self.guard.sourcecode);%] end[%
+	}
+	
+	/*print effect function*/
+	if(self.effect <> null) {
+		%], effect=function () [%out.print(self.effect.sourcecode);%] end[%
+	}
 }%]

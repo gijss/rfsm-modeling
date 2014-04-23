@@ -4,6 +4,7 @@ import be.kuleuven.rodinia.dsl.services.RfsmGrammarAccess;
 import be.kuleuven.rodinia.model.rfsm.Connector;
 import be.kuleuven.rodinia.model.rfsm.Event;
 import be.kuleuven.rodinia.model.rfsm.Function;
+import be.kuleuven.rodinia.model.rfsm.HyperGraph;
 import be.kuleuven.rodinia.model.rfsm.RfsmPackage;
 import be.kuleuven.rodinia.model.rfsm.State;
 import be.kuleuven.rodinia.model.rfsm.Transition;
@@ -44,6 +45,12 @@ public class RfsmSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case RfsmPackage.FUNCTION:
 				if(context == grammarAccess.getFunctionRule()) {
 					sequence_Function(context, (Function) semanticObject); 
+					return; 
+				}
+				else break;
+			case RfsmPackage.HYPER_GRAPH:
+				if(context == grammarAccess.getHyperGraphRule()) {
+					sequence_HyperGraph(context, (HyperGraph) semanticObject); 
 					return; 
 				}
 				else break;
@@ -99,15 +106,16 @@ public class RfsmSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (
-	 *         name=ID 
-	 *         subnodes+=State* 
-	 *         subnodes+=Connector* 
-	 *         transitions+=Transition* 
-	 *         entry=Function? 
-	 *         doo=Function? 
-	 *         exit=Function?
-	 *     )
+	 *     (name=ID hyperVertices+=State hyperEdges+=Transition*)
+	 */
+	protected void sequence_HyperGraph(EObject context, HyperGraph semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID subHyperVertices+=State* entry=Function? doo=Function? exit=Function?)
 	 */
 	protected void sequence_State(EObject context, State semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -117,8 +125,8 @@ public class RfsmSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         source=[Node|QualifiedName] 
-	 *         target=[Node|QualifiedName] 
+	 *         source+=[State|QualifiedName] 
+	 *         target+=[State|QualifiedName] 
 	 *         events+=Event* 
 	 *         guard=Function? 
 	 *         effect=Function? 

@@ -1,7 +1,7 @@
 [%
 	
 	//one state should be composed of everything else
-	var root : State := State.allInstances().at(0);
+	var root : HyperGraph := HyperGraph.allInstances().at(0);
 
 	//var f = new Native("org.eclipse.epsilon.egl.formatter.language.JavaFormatter");
 	var stateSourceTemplate := TemplateFactory.load('rFSMtoLua.egl');

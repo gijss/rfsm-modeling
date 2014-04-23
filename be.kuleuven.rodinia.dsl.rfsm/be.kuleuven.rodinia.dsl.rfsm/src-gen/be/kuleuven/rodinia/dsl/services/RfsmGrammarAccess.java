@@ -18,6 +18,65 @@ import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
 public class RfsmGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
+	public class HyperGraphElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "HyperGraph");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cGraphKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cHyperVerticesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cHyperVerticesStateParserRuleCall_3_0 = (RuleCall)cHyperVerticesAssignment_3.eContents().get(0);
+		private final Assignment cHyperEdgesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cHyperEdgesTransitionParserRuleCall_4_0 = (RuleCall)cHyperEdgesAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		////this grammar is only for testing purposes!!
+		////todo: 
+		////define graph setup
+		////create initial connector transition
+		////remove connectors, but do create junctions
+		//HyperGraph:
+		//	"Graph" name=ID "{" hyperVertices+= //can have only one root state
+		//	State //(hyperEdges += Connector)*
+		//	hyperEdges+=Transition* "}";
+		public ParserRule getRule() { return rule; }
+
+		//"Graph" name=ID "{" hyperVertices+= //can have only one root state
+		//State //(hyperEdges += Connector)*
+		//hyperEdges+=Transition* "}"
+		public Group getGroup() { return cGroup; }
+
+		//"Graph"
+		public Keyword getGraphKeyword_0() { return cGraphKeyword_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
+		//hyperVertices+= //can have only one root state
+		//State
+		public Assignment getHyperVerticesAssignment_3() { return cHyperVerticesAssignment_3; }
+
+		////can have only one root state
+		//State
+		public RuleCall getHyperVerticesStateParserRuleCall_3_0() { return cHyperVerticesStateParserRuleCall_3_0; }
+
+		//hyperEdges+=Transition*
+		public Assignment getHyperEdgesAssignment_4() { return cHyperEdgesAssignment_4; }
+
+		//Transition
+		public RuleCall getHyperEdgesTransitionParserRuleCall_4_0() { return cHyperEdgesTransitionParserRuleCall_4_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+
 	public class StateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "State");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -25,34 +84,29 @@ public class RfsmGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cSubnodesAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cSubnodesStateParserRuleCall_3_0 = (RuleCall)cSubnodesAssignment_3.eContents().get(0);
-		private final Assignment cSubnodesAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cSubnodesConnectorParserRuleCall_4_0 = (RuleCall)cSubnodesAssignment_4.eContents().get(0);
-		private final Assignment cTransitionsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cTransitionsTransitionParserRuleCall_5_0 = (RuleCall)cTransitionsAssignment_5.eContents().get(0);
+		private final Assignment cSubHyperVerticesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cSubHyperVerticesStateParserRuleCall_3_0 = (RuleCall)cSubHyperVerticesAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cEntryKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cEntryAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cEntryFunctionParserRuleCall_4_1_0 = (RuleCall)cEntryAssignment_4_1.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cDooKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cDooAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cDooFunctionParserRuleCall_5_1_0 = (RuleCall)cDooAssignment_5_1.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cEntryKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cEntryAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cEntryFunctionParserRuleCall_6_1_0 = (RuleCall)cEntryAssignment_6_1.eContents().get(0);
-		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cDooKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cDooAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cDooFunctionParserRuleCall_7_1_0 = (RuleCall)cDooAssignment_7_1.eContents().get(0);
-		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cExitKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final Assignment cExitAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cExitFunctionParserRuleCall_8_1_0 = (RuleCall)cExitAssignment_8_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Keyword cExitKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cExitAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cExitFunctionParserRuleCall_6_1_0 = (RuleCall)cExitAssignment_6_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
-		////this grammar is only for testing purposes!!
 		//State:
-		//	"state" name=ID "{" subnodes+=State* subnodes+=Connector* transitions+=Transition* ("entry:" entry=Function)? ("doo:"
-		//	doo=Function)? ("exit:" exit=Function)? "}";
+		//	"state" name=ID "{" subHyperVertices+=State* ("entry:" entry=Function)? ("doo:" doo=Function)? ("exit:"
+		//	exit=Function)? "}";
 		public ParserRule getRule() { return rule; }
 
-		//"state" name=ID "{" subnodes+=State* subnodes+=Connector* transitions+=Transition* ("entry:" entry=Function)? ("doo:"
-		//doo=Function)? ("exit:" exit=Function)? "}"
+		//"state" name=ID "{" subHyperVertices+=State* ("entry:" entry=Function)? ("doo:" doo=Function)? ("exit:" exit=Function)?
+		//"}"
 		public Group getGroup() { return cGroup; }
 
 		//"state"
@@ -67,62 +121,50 @@ public class RfsmGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//subnodes+=State*
-		public Assignment getSubnodesAssignment_3() { return cSubnodesAssignment_3; }
+		//subHyperVertices+=State*
+		public Assignment getSubHyperVerticesAssignment_3() { return cSubHyperVerticesAssignment_3; }
 
 		//State
-		public RuleCall getSubnodesStateParserRuleCall_3_0() { return cSubnodesStateParserRuleCall_3_0; }
-
-		//subnodes+=Connector*
-		public Assignment getSubnodesAssignment_4() { return cSubnodesAssignment_4; }
-
-		//Connector
-		public RuleCall getSubnodesConnectorParserRuleCall_4_0() { return cSubnodesConnectorParserRuleCall_4_0; }
-
-		//transitions+=Transition*
-		public Assignment getTransitionsAssignment_5() { return cTransitionsAssignment_5; }
-
-		//Transition
-		public RuleCall getTransitionsTransitionParserRuleCall_5_0() { return cTransitionsTransitionParserRuleCall_5_0; }
+		public RuleCall getSubHyperVerticesStateParserRuleCall_3_0() { return cSubHyperVerticesStateParserRuleCall_3_0; }
 
 		//("entry:" entry=Function)?
-		public Group getGroup_6() { return cGroup_6; }
+		public Group getGroup_4() { return cGroup_4; }
 
 		//"entry:"
-		public Keyword getEntryKeyword_6_0() { return cEntryKeyword_6_0; }
+		public Keyword getEntryKeyword_4_0() { return cEntryKeyword_4_0; }
 
 		//entry=Function
-		public Assignment getEntryAssignment_6_1() { return cEntryAssignment_6_1; }
+		public Assignment getEntryAssignment_4_1() { return cEntryAssignment_4_1; }
 
 		//Function
-		public RuleCall getEntryFunctionParserRuleCall_6_1_0() { return cEntryFunctionParserRuleCall_6_1_0; }
+		public RuleCall getEntryFunctionParserRuleCall_4_1_0() { return cEntryFunctionParserRuleCall_4_1_0; }
 
 		//("doo:" doo=Function)?
-		public Group getGroup_7() { return cGroup_7; }
+		public Group getGroup_5() { return cGroup_5; }
 
 		//"doo:"
-		public Keyword getDooKeyword_7_0() { return cDooKeyword_7_0; }
+		public Keyword getDooKeyword_5_0() { return cDooKeyword_5_0; }
 
 		//doo=Function
-		public Assignment getDooAssignment_7_1() { return cDooAssignment_7_1; }
+		public Assignment getDooAssignment_5_1() { return cDooAssignment_5_1; }
 
 		//Function
-		public RuleCall getDooFunctionParserRuleCall_7_1_0() { return cDooFunctionParserRuleCall_7_1_0; }
+		public RuleCall getDooFunctionParserRuleCall_5_1_0() { return cDooFunctionParserRuleCall_5_1_0; }
 
 		//("exit:" exit=Function)?
-		public Group getGroup_8() { return cGroup_8; }
+		public Group getGroup_6() { return cGroup_6; }
 
 		//"exit:"
-		public Keyword getExitKeyword_8_0() { return cExitKeyword_8_0; }
+		public Keyword getExitKeyword_6_0() { return cExitKeyword_6_0; }
 
 		//exit=Function
-		public Assignment getExitAssignment_8_1() { return cExitAssignment_8_1; }
+		public Assignment getExitAssignment_6_1() { return cExitAssignment_6_1; }
 
 		//Function
-		public RuleCall getExitFunctionParserRuleCall_8_1_0() { return cExitFunctionParserRuleCall_8_1_0; }
+		public RuleCall getExitFunctionParserRuleCall_6_1_0() { return cExitFunctionParserRuleCall_6_1_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 
 	public class ConnectorElements extends AbstractParserRuleElementFinder {
@@ -163,12 +205,12 @@ public class RfsmGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cTransitionKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cFromKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cSourceAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cSourceNodeCrossReference_2_0 = (CrossReference)cSourceAssignment_2.eContents().get(0);
-		private final RuleCall cSourceNodeQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cSourceNodeCrossReference_2_0.eContents().get(1);
+		private final CrossReference cSourceStateCrossReference_2_0 = (CrossReference)cSourceAssignment_2.eContents().get(0);
+		private final RuleCall cSourceStateQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cSourceStateCrossReference_2_0.eContents().get(1);
 		private final Keyword cToKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cTargetAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final CrossReference cTargetNodeCrossReference_4_0 = (CrossReference)cTargetAssignment_4.eContents().get(0);
-		private final RuleCall cTargetNodeQualifiedNameParserRuleCall_4_0_1 = (RuleCall)cTargetNodeCrossReference_4_0.eContents().get(1);
+		private final CrossReference cTargetStateCrossReference_4_0 = (CrossReference)cTargetAssignment_4.eContents().get(0);
+		private final RuleCall cTargetStateQualifiedNameParserRuleCall_4_0_1 = (RuleCall)cTargetStateCrossReference_4_0.eContents().get(1);
 		private final Assignment cEventsAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cEventsEventParserRuleCall_5_0 = (RuleCall)cEventsAssignment_5.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
@@ -185,11 +227,11 @@ public class RfsmGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPriority_numberINTTerminalRuleCall_8_1_0 = (RuleCall)cPriority_numberAssignment_8_1.eContents().get(0);
 		
 		//Transition:
-		//	"transition" "from" source=[Node|QualifiedName] "to" target=[Node|QualifiedName] events+=Event* ("guard:"
+		//	"transition" "from" source+=[State|QualifiedName] "to" target+=[State|QualifiedName] events+=Event* ("guard:"
 		//	guard=Function)? ("effect:" effect=Function)? ("priority" priority_number=INT)?;
 		public ParserRule getRule() { return rule; }
 
-		//"transition" "from" source=[Node|QualifiedName] "to" target=[Node|QualifiedName] events+=Event* ("guard:"
+		//"transition" "from" source+=[State|QualifiedName] "to" target+=[State|QualifiedName] events+=Event* ("guard:"
 		//guard=Function)? ("effect:" effect=Function)? ("priority" priority_number=INT)?
 		public Group getGroup() { return cGroup; }
 
@@ -199,26 +241,26 @@ public class RfsmGrammarAccess extends AbstractGrammarElementFinder {
 		//"from"
 		public Keyword getFromKeyword_1() { return cFromKeyword_1; }
 
-		//source=[Node|QualifiedName]
+		//source+=[State|QualifiedName]
 		public Assignment getSourceAssignment_2() { return cSourceAssignment_2; }
 
-		//[Node|QualifiedName]
-		public CrossReference getSourceNodeCrossReference_2_0() { return cSourceNodeCrossReference_2_0; }
+		//[State|QualifiedName]
+		public CrossReference getSourceStateCrossReference_2_0() { return cSourceStateCrossReference_2_0; }
 
 		//QualifiedName
-		public RuleCall getSourceNodeQualifiedNameParserRuleCall_2_0_1() { return cSourceNodeQualifiedNameParserRuleCall_2_0_1; }
+		public RuleCall getSourceStateQualifiedNameParserRuleCall_2_0_1() { return cSourceStateQualifiedNameParserRuleCall_2_0_1; }
 
 		//"to"
 		public Keyword getToKeyword_3() { return cToKeyword_3; }
 
-		//target=[Node|QualifiedName]
+		//target+=[State|QualifiedName]
 		public Assignment getTargetAssignment_4() { return cTargetAssignment_4; }
 
-		//[Node|QualifiedName]
-		public CrossReference getTargetNodeCrossReference_4_0() { return cTargetNodeCrossReference_4_0; }
+		//[State|QualifiedName]
+		public CrossReference getTargetStateCrossReference_4_0() { return cTargetStateCrossReference_4_0; }
 
 		//QualifiedName
-		public RuleCall getTargetNodeQualifiedNameParserRuleCall_4_0_1() { return cTargetNodeQualifiedNameParserRuleCall_4_0_1; }
+		public RuleCall getTargetStateQualifiedNameParserRuleCall_4_0_1() { return cTargetStateQualifiedNameParserRuleCall_4_0_1; }
 
 		//events+=Event*
 		public Assignment getEventsAssignment_5() { return cEventsAssignment_5; }
@@ -332,6 +374,7 @@ public class RfsmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
+	private HyperGraphElements pHyperGraph;
 	private StateElements pState;
 	private ConnectorElements pConnector;
 	private TransitionElements pTransition;
@@ -378,9 +421,25 @@ public class RfsmGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	////this grammar is only for testing purposes!!
+	////todo: 
+	////define graph setup
+	////create initial connector transition
+	////remove connectors, but do create junctions
+	//HyperGraph:
+	//	"Graph" name=ID "{" hyperVertices+= //can have only one root state
+	//	State //(hyperEdges += Connector)*
+	//	hyperEdges+=Transition* "}";
+	public HyperGraphElements getHyperGraphAccess() {
+		return (pHyperGraph != null) ? pHyperGraph : (pHyperGraph = new HyperGraphElements());
+	}
+	
+	public ParserRule getHyperGraphRule() {
+		return getHyperGraphAccess().getRule();
+	}
+
 	//State:
-	//	"state" name=ID "{" subnodes+=State* subnodes+=Connector* transitions+=Transition* ("entry:" entry=Function)? ("doo:"
-	//	doo=Function)? ("exit:" exit=Function)? "}";
+	//	"state" name=ID "{" subHyperVertices+=State* ("entry:" entry=Function)? ("doo:" doo=Function)? ("exit:"
+	//	exit=Function)? "}";
 	public StateElements getStateAccess() {
 		return (pState != null) ? pState : (pState = new StateElements());
 	}
@@ -400,7 +459,7 @@ public class RfsmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Transition:
-	//	"transition" "from" source=[Node|QualifiedName] "to" target=[Node|QualifiedName] events+=Event* ("guard:"
+	//	"transition" "from" source+=[State|QualifiedName] "to" target+=[State|QualifiedName] events+=Event* ("guard:"
 	//	guard=Function)? ("effect:" effect=Function)? ("priority" priority_number=INT)?;
 	public TransitionElements getTransitionAccess() {
 		return (pTransition != null) ? pTransition : (pTransition = new TransitionElements());

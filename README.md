@@ -33,7 +33,7 @@ Installation and usage
     1. All projects from rFSM-modeling repository
     2. Project _be.kuleuven.rodinia.epsilon.service_ from Rodinia repository (Graphiti branch)
 4. Generate Xtext Artifacts:
-    1. Select _Rfsm.xtext_ from _be.kuleuven.rodinia.model.rfsm_ project and
+    1. Select _Rfsm.xtext_ from _be.kuleuven.rodinia.dsl.rfsm_ project and
     2. Right click and choose __Run As > Generate Xtext Artifacts__ from its context menu
 5. Register metamodel into Epsilon:
     1. Select _rfsm.ecore_ from _be.kuleuven.rodinia.model.rfsm_ project and

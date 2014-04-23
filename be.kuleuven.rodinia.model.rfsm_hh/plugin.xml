@@ -9,8 +9,8 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated rfsm_hh -->
       <package
-            uri="be.kuleuven.rodinia.model.rfsm"
-            class="be.kuleuven.rodinia.model.rfsm.RfsmPackage"
+            uri="be.kuleuven.rodinia.model.rfsm_hh"
+            class="be.kuleuven.rodinia.model.rfsm_hh.Rfsm_hhPackage"
             genModel="model/rfsm_hh.xcore"/>
    </extension>
 

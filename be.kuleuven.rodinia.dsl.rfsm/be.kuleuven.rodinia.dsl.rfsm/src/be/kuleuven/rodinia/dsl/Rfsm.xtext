@@ -4,12 +4,25 @@ import "be.kuleuven.rodinia.model.rfsm"
 
 //this grammar is only for testing purposes!!
 
+//todo: 
+//define graph setup
+//create initial connector transition
+//remove connectors, but do create junctions
+
+HyperGraph returns HyperGraph:
+	'Graph' name=ID
+	'{'
+		hyperVertices+=State	//can have only one root state
+		//(hyperEdges += Connector)*
+		(hyperEdges += Transition)*	
+	'}'
+;
+
 State returns State:
 	'state' name=ID
 	'{'
-		(subnodes += State)*
-		(subnodes += Connector)*
-		(transitions += Transition)*
+		(subHyperVertices += State)*
+		
 		('entry:' entry=Function)?
 		('doo:' doo=Function)?
 		('exit:' exit=Function)?
@@ -23,7 +36,7 @@ Connector returns Connector:
 ;
 
 Transition returns Transition:
-	'transition' 'from' source=[Node|QualifiedName] 'to' target=[Node|QualifiedName]
+	'transition' 'from' source+=[State|QualifiedName] 'to' target+=[State|QualifiedName]
 	(events += Event)*
 	('guard:' guard=Function)?
 	('effect:' effect=Function)?

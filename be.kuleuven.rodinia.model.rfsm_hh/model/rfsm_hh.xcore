@@ -1,7 +1,7 @@
 @Ecore(invocationDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
 settingDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", validationDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot")
 
-package be.kuleuven.rodinia.model.rfsm
+package be.kuleuven.rodinia.model.rfsm_hh
 
 annotation "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" as Pivot
 
@@ -9,21 +9,22 @@ annotation "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" as Pivot
  * This Xcore metamodel of rFSM is based on the Ecore metamodel in the rFSM paper ('Coordinating Robotic Tasks and Systems with rFSM Statecharts' by M. Klotzbucher, H. Bruyninckx)
  */
  
- class Vertex {
- 	String name
- 	container HyperVertex[0..1] parent opposite subVertices
- }
- 
-//can be used as directed or undirected edge
-//expresses connects relationship
-class Edge {
-	refers Vertex[1] source
-	refers Vertex[1] target
+class HyperGraph {
+	String name
+	contains HyperVertex[] hyperVertices
+	contains HyperEdge[] hyperEdges
+	contains HyperGraph[] hyperGraphs
 }
 
-//Hyperedge can connect any number of nodes
+@Ecore(constraints="legalBoundaryCrossing")
+//The transition target should point to a HyperVertex less or equally nested than source HyperVertex
+//So the parent of the target HyperVertex is an ancestor of the source HyperVertex 
+//and - IS THIS CORRECT? - a transition from parent to direct child is illegal
+@Pivot(legalBoundaryCrossing="(self.target.parent <> self.source) and isAncestor(self.target.parent, self.source)")
 class HyperEdge {
-	refers Vertex[] vertices
+	String name
+	refers HyperVertex[] source
+	refers HyperVertex[] target
 }
 
 @Ecore(constraints="defineOnlyOneRootHyperVertex")
@@ -31,10 +32,11 @@ class HyperEdge {
 //a rFSM model is always contained within a state
 @Pivot(defineOnlyOneRootHyperVertex="(HyperVertex.allInstances()->select(n | n.parent.oclIsUndefined ()))->size() = 1")
 //expresses contains relationship
-class HyperVertex extends Vertex {
-	contains Vertex[] subVertices opposite parent
+class HyperVertex {
+	String name
+	contains HyperVertex[] vertices opposite parent
+	container HyperVertex parent opposite vertices
 	
-	//TODO: rewrite functions for new model!!!!!!
 	//is one ancestor of two?
 	@Pivot(body="if (one = two) 
 					then true
@@ -49,36 +51,19 @@ class HyperVertex extends Vertex {
 						endif
 					endif
 				endif")
-	op Boolean isAncestor(Vertex one, Vertex two)
+	op Boolean isAncestor(HyperVertex one, HyperVertex two)
 	
 	//get least common ancestor of node one and two
-	@Pivot(body="if isAncestor(one, two) and one.oclIsTypeOf(HyperVertex)
-					then one.oclAsType(HyperVertex)
+	@Pivot(body="if isAncestor(one, two)
+					then one
 				else 
-					if isAncestor(two, one) and two.oclIsTypeOf(HyperVertex)
-						then two.oclAsType(HyperVertex)
+					if isAncestor(two, one)
+						then two
 					else
 						LCA(one.parent,two.parent)
 					endif
 				endif")
-	op HyperVertex LCA(Vertex one, Vertex two)
-}
-
-//graphedge necessary to define owner, but possible to skip this step and put logic in State/Transition
-@Ecore(constraints="transitionOwner legalBoundaryCrossing")
-//Transitions are owned by composite states and not by the states from which they originate
-//It is required that transitions are owned by no state less nested than the transition LCA
-@Pivot(transitionOwner="let lca : State = LCA(self.source, self.target) in self.owner = lca or isAncestor(self.owner, lca)") //example
-//The transition target should point to a HyperVertex less or equally nested than source HyperVertex
-//So the parent of the target HyperVertex is an ancestor of the source HyperVertex 
-//and - IS THIS CORRECT? - a transition from parent to direct child is illegal
-@Pivot(legalBoundaryCrossing="(self.target.parent <> self.source) and isAncestor(self.target.parent, self.source)")
-class GraphEdge extends Edge {
-	container HyperGraph[1] owner opposite edges
-}
- 
-class HyperGraph extends HyperVertex {
-	contains GraphEdge[] edges opposite owner
+	op HyperVertex LCA(HyperVertex one, HyperVertex two)
 }
 
 @Ecore(constraints="defineInitialConnectorWhenComposite defineMaxOneInitialConnector onlyLeafStatesHaveDoo")
@@ -89,16 +74,16 @@ class HyperGraph extends HyperVertex {
 @Pivot(defineMaxOneInitialConnector="(self.subHyperVertices->size() > 0) implies (self.subHyperVertices->select(c | c.oclIsTypeOf(Connector) and c.name='initial')->size() <= 1)")
 //Only leaf-states can define a doo function. (not sure about this one)
 @Pivot(onlyLeafStatesHaveDoo="(not self.doo.oclIsUndefined()) implies (self.subHyperVertices->size() = 0)")
-class State extends HyperGraph {
+class State extends HyperVertex {
 	contains Function[0..1] entry	//contains function in this example (original:refers)
 	contains Function[0..1] doo	//contains function in this example (original:refers)
 	contains Function[0..1] exit	//contains function in this example (original:refers)
 }
 
 //todo: constraint that connector can't have subnodes or transitions
-class Connector extends Vertex {
-	boolean public
-	contains History[0..1] history
+class Connector extends HyperEdge {
+	//boolean public
+	//contains History[0..1] history
 }
 
 @Ecore(constraints="maxOneTransitionFromInitialConnector noGuardFromInitialConnector")
@@ -106,7 +91,7 @@ class Connector extends Vertex {
 @Pivot(maxOneTransitionFromInitialConnector="(self.source.oclIsTypeOf(Connector) and self.source.name='initial') implies (Transition.allInstances()->select(t | t.source = self.source)->size()) <= 1")
 //An outgoing transition from an initial connector can't have a guard function
 @Pivot(noGuardFromInitialConnector="(self.source.oclIsTypeOf(Connector) and self.source.name='initial') implies guard.oclIsUndefined()")
-class Transition extends GraphEdge {
+class Transition extends HyperEdge {
 	int priority_number = "0"
 	contains Event[] events	opposite owner	//possible to add this logic to the guard function
 	contains Function[0..1] guard	//contains function in this example (original:refers)
@@ -127,10 +112,10 @@ class Function {
 
 //how to model history behaviour?
 //not implemented in Lua yet (I think)
-class History {
-	int depth
-	boolean hot
-}
+//class History {
+//	int depth
+//	boolean hot
+//}
 
 //Behavioral constraints:
 //exactly one leaf state is active and if a state is active, its parent is active too; so the set of active states is always transitively closed with respect to the parent relation.
