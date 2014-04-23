@@ -60,6 +60,7 @@ public interface HyperGraph extends EObject
   /**
    * Returns the value of the '<em><b>Hyper Vertices</b></em>' containment reference list.
    * The list contents are of type {@link be.kuleuven.rodinia.model.rfsm.HyperVertex}.
+   * It is bidirectional and its opposite is '{@link be.kuleuven.rodinia.model.rfsm.HyperVertex#getParentHyperGraph <em>Parent Hyper Graph</em>}'.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Hyper Vertices</em>' containment reference list isn't clear,
@@ -68,7 +69,8 @@ public interface HyperGraph extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Hyper Vertices</em>' containment reference list.
    * @see be.kuleuven.rodinia.model.rfsm.RfsmPackage#getHyperGraph_HyperVertices()
-   * @model containment="true"
+   * @see be.kuleuven.rodinia.model.rfsm.HyperVertex#getParentHyperGraph
+   * @model opposite="parentHyperGraph" containment="true"
    * @generated
    */
   EList<HyperVertex> getHyperVertices();

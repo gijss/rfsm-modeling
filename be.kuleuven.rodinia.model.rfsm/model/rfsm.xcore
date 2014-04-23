@@ -11,7 +11,7 @@ annotation "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" as Pivot
  
 class HyperGraph {
 	String name
-	contains HyperVertex[] hyperVertices	//only one hyperVertex is enough
+	contains HyperVertex[] hyperVertices opposite parentHyperGraph	//only one hyperVertex is enough
 	contains HyperEdge[] hyperEdges
 	contains HyperGraph[] hyperGraphs
 }
@@ -34,6 +34,7 @@ class HyperEdge {
 //expresses contains relationship
 class HyperVertex {
 	String name
+	container HyperGraph parentHyperGraph opposite hyperVertices
 	contains HyperVertex[] subHyperVertices opposite parent
 	container HyperVertex parent opposite subHyperVertices
 	

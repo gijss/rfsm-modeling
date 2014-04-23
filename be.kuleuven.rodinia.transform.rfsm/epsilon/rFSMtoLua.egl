@@ -1,6 +1,18 @@
 
 return [%root.printGraphToLua();%]
 
+[%//return qualified name according to its root parent%]
+[% operation State getQualifiedName() : String {
+	var qualifiedName : String = self.name;
+	var current : HyperVertex = self;
+	//do not include root state, because it is not named in Lua code
+	while( current.parent.parent <> null ) {
+		current = current.parent;
+		qualifiedName = current.name.concat(".").concat(qualifiedName);
+	}
+	return qualifiedName;
+}%]
+
 [% operation HyperGraph printGraphToLua() { 
 	
 	/*print root state*/
@@ -64,7 +76,7 @@ rfsm.[%self.printTransitionBodyToLua();
 
 [% operation Transition printTransitionBodyToLua() { 
 //qualifiednames: omhoog gaan tot parent en dan telkens . tussen zitten
-	%]trans{src='[%out.print(self.source.name);%]', tgt='[%out.print(self.target.name);%]'[%
+	%]trans{src='[%out.print(self.source.at(0).getQualifiedName());%]', tgt='[%out.print(self.target.at(0).getQualifiedName());%]'[%
 	
 	/*print priority_number*/
 	if(self.priority_number <> 0) {

@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -144,7 +145,7 @@ public class HyperGraphImpl extends MinimalEObjectImpl.Container implements Hype
   {
     if (hyperVertices == null)
     {
-      hyperVertices = new EObjectContainmentEList<HyperVertex>(HyperVertex.class, this, RfsmPackage.HYPER_GRAPH__HYPER_VERTICES);
+      hyperVertices = new EObjectContainmentWithInverseEList<HyperVertex>(HyperVertex.class, this, RfsmPackage.HYPER_GRAPH__HYPER_VERTICES, RfsmPackage.HYPER_VERTEX__PARENT_HYPER_GRAPH);
     }
     return hyperVertices;
   }
@@ -175,6 +176,23 @@ public class HyperGraphImpl extends MinimalEObjectImpl.Container implements Hype
       hyperGraphs = new EObjectContainmentEList<HyperGraph>(HyperGraph.class, this, RfsmPackage.HYPER_GRAPH__HYPER_GRAPHS);
     }
     return hyperGraphs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case RfsmPackage.HYPER_GRAPH__HYPER_VERTICES:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getHyperVertices()).basicAdd(otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
   }
 
   /**
