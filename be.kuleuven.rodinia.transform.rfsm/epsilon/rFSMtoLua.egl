@@ -75,8 +75,17 @@ rfsm.[%self.printTransitionBodyToLua();
 }%]
 
 [% operation Transition printTransitionBodyToLua() { 
-//qualifiednames: omhoog gaan tot parent en dan telkens . tussen zitten
-	%]trans{src='[%out.print(self.source.at(0).getQualifiedName());%]', tgt='[%out.print(self.target.at(0).getQualifiedName());%]'[%
+	
+		
+	%]trans{src='[%
+	//make initial transition if source is direct parent of target
+	if(self.target.parent = self.source)
+		out.print('initial');
+	else
+		out.print(self.source.at(0).getQualifiedName());
+	%]', tgt='[%
+	out.print(self.target.at(0).getQualifiedName());
+	%]'[%
 	
 	/*print priority_number*/
 	if(self.priority_number <> 0) {
