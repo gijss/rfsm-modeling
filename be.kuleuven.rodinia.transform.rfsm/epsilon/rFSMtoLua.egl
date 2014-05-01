@@ -4,7 +4,7 @@ return [%root.printGraphToLua();%]
 [%//return qualified name according to its root parent%]
 [% operation State getQualifiedName() : String {
 	var qualifiedName : String = self.name;
-	var current : HyperVertex = self;
+	var current : State = self;
 	//do not include root state, because it is not named in Lua code
 	while( current.parent.parent <> null ) {
 		current = current.parent;
@@ -13,15 +13,15 @@ return [%root.printGraphToLua();%]
 	return qualifiedName;
 }%]
 
-[% operation HyperGraph printGraphToLua() { 
+[% operation RfsmGraph printGraphToLua() { 
 	
 	/*print root state*/
 	%]rfsm.state{[%
-	self.hyperVertices.at(0).printStateBodyToLua();
+	self.rootState.printStateBodyToLua();
 	
 	/*print transitions*/
-	for(hyperEdge in self.hyperEdges) {
-		hyperEdge.printTransitionToLua();
+	for(transition in self.transitions) {
+		transition.printTransitionToLua();
 	}
 	//if target is direct child of source --> initial transition
 	
@@ -38,7 +38,7 @@ return [%root.printGraphToLua();%]
 [% operation State printStateBodyToLua() { 
 	
 	/*print states*/
-	for(node in self.subHyperVertices) {
+	for(node in self.states) {
 		%]
 		
 		[%
@@ -49,21 +49,21 @@ return [%root.printGraphToLua();%]
 	if(self.entry <> null) {
 		%]
 
-entry=function () [%=self.entry.sourcecode%] end,[%
+entry=function () [%=self.entry.call%] end,[%
 	}
 
 	/*print doo function*/
 	if(self.doo <> null) {
 		%]
 
-doo=function () [%=self.doo.sourcecode%] end,[%
+doo=function () [%=self.doo.call%] end,[%
 	}
 	
 	/*print exit function*/
 	if(self.exit <> null) {
 		%]
 
-exit=function () [%=self.exit.sourcecode%] end[%
+exit=function () [%=self.exit.call%] end[%
 	}
 }%]
 
@@ -87,27 +87,17 @@ rfsm.[%self.printTransitionBodyToLua();
 	out.print(self.target.at(0).getQualifiedName());
 	%]'[%
 	
-	/*print priority_number*/
-	if(self.priority_number <> 0) {
-		%], pn=[%out.print(self.priority_number);
+	/*print priorityNumber*/
+	if(self.priorityNumber <> 0) {
+		%], pn=[%out.print(self.priorityNumber);
 	}
 	
 	/*print events*/
 	if(self.events.size() > 0) {
 		%], events={[%
 		for(event in self.events) {
-			%]'[%=event.eventliteral%]',[%
+			%]'[%=event.event%]',[%
 		}
 		%]}[%
-	}
-	
-	/*print guard function*/
-	if(self.guard <> null) {
-		%], guard=function () [%out.print(self.guard.sourcecode);%] end[%
-	}
-	
-	/*print effect function*/
-	if(self.effect <> null) {
-		%], effect=function () [%out.print(self.effect.sourcecode);%] end[%
 	}
 }%]

@@ -44,7 +44,7 @@ import be.kuleuven.rodinia.dsl.services.RfsmGrammarAccess;
     
     @Override
     protected String getFirstRuleName() {
-    	return "HyperGraph";	
+    	return "RfsmGraph";	
    	}
    	
    	@Override
@@ -63,33 +63,33 @@ import be.kuleuven.rodinia.dsl.services.RfsmGrammarAccess;
 
 
 
-// Entry rule entryRuleHyperGraph
-entryRuleHyperGraph returns [EObject current=null] 
+// Entry rule entryRuleRfsmGraph
+entryRuleRfsmGraph returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getHyperGraphRule()); }
-	 iv_ruleHyperGraph=ruleHyperGraph 
-	 { $current=$iv_ruleHyperGraph.current; } 
+	{ newCompositeNode(grammarAccess.getRfsmGraphRule()); }
+	 iv_ruleRfsmGraph=ruleRfsmGraph 
+	 { $current=$iv_ruleRfsmGraph.current; } 
 	 EOF 
 ;
 
-// Rule HyperGraph
-ruleHyperGraph returns [EObject current=null] 
+// Rule RfsmGraph
+ruleRfsmGraph returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
 (	otherlv_0='Graph' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getHyperGraphAccess().getGraphKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getRfsmGraphAccess().getGraphKeyword_0());
     }
 (
 (
 		lv_name_1_0=RULE_ID
 		{
-			newLeafNode(lv_name_1_0, grammarAccess.getHyperGraphAccess().getNameIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getRfsmGraphAccess().getNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getHyperGraphRule());
+	            $current = createModelElement(grammarAccess.getRfsmGraphRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -101,21 +101,21 @@ ruleHyperGraph returns [EObject current=null]
 )
 )	otherlv_2='{' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getHyperGraphAccess().getLeftCurlyBracketKeyword_2());
+    	newLeafNode(otherlv_2, grammarAccess.getRfsmGraphAccess().getLeftCurlyBracketKeyword_2());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getHyperGraphAccess().getHyperVerticesStateParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getRfsmGraphAccess().getRootStateStateParserRuleCall_3_0()); 
 	    }
-		lv_hyperVertices_3_0=ruleState		{
+		lv_rootState_3_0=ruleState		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getHyperGraphRule());
+	            $current = createModelElementForParent(grammarAccess.getRfsmGraphRule());
 	        }
-       		add(
+       		set(
        			$current, 
-       			"hyperVertices",
-        		lv_hyperVertices_3_0, 
+       			"rootState",
+        		lv_rootState_3_0, 
         		"State");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -124,16 +124,16 @@ ruleHyperGraph returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getHyperGraphAccess().getHyperEdgesTransitionParserRuleCall_4_0()); 
+	        newCompositeNode(grammarAccess.getRfsmGraphAccess().getTransitionsTransitionParserRuleCall_4_0()); 
 	    }
-		lv_hyperEdges_4_0=ruleTransition		{
+		lv_transitions_4_0=ruleTransition		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getHyperGraphRule());
+	            $current = createModelElementForParent(grammarAccess.getRfsmGraphRule());
 	        }
        		add(
        			$current, 
-       			"hyperEdges",
-        		lv_hyperEdges_4_0, 
+       			"transitions",
+        		lv_transitions_4_0, 
         		"Transition");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -141,7 +141,7 @@ ruleHyperGraph returns [EObject current=null]
 )
 )*	otherlv_5='}' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getHyperGraphAccess().getRightCurlyBracketKeyword_5());
+    	newLeafNode(otherlv_5, grammarAccess.getRfsmGraphAccess().getRightCurlyBracketKeyword_5());
     }
 )
 ;
@@ -193,16 +193,16 @@ ruleState returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getStateAccess().getSubHyperVerticesStateParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getStateAccess().getStatesStateParserRuleCall_3_0()); 
 	    }
-		lv_subHyperVertices_3_0=ruleState		{
+		lv_states_3_0=ruleState		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getStateRule());
 	        }
        		add(
        			$current, 
-       			"subHyperVertices",
-        		lv_subHyperVertices_3_0, 
+       			"states",
+        		lv_states_3_0, 
         		"State");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -285,8 +285,6 @@ ruleState returns [EObject current=null]
 
 
 
-
-
 // Entry rule entryRuleTransition
 entryRuleTransition returns [EObject current=null] 
 	:
@@ -361,59 +359,15 @@ ruleTransition returns [EObject current=null]
 	    }
 
 )
-)*(	otherlv_6='guard:' 
+)*(	otherlv_6='priority' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getTransitionAccess().getGuardKeyword_6_0());
+    	newLeafNode(otherlv_6, grammarAccess.getTransitionAccess().getPriorityKeyword_6_0());
     }
 (
 (
-		{ 
-	        newCompositeNode(grammarAccess.getTransitionAccess().getGuardFunctionParserRuleCall_6_1_0()); 
-	    }
-		lv_guard_7_0=ruleFunction		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getTransitionRule());
-	        }
-       		set(
-       			$current, 
-       			"guard",
-        		lv_guard_7_0, 
-        		"Function");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-))?(	otherlv_8='effect:' 
-    {
-    	newLeafNode(otherlv_8, grammarAccess.getTransitionAccess().getEffectKeyword_7_0());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getTransitionAccess().getEffectFunctionParserRuleCall_7_1_0()); 
-	    }
-		lv_effect_9_0=ruleFunction		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getTransitionRule());
-	        }
-       		set(
-       			$current, 
-       			"effect",
-        		lv_effect_9_0, 
-        		"Function");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-))?(	otherlv_10='priority' 
-    {
-    	newLeafNode(otherlv_10, grammarAccess.getTransitionAccess().getPriorityKeyword_8_0());
-    }
-(
-(
-		lv_priority_number_11_0=RULE_INT
+		lv_priorityNumber_7_0=RULE_INT
 		{
-			newLeafNode(lv_priority_number_11_0, grammarAccess.getTransitionAccess().getPriority_numberINTTerminalRuleCall_8_1_0()); 
+			newLeafNode(lv_priorityNumber_7_0, grammarAccess.getTransitionAccess().getPriorityNumberINTTerminalRuleCall_6_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -421,8 +375,8 @@ ruleTransition returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"priority_number",
-        		lv_priority_number_11_0, 
+       			"priorityNumber",
+        		lv_priorityNumber_7_0, 
         		"INT");
 	    }
 
@@ -454,9 +408,9 @@ ruleEvent returns [EObject current=null]
     }
 (
 (
-		lv_eventliteral_1_0=RULE_STRING
+		lv_event_1_0=RULE_STRING
 		{
-			newLeafNode(lv_eventliteral_1_0, grammarAccess.getEventAccess().getEventliteralSTRINGTerminalRuleCall_1_0()); 
+			newLeafNode(lv_event_1_0, grammarAccess.getEventAccess().getEventSTRINGTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -464,8 +418,8 @@ ruleEvent returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"eventliteral",
-        		lv_eventliteral_1_0, 
+       			"event",
+        		lv_event_1_0, 
         		"STRING");
 	    }
 
@@ -493,9 +447,9 @@ ruleFunction returns [EObject current=null]
     @after { leaveRule(); }:
 (
 (
-		lv_sourcecode_0_0=RULE_STRING
+		lv_call_0_0=RULE_STRING
 		{
-			newLeafNode(lv_sourcecode_0_0, grammarAccess.getFunctionAccess().getSourcecodeSTRINGTerminalRuleCall_0()); 
+			newLeafNode(lv_call_0_0, grammarAccess.getFunctionAccess().getCallSTRINGTerminalRuleCall_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -503,8 +457,8 @@ ruleFunction returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"sourcecode",
-        		lv_sourcecode_0_0, 
+       			"call",
+        		lv_call_0_0, 
         		"STRING");
 	    }
 

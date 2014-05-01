@@ -6,3 +6,7 @@
 /RfsmPackageImpl.java
 /StateImpl.java
 /TransitionImpl.java
+/EventImpl.java
+/HyperEdgeImpl.java
+/HyperGraphImpl.java
+/HyperVertexImpl.java

@@ -37,36 +37,30 @@ public class RfsmParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getHyperGraphAccess().getGroup(), "rule__HyperGraph__Group__0");
+					put(grammarAccess.getRfsmGraphAccess().getGroup(), "rule__RfsmGraph__Group__0");
 					put(grammarAccess.getStateAccess().getGroup(), "rule__State__Group__0");
 					put(grammarAccess.getStateAccess().getGroup_4(), "rule__State__Group_4__0");
 					put(grammarAccess.getStateAccess().getGroup_5(), "rule__State__Group_5__0");
 					put(grammarAccess.getStateAccess().getGroup_6(), "rule__State__Group_6__0");
-					put(grammarAccess.getConnectorAccess().getGroup(), "rule__Connector__Group__0");
 					put(grammarAccess.getTransitionAccess().getGroup(), "rule__Transition__Group__0");
 					put(grammarAccess.getTransitionAccess().getGroup_6(), "rule__Transition__Group_6__0");
-					put(grammarAccess.getTransitionAccess().getGroup_7(), "rule__Transition__Group_7__0");
-					put(grammarAccess.getTransitionAccess().getGroup_8(), "rule__Transition__Group_8__0");
 					put(grammarAccess.getEventAccess().getGroup(), "rule__Event__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
-					put(grammarAccess.getHyperGraphAccess().getNameAssignment_1(), "rule__HyperGraph__NameAssignment_1");
-					put(grammarAccess.getHyperGraphAccess().getHyperVerticesAssignment_3(), "rule__HyperGraph__HyperVerticesAssignment_3");
-					put(grammarAccess.getHyperGraphAccess().getHyperEdgesAssignment_4(), "rule__HyperGraph__HyperEdgesAssignment_4");
+					put(grammarAccess.getRfsmGraphAccess().getNameAssignment_1(), "rule__RfsmGraph__NameAssignment_1");
+					put(grammarAccess.getRfsmGraphAccess().getRootStateAssignment_3(), "rule__RfsmGraph__RootStateAssignment_3");
+					put(grammarAccess.getRfsmGraphAccess().getTransitionsAssignment_4(), "rule__RfsmGraph__TransitionsAssignment_4");
 					put(grammarAccess.getStateAccess().getNameAssignment_1(), "rule__State__NameAssignment_1");
-					put(grammarAccess.getStateAccess().getSubHyperVerticesAssignment_3(), "rule__State__SubHyperVerticesAssignment_3");
+					put(grammarAccess.getStateAccess().getStatesAssignment_3(), "rule__State__StatesAssignment_3");
 					put(grammarAccess.getStateAccess().getEntryAssignment_4_1(), "rule__State__EntryAssignment_4_1");
 					put(grammarAccess.getStateAccess().getDooAssignment_5_1(), "rule__State__DooAssignment_5_1");
 					put(grammarAccess.getStateAccess().getExitAssignment_6_1(), "rule__State__ExitAssignment_6_1");
-					put(grammarAccess.getConnectorAccess().getNameAssignment_1(), "rule__Connector__NameAssignment_1");
 					put(grammarAccess.getTransitionAccess().getSourceAssignment_2(), "rule__Transition__SourceAssignment_2");
 					put(grammarAccess.getTransitionAccess().getTargetAssignment_4(), "rule__Transition__TargetAssignment_4");
 					put(grammarAccess.getTransitionAccess().getEventsAssignment_5(), "rule__Transition__EventsAssignment_5");
-					put(grammarAccess.getTransitionAccess().getGuardAssignment_6_1(), "rule__Transition__GuardAssignment_6_1");
-					put(grammarAccess.getTransitionAccess().getEffectAssignment_7_1(), "rule__Transition__EffectAssignment_7_1");
-					put(grammarAccess.getTransitionAccess().getPriority_numberAssignment_8_1(), "rule__Transition__Priority_numberAssignment_8_1");
-					put(grammarAccess.getEventAccess().getEventliteralAssignment_1(), "rule__Event__EventliteralAssignment_1");
-					put(grammarAccess.getFunctionAccess().getSourcecodeAssignment(), "rule__Function__SourcecodeAssignment");
+					put(grammarAccess.getTransitionAccess().getPriorityNumberAssignment_6_1(), "rule__Transition__PriorityNumberAssignment_6_1");
+					put(grammarAccess.getEventAccess().getEventAssignment_1(), "rule__Event__EventAssignment_1");
+					put(grammarAccess.getFunctionAccess().getCallAssignment(), "rule__Function__CallAssignment");
 				}
 			};
 		}
@@ -77,7 +71,7 @@ public class RfsmParser extends AbstractContentAssistParser {
 	protected Collection<FollowElement> getFollowElements(AbstractInternalContentAssistParser parser) {
 		try {
 			be.kuleuven.rodinia.dsl.ui.contentassist.antlr.internal.InternalRfsmParser typedParser = (be.kuleuven.rodinia.dsl.ui.contentassist.antlr.internal.InternalRfsmParser) parser;
-			typedParser.entryRuleHyperGraph();
+			typedParser.entryRuleRfsmGraph();
 			return typedParser.getFollowElements();
 		} catch(RecognitionException ex) {
 			throw new RuntimeException(ex);

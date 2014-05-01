@@ -25,7 +25,7 @@ public class RfsmParser extends org.eclipse.xtext.parser.antlr.AbstractAntlrPars
 	
 	@Override 
 	protected String getDefaultRuleName() {
-		return "HyperGraph";
+		return "RfsmGraph";
 	}
 	
 	public RfsmGrammarAccess getGrammarAccess() {

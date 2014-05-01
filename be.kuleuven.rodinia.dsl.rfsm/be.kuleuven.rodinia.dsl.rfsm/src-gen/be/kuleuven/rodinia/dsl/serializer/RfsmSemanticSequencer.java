@@ -1,10 +1,9 @@
 package be.kuleuven.rodinia.dsl.serializer;
 
 import be.kuleuven.rodinia.dsl.services.RfsmGrammarAccess;
-import be.kuleuven.rodinia.model.rfsm.Connector;
 import be.kuleuven.rodinia.model.rfsm.Event;
 import be.kuleuven.rodinia.model.rfsm.Function;
-import be.kuleuven.rodinia.model.rfsm.HyperGraph;
+import be.kuleuven.rodinia.model.rfsm.RfsmGraph;
 import be.kuleuven.rodinia.model.rfsm.RfsmPackage;
 import be.kuleuven.rodinia.model.rfsm.State;
 import be.kuleuven.rodinia.model.rfsm.Transition;
@@ -30,12 +29,6 @@ public class RfsmSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == RfsmPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
-			case RfsmPackage.CONNECTOR:
-				if(context == grammarAccess.getConnectorRule()) {
-					sequence_Connector(context, (Connector) semanticObject); 
-					return; 
-				}
-				else break;
 			case RfsmPackage.EVENT:
 				if(context == grammarAccess.getEventRule()) {
 					sequence_Event(context, (Event) semanticObject); 
@@ -48,9 +41,9 @@ public class RfsmSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
-			case RfsmPackage.HYPER_GRAPH:
-				if(context == grammarAccess.getHyperGraphRule()) {
-					sequence_HyperGraph(context, (HyperGraph) semanticObject); 
+			case RfsmPackage.RFSM_GRAPH:
+				if(context == grammarAccess.getRfsmGraphRule()) {
+					sequence_RfsmGraph(context, (RfsmGraph) semanticObject); 
 					return; 
 				}
 				else break;
@@ -72,50 +65,48 @@ public class RfsmSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_Connector(EObject context, Connector semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     eventliteral=STRING
+	 *     event=STRING
 	 */
 	protected void sequence_Event(EObject context, Event semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     sourcecode=STRING
-	 */
-	protected void sequence_Function(EObject context, Function semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, RfsmPackage.Literals.FUNCTION__SOURCECODE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RfsmPackage.Literals.FUNCTION__SOURCECODE));
+			if(transientValues.isValueTransient(semanticObject, RfsmPackage.Literals.EVENT__EVENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RfsmPackage.Literals.EVENT__EVENT));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getFunctionAccess().getSourcecodeSTRINGTerminalRuleCall_0(), semanticObject.getSourcecode());
+		feeder.accept(grammarAccess.getEventAccess().getEventSTRINGTerminalRuleCall_1_0(), semanticObject.getEvent());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (name=ID hyperVertices+=State hyperEdges+=Transition*)
+	 *     call=STRING
 	 */
-	protected void sequence_HyperGraph(EObject context, HyperGraph semanticObject) {
+	protected void sequence_Function(EObject context, Function semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, RfsmPackage.Literals.FUNCTION__CALL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RfsmPackage.Literals.FUNCTION__CALL));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getFunctionAccess().getCallSTRINGTerminalRuleCall_0(), semanticObject.getCall());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID rootState=State transitions+=Transition*)
+	 */
+	protected void sequence_RfsmGraph(EObject context, RfsmGraph semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (name=ID subHyperVertices+=State* entry=Function? doo=Function? exit=Function?)
+	 *     (name=ID states+=State* entry=Function? doo=Function? exit=Function?)
 	 */
 	protected void sequence_State(EObject context, State semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -124,14 +115,7 @@ public class RfsmSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (
-	 *         source+=[State|QualifiedName] 
-	 *         target+=[State|QualifiedName] 
-	 *         events+=Event* 
-	 *         guard=Function? 
-	 *         effect=Function? 
-	 *         priority_number=INT?
-	 *     )
+	 *     (source+=[State|QualifiedName] target+=[State|QualifiedName] events+=Event* priorityNumber=INT?)
 	 */
 	protected void sequence_Transition(EObject context, Transition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

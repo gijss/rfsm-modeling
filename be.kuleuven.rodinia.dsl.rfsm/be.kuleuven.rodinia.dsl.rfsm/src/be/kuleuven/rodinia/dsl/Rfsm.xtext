@@ -2,26 +2,19 @@ grammar be.kuleuven.rodinia.dsl.Rfsm with org.eclipse.xtext.common.Terminals
 
 import "be.kuleuven.rodinia.model.rfsm"
 
-//this grammar is only for testing purposes!!
-
-//todo: 
-//define graph setup
-//create initial connector transition
-//remove connectors, but do create junctions
-
-HyperGraph returns HyperGraph:
+RfsmGraph returns RfsmGraph:
 	'Graph' name=ID
 	'{'
-		hyperVertices+=State	//can have only one root state
+		rootState=State	//can have only one root state
 		//(hyperEdges += Connector)*
-		(hyperEdges += Transition)*	
+		(transitions += Transition)*	
 	'}'
 ;
 
 State returns State:
 	'state' name=ID
 	'{'
-		(subHyperVertices += State)*
+		(states += State)*
 		
 		('entry:' entry=Function)?
 		('doo:' doo=Function)?
@@ -29,26 +22,19 @@ State returns State:
 	'}'
 ;
 
-Connector returns Connector:
-	'connector' name=ID 
-	'{'
-	'}'
-;
 
 Transition returns Transition:
 	'transition' 'from' source+=[State|QualifiedName] 'to' target+=[State|QualifiedName]
 	(events += Event)*
-	('guard:' guard=Function)?
-	('effect:' effect=Function)?
-	('priority' priority_number=INT)?
+	('priority' priorityNumber=INT)?
 ;
 
 Event returns Event:
-	'onevent' eventliteral=STRING
+	'onevent' event=STRING
 ;
 
 Function returns Function:
-	sourcecode=STRING
+	call=STRING
 ;
 
 QualifiedName:
