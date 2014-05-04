@@ -1,0 +1,42 @@
+grammar be.kuleuven.rodinia.dsl.Rfsm with org.eclipse.xtext.common.Terminals
+
+import "be.kuleuven.rodinia.model.rfsm"
+
+RfsmGraph returns RfsmGraph:
+	'Graph' name=ID
+	'{'
+		rootState=State	//can have only one root state
+		//(hyperEdges += Connector)*
+		(transitions += Transition)*	
+	'}'
+;
+
+State returns State:
+	'state' name=ID
+	'{'
+		(states += State)*
+		
+		('entry:' entry=Function)?
+		('doo:' doo=Function)?
+		('exit:' exit=Function)?
+	'}'
+;
+
+
+Transition returns Transition:
+	'transition' 'from' source+=[State|QualifiedName] 'to' target+=[State|QualifiedName]
+	(events += Event)*
+	('priority' priorityNumber=INT)?
+;
+
+Event returns Event:
+	'onevent' event=STRING
+;
+
+Function returns Function:
+	call=STRING
+;
+
+QualifiedName:
+ID ('.' ID)*
+;
