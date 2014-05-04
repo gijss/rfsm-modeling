@@ -24,7 +24,6 @@ Installation and usage
     4. Install [Xcore](https://wiki.eclipse.org/Xcore) (tested with Xcore 1.1.2)
     5. Install [Xtext](https://www.eclipse.org/Xtext/) (tested with Xtext 2.5.3)
     6. Install [Epsilon](https://www.eclipse.org/epsilon/) (tested with Epsilon 1.1.0)
-    7. Install "OCL Examples and Editors" from the Eclipse Repository
     7. Download Rodinia sources: `git clone http://git.mech.kuleuven.be/robotics/rodinia.git` (tested with branch Graphiti from 2014-02-03)
     8. Download rFSM sources: `git clone https://github.com/kmarkus/rFSM.git` (tested with branch master from 2014-02)
 
