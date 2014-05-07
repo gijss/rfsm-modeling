@@ -22,10 +22,7 @@ return [%root.printGraphToLua();%]
 	/*print transitions*/
 	for(transition in self.transitions) {
 		transition.printTransitionToLua();
-	}
-	//if target is direct child of source --> initial transition
-	
-	
+	}	
 	%]}[%
 }%]
 
