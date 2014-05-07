@@ -1,6 +1,6 @@
 grammar be.kuleuven.rodinia.dsl.Rfsm with org.eclipse.xtext.common.Terminals
 
-import "be.kuleuven.rodinia.model.rfsm"
+import "be.kuleuven.model.rfsm"
 
 RfsmGraph returns RfsmGraph:
 		rootState=State	//can have only one root state

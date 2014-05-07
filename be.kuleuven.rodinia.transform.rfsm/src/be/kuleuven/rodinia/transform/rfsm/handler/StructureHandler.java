@@ -49,7 +49,7 @@ public class StructureHandler extends AbstractHandler {
 		String eglTransformFileName = "epsilon/package.egl";
 		String outputRoot = projectPath;
 		String pluginID = Activator.PLUGIN_ID;
-		String sourceMetaModelURI = "be.kuleuven.rodinia.model.rfsm";
+		String sourceMetaModelURI = "be.kuleuven.model.rfsm";
 		String sourceModelFilePath = resource.getLocation().toOSString();
 		boolean sourceReadOnLoad = true;
 		boolean sourceStoreOnDisposal = false;

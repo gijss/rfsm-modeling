@@ -1,12 +1,12 @@
 package be.kuleuven.rodinia.dsl.serializer;
 
+import be.kuleuven.model.rfsm.Event;
+import be.kuleuven.model.rfsm.Function;
+import be.kuleuven.model.rfsm.RfsmGraph;
+import be.kuleuven.model.rfsm.RfsmPackage;
+import be.kuleuven.model.rfsm.State;
+import be.kuleuven.model.rfsm.Transition;
 import be.kuleuven.rodinia.dsl.services.RfsmGrammarAccess;
-import be.kuleuven.rodinia.model.rfsm.Event;
-import be.kuleuven.rodinia.model.rfsm.Function;
-import be.kuleuven.rodinia.model.rfsm.RfsmGraph;
-import be.kuleuven.rodinia.model.rfsm.RfsmPackage;
-import be.kuleuven.rodinia.model.rfsm.State;
-import be.kuleuven.rodinia.model.rfsm.Transition;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import org.eclipse.emf.ecore.EObject;

@@ -12,7 +12,7 @@ public class AbstractRfsmValidator extends org.eclipse.xtext.validation.Abstract
 	@Override
 	protected List<EPackage> getEPackages() {
 	    List<EPackage> result = new ArrayList<EPackage>();
-	    result.add(EPackage.Registry.INSTANCE.getEPackage("be.kuleuven.rodinia.model.rfsm"));
+	    result.add(EPackage.Registry.INSTANCE.getEPackage("be.kuleuven.model.rfsm"));
 		return result;
 	}
 }
