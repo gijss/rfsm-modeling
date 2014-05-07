@@ -6,8 +6,8 @@ return [%root.printGraphToLua();%]
 	var qualifiedName : String = self.name;
 	var current : State = self;
 	//do not include root state, because it is not named in Lua code
-	while( current.parent.parent <> null ) {
-		current = current.parent;
+	while( current.eContainer().eContainer() <> null ) {
+		current = current.eContainer();
 		qualifiedName = current.name.concat(".").concat(qualifiedName);
 	}
 	return qualifiedName;
@@ -79,7 +79,7 @@ rfsm.[%self.printTransitionBodyToLua();
 		
 	%]trans{src='[%
 	//make initial transition if source is direct parent of target
-	if(self.target.parent = self.source)
+	if(self.target.at(0).eContainer() = self.source)
 		out.print('initial');
 	else
 		out.print(self.source.at(0).getQualifiedName());

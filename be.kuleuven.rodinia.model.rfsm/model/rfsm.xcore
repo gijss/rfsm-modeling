@@ -18,9 +18,7 @@ annotation "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" as Pivot
 
 class State {
 	String name
-	contains State[] states opposite parent
-	container State parent opposite states
-	
+	contains State[] states
 	contains Function[0..1] entry
 	contains Function[0..1] doo
 	contains Function[0..1] exit
