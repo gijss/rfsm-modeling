@@ -6,20 +6,20 @@
          point="org.eclipse.ui.commands">
       <command
             name="Create Structural Code"
-            id="be.kuleuven.rodinia.transform.rfsm.command.structure">
+            id="be.kuleuven.transform.rfsm.command.structure">
       </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
       <handler
-            commandId="be.kuleuven.rodinia.transform.rfsm.command.structure"
-            class="be.kuleuven.rodinia.transform.rfsm.handler.StructureHandler">
+            commandId="be.kuleuven.transform.rfsm.command.structure"
+            class="be.kuleuven.transform.rfsm.handler.StructureHandler">
       </handler>
    </extension>
    <extension
          point="org.eclipse.ui.bindings">
       <key
-            commandId="be.kuleuven.rodinia.transform.rfsm.command.structure"
+            commandId="be.kuleuven.transform.rfsm.command.structure"
             contextId="org.eclipse.ui.contexts.window"
             sequence="M1+6"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
@@ -32,11 +32,11 @@
             locationURI="menu:org.eclipse.ui.main.menu?after=additions">
          <menu
                label="rFSM"
-               id="be.kuleuven.rodinia.transform.rfsm.menu">
+               id="be.kuleuven.transform.rfsm.menu">
             <command
-                  commandId="be.kuleuven.rodinia.transform.rfsm.command.structure"
+                  commandId="be.kuleuven.transform.rfsm.command.structure"
                   mnemonic="S"
-                  id="be.kuleuven.rodinia.transform.rfsm.menus.structure">
+                  id="be.kuleuven.transform.rfsm.menus.structure">
             </command>
          </menu>
       </menuContribution>

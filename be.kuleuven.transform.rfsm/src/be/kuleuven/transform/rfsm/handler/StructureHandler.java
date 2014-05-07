@@ -1,4 +1,4 @@
-package be.kuleuven.rodinia.transform.rfsm.handler;
+package be.kuleuven.transform.rfsm.handler;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -8,9 +8,9 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 
-import be.kuleuven.rodinia.transform.rfsm.Activator;
-import be.kuleuven.rodinia.transform.rfsm.Component;
 import be.kuleuven.rodinia.epsilon.service.egl.EglTransformParameter;
+import be.kuleuven.transform.rfsm.Activator;
+import be.kuleuven.transform.rfsm.Component;
 
 /**
  * Our sample handler extends AbstractHandler, an IHandler base class.

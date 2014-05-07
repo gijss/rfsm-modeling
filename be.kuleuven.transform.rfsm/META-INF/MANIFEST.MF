@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Transform
-Bundle-SymbolicName: be.kuleuven.rodinia.transform.rfsm;singleton:=true
+Bundle-SymbolicName: be.kuleuven.transform.rfsm;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: be.kuleuven.rodinia.transform.rfsm.Activator
+Bundle-Activator: be.kuleuven.transform.rfsm.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.ui.ide;bundle-version="3.9.1",

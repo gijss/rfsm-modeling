@@ -1,4 +1,4 @@
-package be.kuleuven.rodinia.transform.rfsm;
+package be.kuleuven.transform.rfsm;
 
 import be.kuleuven.rodinia.epsilon.service.egl.IEglTransformService;
 import be.kuleuven.rodinia.epsilon.service.etl.IEtlTransformService;
