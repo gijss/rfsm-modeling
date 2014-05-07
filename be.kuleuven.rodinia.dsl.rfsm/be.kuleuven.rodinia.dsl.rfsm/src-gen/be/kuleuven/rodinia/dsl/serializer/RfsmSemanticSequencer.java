@@ -97,7 +97,7 @@ public class RfsmSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID rootState=State transitions+=Transition*)
+	 *     (rootState=State transitions+=Transition*)
 	 */
 	protected void sequence_RfsmGraph(EObject context, RfsmGraph semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

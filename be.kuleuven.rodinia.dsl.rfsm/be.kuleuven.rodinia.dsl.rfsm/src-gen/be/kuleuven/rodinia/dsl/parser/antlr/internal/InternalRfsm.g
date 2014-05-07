@@ -77,45 +77,19 @@ ruleRfsmGraph returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='Graph' 
-    {
-    	newLeafNode(otherlv_0, grammarAccess.getRfsmGraphAccess().getGraphKeyword_0());
-    }
-(
-(
-		lv_name_1_0=RULE_ID
-		{
-			newLeafNode(lv_name_1_0, grammarAccess.getRfsmGraphAccess().getNameIDTerminalRuleCall_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getRfsmGraphRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"name",
-        		lv_name_1_0, 
-        		"ID");
-	    }
-
-)
-)	otherlv_2='{' 
-    {
-    	newLeafNode(otherlv_2, grammarAccess.getRfsmGraphAccess().getLeftCurlyBracketKeyword_2());
-    }
-(
+((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getRfsmGraphAccess().getRootStateStateParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getRfsmGraphAccess().getRootStateStateParserRuleCall_0_0()); 
 	    }
-		lv_rootState_3_0=ruleState		{
+		lv_rootState_0_0=ruleState		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getRfsmGraphRule());
 	        }
        		set(
        			$current, 
        			"rootState",
-        		lv_rootState_3_0, 
+        		lv_rootState_0_0, 
         		"State");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -124,26 +98,22 @@ ruleRfsmGraph returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getRfsmGraphAccess().getTransitionsTransitionParserRuleCall_4_0()); 
+	        newCompositeNode(grammarAccess.getRfsmGraphAccess().getTransitionsTransitionParserRuleCall_1_0()); 
 	    }
-		lv_transitions_4_0=ruleTransition		{
+		lv_transitions_1_0=ruleTransition		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getRfsmGraphRule());
 	        }
        		add(
        			$current, 
        			"transitions",
-        		lv_transitions_4_0, 
+        		lv_transitions_1_0, 
         		"Transition");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*	otherlv_5='}' 
-    {
-    	newLeafNode(otherlv_5, grammarAccess.getRfsmGraphAccess().getRightCurlyBracketKeyword_5());
-    }
-)
+)*)
 ;
 
 

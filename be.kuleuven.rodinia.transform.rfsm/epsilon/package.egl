@@ -7,6 +7,6 @@
 	var stateSourceTemplate := TemplateFactory.load('rFSMtoLua.egl');
 	//stateSourceTemplate.setFormatter(f);
 	stateSourceTemplate.populate('root', root);
-	stateSourceTemplate.generate('src/' + root.name + '.lua');
+	stateSourceTemplate.generate('src/' + root.rootState.name + '.lua');
 	
 %]

@@ -21,55 +21,35 @@ public class RfsmGrammarAccess extends AbstractGrammarElementFinder {
 	public class RfsmGraphElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RfsmGraph");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cGraphKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cRootStateAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cRootStateStateParserRuleCall_3_0 = (RuleCall)cRootStateAssignment_3.eContents().get(0);
-		private final Assignment cTransitionsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cTransitionsTransitionParserRuleCall_4_0 = (RuleCall)cTransitionsAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cRootStateAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cRootStateStateParserRuleCall_0_0 = (RuleCall)cRootStateAssignment_0.eContents().get(0);
+		private final Assignment cTransitionsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTransitionsTransitionParserRuleCall_1_0 = (RuleCall)cTransitionsAssignment_1.eContents().get(0);
 		
 		//RfsmGraph:
-		//	"Graph" name=ID "{" rootState= //can have only one root state
+		//	rootState= //can have only one root state
 		//	State //(hyperEdges += Connector)*
-		//	transitions+=Transition* "}";
+		//	transitions+=Transition*;
 		public ParserRule getRule() { return rule; }
 
-		//"Graph" name=ID "{" rootState= //can have only one root state
+		//rootState= //can have only one root state
 		//State //(hyperEdges += Connector)*
-		//transitions+=Transition* "}"
+		//transitions+=Transition*
 		public Group getGroup() { return cGroup; }
-
-		//"Graph"
-		public Keyword getGraphKeyword_0() { return cGraphKeyword_0; }
-
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
 		//rootState= //can have only one root state
 		//State
-		public Assignment getRootStateAssignment_3() { return cRootStateAssignment_3; }
+		public Assignment getRootStateAssignment_0() { return cRootStateAssignment_0; }
 
 		////can have only one root state
 		//State
-		public RuleCall getRootStateStateParserRuleCall_3_0() { return cRootStateStateParserRuleCall_3_0; }
+		public RuleCall getRootStateStateParserRuleCall_0_0() { return cRootStateStateParserRuleCall_0_0; }
 
 		//transitions+=Transition*
-		public Assignment getTransitionsAssignment_4() { return cTransitionsAssignment_4; }
+		public Assignment getTransitionsAssignment_1() { return cTransitionsAssignment_1; }
 
 		//Transition
-		public RuleCall getTransitionsTransitionParserRuleCall_4_0() { return cTransitionsTransitionParserRuleCall_4_0; }
-
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public RuleCall getTransitionsTransitionParserRuleCall_1_0() { return cTransitionsTransitionParserRuleCall_1_0; }
 	}
 
 	public class StateElements extends AbstractParserRuleElementFinder {
@@ -349,9 +329,9 @@ public class RfsmGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//RfsmGraph:
-	//	"Graph" name=ID "{" rootState= //can have only one root state
+	//	rootState= //can have only one root state
 	//	State //(hyperEdges += Connector)*
-	//	transitions+=Transition* "}";
+	//	transitions+=Transition*;
 	public RfsmGraphElements getRfsmGraphAccess() {
 		return (pRfsmGraph != null) ? pRfsmGraph : (pRfsmGraph = new RfsmGraphElements());
 	}

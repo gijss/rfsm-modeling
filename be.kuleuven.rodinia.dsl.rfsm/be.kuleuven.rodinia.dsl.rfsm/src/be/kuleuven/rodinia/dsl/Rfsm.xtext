@@ -3,12 +3,9 @@ grammar be.kuleuven.rodinia.dsl.Rfsm with org.eclipse.xtext.common.Terminals
 import "be.kuleuven.rodinia.model.rfsm"
 
 RfsmGraph returns RfsmGraph:
-	'Graph' name=ID
-	'{'
 		rootState=State	//can have only one root state
 		//(hyperEdges += Connector)*
 		(transitions += Transition)*	
-	'}'
 ;
 
 State returns State:
