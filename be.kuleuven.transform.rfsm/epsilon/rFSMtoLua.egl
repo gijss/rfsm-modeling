@@ -76,7 +76,7 @@ rfsm.[%self.printTransitionBodyToLua();
 		
 	%]trans{src='[%
 	//make initial transition if source is direct parent of target
-	if(self.target.at(0).eContainer() = self.source)
+	if(self.target.at(0).eContainer() = self.source.at(0))
 		out.print('initial');
 	else
 		out.print(self.source.at(0).getQualifiedName());
